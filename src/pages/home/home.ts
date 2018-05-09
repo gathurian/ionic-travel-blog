@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {TravelBlogRepositoryProvider} from "../../providers/travel-blog-repository/travel-blog-repository";
 import {Observable} from "rxjs/Observable";
-import {TravelBlog} from "../../travel-blog";
+import {TravelBlog} from "../../entities/travel-blog";
 
 @Component({
   selector: 'page-home',
@@ -10,12 +10,11 @@ import {TravelBlog} from "../../travel-blog";
 })
 export class HomePage {
   bannerBase64: string;
+  welcomeText: string;
 
   constructor(private travelBlogRepository: TravelBlogRepositoryProvider) {
-    travelBlogRepository.getBannerAsBase64().then(imageBase64 => {
-      this.bannerBase64 = imageBase64;
-      console.log(this.bannerBase64);
-    });
+    travelBlogRepository.getBannerAsBase64().then(imageBase64 => this.bannerBase64 = imageBase64);
+    travelBlogRepository.getWelcomeText().then(text => this.welcomeText = text);
   }
 
 

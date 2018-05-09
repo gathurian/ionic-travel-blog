@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
-import {Person} from "../../person";
+import {Person} from "../../entities/person";
 
 /*
   Generated class for the UserRepositoryProvider provider.

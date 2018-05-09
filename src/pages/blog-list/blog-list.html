@@ -16,7 +16,7 @@
 
 
 <ion-content padding>
-
+  <blog-detail *ngFor="let personalBlog of personalBlogs" [blog]="personalBlog"></blog-detail>
 </ion-content>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

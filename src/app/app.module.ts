@@ -15,6 +15,8 @@ import {UserRepositoryProvider} from '../providers/user-repository/user-reposito
 import {HttpModule} from "@angular/http";
 import {BlogListPage} from "../pages/blog-list/blog-list";
 import { TravelBlogRepositoryProvider } from '../providers/travel-blog-repository/travel-blog-repository';
+import { BlogRepositoryProvider } from '../providers/blog-repository/blog-repository';
+import {BlogDetailComponent} from "../components/blog-detail/blog-detail";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
@@ -30,7 +32,8 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     FriendListPage,
-    BlogListPage
+    BlogListPage,
+    BlogDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserRepositoryProvider,
-    TravelBlogRepositoryProvider
+    TravelBlogRepositoryProvider,
+    BlogRepositoryProvider
   ]
 })
 export class AppModule {

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {AlertController, IonicPage} from 'ionic-angular';
 import {Observable} from "rxjs/Observable";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
-import {Person} from "../../person";
+import {Person} from "../../entities/person";
 import {FriendListPrompt} from "./friend-list-promt";
 
 /**

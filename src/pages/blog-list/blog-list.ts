@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage} from 'ionic-angular';
+import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
+import {Blog} from "../../entities/blog";
+import {Person} from "../../entities/person";
 
 /**
  * Generated class for the BlogListPage page.
@@ -14,12 +17,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'blog-list.html',
 })
 export class BlogListPage {
+  personalBlogs: Blog[];
+  me: Person = {firstName: 'Alan', lastName: 'Meile', friends: [], blogs: ['1uwhNkMDhSjNMwsmfQ89']};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private blogRepository: BlogRepositoryProvider) {
+    this.blogRepository.getAllBlogsFrom(this.me).then(blogs => {
+      this.personalBlogs = blogs;
+      console.log(this.personalBlogs);
+    });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BlogListPage');
-  }
-
 }
