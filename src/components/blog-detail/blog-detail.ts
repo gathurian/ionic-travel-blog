@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {Blog} from "../../entities/blog";
-import {Observable} from "rxjs/Observable";
 
 /**
  * Generated class for the BlogDetailComponent component.
@@ -16,9 +15,6 @@ import {Observable} from "rxjs/Observable";
 export class BlogDetailComponent {
   @Input('blog') blog: Blog;
 
-  constructor() {}
-
-  ngOnInit() {
-    console.log(this.blog.story);
+  constructor() {
   }
 }

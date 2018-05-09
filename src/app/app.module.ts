@@ -17,6 +17,7 @@ import {BlogListPage} from "../pages/blog-list/blog-list";
 import { TravelBlogRepositoryProvider } from '../providers/travel-blog-repository/travel-blog-repository';
 import { BlogRepositoryProvider } from '../providers/blog-repository/blog-repository';
 import {BlogDetailComponent} from "../components/blog-detail/blog-detail";
+import {FullBlogPage} from "../pages/full-blog/full-blog";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
@@ -33,7 +34,8 @@ const firebaseConfig = {
     HomePage,
     FriendListPage,
     BlogListPage,
-    BlogDetailComponent
+    BlogDetailComponent,
+    FullBlogPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     FriendListPage,
-    BlogListPage
+    BlogListPage,
+    FullBlogPage
   ],
   providers: [
     StatusBar,
