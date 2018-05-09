@@ -25,7 +25,7 @@ export class FriendListPage {
   constructor(private userRepository: UserRepositoryProvider,
               private promptControl: AlertController) {
 
-    this.userRepository.getPersonById('SSOfMSDL8OQ2qRbkvBiWVJ7eTj32').then(person => {
+    this.userRepository.getPersonById('ptVtaGG0qcaDtP0HG4WjocXufNx2').then(person => {
       this.me = person;
 
       /* Later only this is used */
