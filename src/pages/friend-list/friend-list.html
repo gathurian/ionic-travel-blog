@@ -7,11 +7,13 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>FriendList</ion-title>
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content padding>
   <ion-list>
@@ -19,4 +21,13 @@
       {{friend.firstName}} {{friend.lastName}}
     </ion-item>
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab small (click)="presentFriendPrompt()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

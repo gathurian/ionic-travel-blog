@@ -1,19 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import {MyApp} from './app.component';
+import {HomePage} from '../pages/home/home';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 import {FriendListPage} from "../pages/friend-list/friend-list";
-import { UserRepositoryProvider } from '../providers/user-repository/user-repository';
-import { HttpModule } from "@angular/http";
+import {UserRepositoryProvider} from '../providers/user-repository/user-repository';
+import {HttpModule} from "@angular/http";
+import {BlogListPage} from "../pages/blog-list/blog-list";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
@@ -28,8 +28,8 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    FriendListPage
+    FriendListPage,
+    BlogListPage
   ],
   imports: [
     BrowserModule,
@@ -42,8 +42,8 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    FriendListPage
+    FriendListPage,
+    BlogListPage
   ],
   providers: [
     StatusBar,
@@ -52,4 +52,5 @@ const firebaseConfig = {
     UserRepositoryProvider
   ]
 })
-export class AppModule {}
+export class AppModule {
+}

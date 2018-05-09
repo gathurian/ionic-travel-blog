@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
-import {IonicPage} from 'ionic-angular';
+import {AlertController, IonicPage} from 'ionic-angular';
 import {Observable} from "rxjs/Observable";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
-import {Person} from "../../Person";
+import {Person} from "../../person";
+import {FriendListPrompt} from "./friend-list-promt";
 
 /**
  * Generated class for the FriendListPage page.
@@ -19,26 +20,43 @@ import {Person} from "../../Person";
 
 export class FriendListPage {
   friends: Observable<Person[]>;
+  me: Person;
 
-  constructor(private userRepository: UserRepositoryProvider) {
-    let personTest: Person;
+  constructor(private userRepository: UserRepositoryProvider,
+              private promptControl: AlertController) {
 
-    this.userRepository.getPersonById('ptVtaGG0qcaDtP0HG4WjocXufNx2').then(person => {
-      personTest = person;
+    this.userRepository.getPersonById('SSOfMSDL8OQ2qRbkvBiWVJ7eTj32').then(person => {
+      this.me = person;
 
       /* Later only this is used */
-      this.userRepository.getAllFriendsOf(personTest).then(friends => {
+      this.userRepository.getAllFriendsOf(this.me).then(friends => {
         this.friends = Observable.of(friends);
       });
     });
   }
 
   getPersonDetails(person: Person) {
-    console.log(`Person-Details: ${person.firstName} ${person.lastName}`);
-
-    let personTest: Person = {id: 'NHzsaJ8BxvZunxYm5yizfbV5fMm1', firstName: 'Kevin', lastName: 'Klinkhammer',
-      friends: ['SSOfMSDL8OQ2qRbkvBiWVJ7eTj32', 'ptVtaGG0qcaDtP0HG4WjocXufNx2']};
-
-    this.userRepository.addNewPerson(personTest);
+    console.log(`person details:
+      id:\t\t ${person.id}
+      name:\t\t ${person.firstName} ${person.lastName}
+      friends:\t ${person.friends}
+      key:\t\t ${person.key}`);
   }
+
+  presentFriendPrompt() {
+    FriendListPrompt.presentFriendId(this.promptControl).then(friendId => {
+      console.log(`friendId: ${friendId}`);
+      this.userRepository.getPersonById(friendId)
+        .then(friend => {
+          console.log(`fullname: ${friend.firstName} ${friend.lastName}`);
+          console.log(`fullname: ${this.me.firstName} ${this.me.lastName}`);
+
+          this.userRepository.addNewFriend(this.me, friend);
+        })
+        .catch(() => {
+          FriendListPrompt.presentUnknownId(this.promptControl, friendId);
+        });
+    });
+  }
+
 }
