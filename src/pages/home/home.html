@@ -25,12 +25,12 @@
         <ion-col col-3>User id:</ion-col><ion-col>{{currentUser.id}}</ion-col>
       </ion-row>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="currentUser.friends">
       <ion-row>
         <ion-col col-3>Friends:</ion-col><ion-col>{{currentUser.friends.length}}</ion-col>
       </ion-row>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="currentUser.blogs">
       <ion-row>
         <ion-col col-3>Blogs:</ion-col><ion-col>{{currentUser.blogs.length}}</ion-col>
       </ion-row>

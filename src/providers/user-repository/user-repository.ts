@@ -72,15 +72,12 @@ export class UserRepositoryProvider {
   addNewPerson(person: Person) {
     const ref = this.angularFireDatabase.list('/persons').push({});
     person.key = ref.key;
-    person.friends = [''];
-    person.blogs = [''];
 
-    console.log(person);
     ref.set(person);
   }
 
   addNewFriend(person: Person, friend: Person) {
-    let updatedFriends: string[] = person.friends;
+    let updatedFriends: string[] = person.friends != undefined ? person.friends : [];
     updatedFriends.push(friend.id);
 
     this.angularFireDatabase.list('/persons').update(person.key, {
@@ -104,7 +101,7 @@ export class UserRepositoryProvider {
   }
 
   addNewBlog(person: Person, key: string) {
-    let updatedBlogs: string[] = person.blogs;
+    let updatedBlogs: string[] = person.blogs != undefined ? person.blogs : [];
     updatedBlogs.push(key);
 
     this.angularFireDatabase.list('/persons').update(person.key, {

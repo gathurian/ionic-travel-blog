@@ -22,7 +22,7 @@
     </ion-list-header>
     <ion-item *ngFor="let friend of friends | async" (click)="presentBlogList(friend)">
       <ion-icon name="contact" item-start></ion-icon>
-      {{friend.displayName}} {{friend.lastName}}
+      {{friend.firstName}} {{friend.lastName}}
     </ion-item>
   </ion-list>
 
