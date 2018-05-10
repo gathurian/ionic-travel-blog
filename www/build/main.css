@@ -25678,8 +25678,8 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-* {
-  overflow: hidden !important;
+::-webkit-scrollbar {
+  display: none;
 }
 
 ion-icon.action-sheet-icon.icon.icon-md {
@@ -25688,6 +25688,11 @@ ion-icon.action-sheet-icon.icon.icon-md {
 
 ion-fab {
   height: 62px;
+}
+
+.icon-left {
+  position: absolute;
+  left: 10px;
 }
 
 blog-detail .card-background-page {

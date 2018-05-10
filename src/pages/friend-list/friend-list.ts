@@ -21,17 +21,16 @@ import {BlogListPage} from "../blog-list/blog-list";
 
 export class FriendListPage {
   friends: Observable<Person[]>;
-  me: Person;
+  currentUser: Person;
 
   constructor(private userRepository: UserRepositoryProvider,
               private promptControl: AlertController,
               private navController: NavController) {
 
-    this.userRepository.getPersonById('ptVtaGG0qcaDtP0HG4WjocXufNx2').then(person => {
-      this.me = person;
+    this.userRepository.getCurrentUser().then(person => {
+      this.currentUser = person;
 
-      /* Later only this is used */
-      this.userRepository.getAllFriendsOf(this.me).then(friends => {
+      this.userRepository.getAllFriends(this.currentUser).then(friends => {
         this.friends = Observable.of(friends);
       });
     });
@@ -55,9 +54,9 @@ export class FriendListPage {
       this.userRepository.getPersonById(friendId)
         .then(friend => {
           console.log(`fullname: ${friend.firstName} ${friend.lastName}`);
-          console.log(`fullname: ${this.me.firstName} ${this.me.lastName}`);
+          console.log(`fullname: ${this.currentUser.firstName} ${this.currentUser.lastName}`);
 
-          this.userRepository.addNewFriend(this.me, friend);
+          this.userRepository.addNewFriend(this.currentUser, friend);
         })
         .catch(() => {
           FriendListPrompt.presentUnknownId(this.promptControl, friendId);

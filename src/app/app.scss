@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,14 +14,19 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-* {
-  overflow:         hidden !important;
+::-webkit-scrollbar {
+  display: none;
 }
 
 ion-icon.action-sheet-icon.icon.icon-md {
-  line-height:      inherit;
+  line-height: inherit;
 }
 
 ion-fab {
-  height:           62px;
+  height: 62px;
+}
+
+.icon-left {
+  position: absolute;
+  left: 10px;
 }

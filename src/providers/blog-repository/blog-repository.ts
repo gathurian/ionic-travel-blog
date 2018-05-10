@@ -36,4 +36,21 @@ export class BlogRepositoryProvider {
     });
   }
 
+  updateBlog(blog: Blog) {
+    console.log('Update');
+    console.log(blog);
+    this.angularFireDatabase.list('/blogs').update(blog.key, blog);
+  }
+
+  createBlog(blog: Blog): Promise<string> {
+    return new Promise<string>(resolve => {
+      const ref = this.angularFireDatabase.list('/blogs').push({});
+      blog.key = ref.key;
+      blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' })
+
+      this.angularFireDatabase.list('/persons').update(ref, blog).then(() => {
+          resolve(blog.key);
+        });
+    });
+  }
 }

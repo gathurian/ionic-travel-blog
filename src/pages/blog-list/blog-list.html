@@ -19,7 +19,10 @@
                [blog]="personalBlog"
                (click)="presentActionSheet(personalBlog)">
   </blog-detail>
-</ion-content>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  <ion-fab right bottom>
+    <button ion-fab small (click)="presentNewPrompt()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

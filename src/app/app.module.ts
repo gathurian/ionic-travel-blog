@@ -18,6 +18,8 @@ import { TravelBlogRepositoryProvider } from '../providers/travel-blog-repositor
 import { BlogRepositoryProvider } from '../providers/blog-repository/blog-repository';
 import {BlogDetailComponent} from "../components/blog-detail/blog-detail";
 import {FullBlogPage} from "../pages/full-blog/full-blog";
+import {AngularFireAuth} from "angularfire2/auth";
+import {LoginPage} from "../pages/login/login";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
@@ -35,7 +37,8 @@ const firebaseConfig = {
     FriendListPage,
     BlogListPage,
     BlogDetailComponent,
-    FullBlogPage
+    FullBlogPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ const firebaseConfig = {
     HomePage,
     FriendListPage,
     BlogListPage,
-    FullBlogPage
+    FullBlogPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -58,7 +62,8 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserRepositoryProvider,
     TravelBlogRepositoryProvider,
-    BlogRepositoryProvider
+    BlogRepositoryProvider,
+    AngularFireAuth
   ]
 })
 export class AppModule {

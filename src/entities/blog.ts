@@ -1,7 +1,7 @@
 export interface Blog {
-  key: string;
+  key?: string;
   bannerBase64: string;
   title: string;
   story: string;
-  date: string;
+  date?: string;
 }

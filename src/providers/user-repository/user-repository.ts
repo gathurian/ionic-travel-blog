@@ -3,6 +3,7 @@ import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
 import {Person} from "../../entities/person";
 import {Blog} from "../../entities/blog";
+import {AngularFireAuth} from "angularfire2/auth";
 
 /*
   Generated class for the UserRepositoryProvider provider.
@@ -14,11 +15,25 @@ import {Blog} from "../../entities/blog";
 export class UserRepositoryProvider {
   private persons: Observable<Person[]>;
 
-  constructor(private angularFireDatabase: AngularFireDatabase) {
+  constructor(
+    private angularFireAuth: AngularFireAuth,
+    private angularFireDatabase: AngularFireDatabase)
+  {
     this.persons = this.getAllPersons();
   }
 
-  getAllFriendsOf(person: Person): Promise<Person[]> {
+  getCurrentUser(): Promise<Person> {
+
+    return new Promise<Person>(resolve => {
+      let key: string = this.angularFireAuth.auth.currentUser.uid;
+
+      this.getPersonById(key).then(person => {
+        resolve(person);
+      });
+    });
+  }
+
+  getAllFriends(person: Person): Promise<Person[]> {
 
     return new Promise(resolve => {
       this.persons.subscribe(persons => {
@@ -82,6 +97,15 @@ export class UserRepositoryProvider {
 
     this.angularFireDatabase.list('/persons/').update(person.key, {
       blogs: person.blogs
+    });
+  }
+
+  addNewBlog(person: Person, key: string) {
+    let updatedBlogs: string[] = person.blogs;
+    updatedBlogs.push(key);
+
+    this.angularFireDatabase.list('/persons').update(person.key, {
+      blogs: updatedBlogs
     });
   }
 }

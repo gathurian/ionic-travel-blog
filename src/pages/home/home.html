@@ -8,15 +8,22 @@
 </ion-header>
 
 <ion-content>
-  <img src="{{this.bannerBase64}}">
-  <p padding>
-    {{this.welcomeText}}
-  </p>
+  <img src="{{bannerBase64}}">
+  <p padding>{{welcomeText}}</p>
+  <ion-list padding *ngIf="currentUser">
+    <ion-list-header>
+      User Info
+    </ion-list-header>
+
+    <ion-item>{{currentUser.firstName}} {{currentUser.lastName}}</ion-item>
+    <ion-item>Friends: {{currentUser.friends.length}}</ion-item>
+    <ion-item>Blogs: {{currentUser.blogs.length}}</ion-item>
+  </ion-list>
 
   <div padding>
-    <button ion-button color="danger">Sign in with Google+</button>
+    <button ion-button color="primary" block (click)="logOut()">
+      <ion-icon name="lock" class="icon-left"></ion-icon>
+      Log out
+    </button>
   </div>
 </ion-content>
-
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
