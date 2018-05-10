@@ -9,8 +9,8 @@ webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_repository_user_repository__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_repository_user_repository__ = __webpack_require__(59);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,7 +53,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\alkazua\Documents\WebLab\ionic-travel-blog\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <img src="{{bannerBase64}}">\n  <p padding>{{welcomeText}}</p>\n  <ion-list padding *ngIf="currentUser">\n    <ion-list-header>\n      User Info\n    </ion-list-header>\n\n    <ion-item>{{currentUser.firstName}} {{currentUser.lastName}}</ion-item>\n    <ion-item>Friends: {{currentUser.friends.length}}</ion-item>\n    <ion-item>Blogs: {{currentUser.blogs.length}}</ion-item>\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="logOut()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Log out\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\alkazua\Documents\WebLab\ionic-travel-blog\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\alkazua\Documents\WebLab\ionic-travel-blog\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <img src="{{bannerBase64}}">\n  <p padding>{{welcomeText}}</p>\n  <ion-list padding *ngIf="currentUser">\n    <ion-list-header>\n      User Info\n    </ion-list-header>\n\n    <ion-item>\n      <ion-row>\n        <ion-col col-3>Full name:</ion-col><ion-col>{{currentUser.firstName}} {{currentUser.lastName}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item>\n      <ion-row>\n        <ion-col col-3>User id:</ion-col><ion-col>{{currentUser.id}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item>\n      <ion-row>\n        <ion-col col-3>Friends:</ion-col><ion-col>{{currentUser.friends.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item>\n      <ion-row>\n        <ion-col col-3>Blogs:</ion-col><ion-col>{{currentUser.blogs.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="logOut()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Log out\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\alkazua\Documents\WebLab\ionic-travel-blog\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */],
@@ -119,8 +119,8 @@ var FullBlogPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(431);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__blog_list_blog_list__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -199,7 +199,7 @@ var FriendListPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(432);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -260,8 +260,8 @@ var LoginPage = /** @class */ (function () {
                             id: _this.angularFireAuth.auth.currentUser.uid,
                             firstName: loginData.firstName,
                             lastName: loginData.lastName,
-                            friends: [],
-                            blogs: []
+                            friends: [''],
+                            blogs: ['']
                         };
                         _this.userRepository.addNewPerson(person);
                     });
@@ -318,7 +318,7 @@ webpackEmptyAsyncContext.id = 151;
 
 var map = {
 	"../pages/blog-list/blog-list.module": [
-		463,
+		461,
 		3
 	],
 	"../pages/friend-list/friend-list.module": [
@@ -326,7 +326,7 @@ var map = {
 		2
 	],
 	"../pages/full-blog/full-blog.module": [
-		461,
+		463,
 		1
 	],
 	"../pages/login/login.module": [
@@ -350,13 +350,13 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 245:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(53);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -413,17 +413,16 @@ var BlogRepositoryProvider = /** @class */ (function () {
     };
     BlogRepositoryProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]])
     ], BlogRepositoryProvider);
     return BlogRepositoryProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=blog-repository.js.map
 
 /***/ }),
 
-/***/ 246:
+/***/ 244:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -445,7 +444,7 @@ var BlogDetailAction;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TravelBlogRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(53);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -502,11 +501,10 @@ var TravelBlogRepositoryProvider = /** @class */ (function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 
 
-
-Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_14" /* enableProdMode */])();
+//import {enableProdMode} from "@angular/core";
+//enableProdMode();
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
@@ -523,15 +521,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_friend_list_friend_list__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_user_repository_user_repository__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_user_repository_user_repository__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_blog_list_blog_list__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_blog_repository_blog_repository__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_blog_repository_blog_repository__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_blog_detail_blog_detail__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_full_blog_full_blog__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_auth__ = __webpack_require__(60);
@@ -588,9 +586,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_11__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/full-blog/full-blog.module#FullBlogPageModule', name: 'FullBlogPage', segment: 'full-blog', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/friend-list/friend-list.module#FriendListPageModule', name: 'FriendListPage', segment: 'friend-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/blog-list/blog-list.module#BlogListPageModule', name: 'BlogListPage', segment: 'blog-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/friend-list/friend-list.module#FriendListPageModule', name: 'FriendListPage', segment: 'friend-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/full-blog/full-blog.module#FullBlogPageModule', name: 'FullBlogPage', segment: 'full-blog', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -624,66 +622,12 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 429:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPrompt; });
-var FriendListPrompt = /** @class */ (function () {
-    function FriendListPrompt() {
-    }
-    FriendListPrompt.presentFriendId = function (promptControl) {
-        return new Promise(function (resolve) {
-            var alert = promptControl.create({
-                title: 'Add a friend',
-                message: 'Ask you friend for his id and type it in below...',
-                inputs: [
-                    {
-                        name: 'friendId',
-                        placeholder: 'Friend id'
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Cancel',
-                        role: 'cancel',
-                        handler: function () {
-                            resolve('');
-                        }
-                    },
-                    {
-                        text: 'Add friend',
-                        handler: function (data) {
-                            resolve(data.friendId);
-                        }
-                    }
-                ]
-            });
-            alert.present();
-        });
-    };
-    ;
-    FriendListPrompt.presentUnknownId = function (promptControl, friendId) {
-        var alert = promptControl.create({
-            title: 'Unknown id',
-            subTitle: "No Person found with id:\n" + friendId,
-            buttons: ['Dismiss']
-        });
-        alert.present();
-    };
-    return FriendListPrompt;
-}());
-
-//# sourceMappingURL=friend-list-promt.js.map
-
-/***/ }),
-
-/***/ 430:
+/***/ 425:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogDetailActionsheet; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__blog_detail_action__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__blog_detail_action__ = __webpack_require__(244);
 
 var BlogDetailActionsheet = /** @class */ (function () {
     function BlogDetailActionsheet() {
@@ -735,7 +679,7 @@ var BlogDetailActionsheet = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 431:
+/***/ 430:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -794,6 +738,60 @@ var BlogDetailPrompt = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 431:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPrompt; });
+var FriendListPrompt = /** @class */ (function () {
+    function FriendListPrompt() {
+    }
+    FriendListPrompt.presentFriendId = function (promptControl) {
+        return new Promise(function (resolve) {
+            var alert = promptControl.create({
+                title: 'Add a friend',
+                message: 'Ask you friend for his id and type it in below...',
+                inputs: [
+                    {
+                        name: 'friendId',
+                        placeholder: 'Friend id'
+                    }
+                ],
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        handler: function () {
+                            resolve('');
+                        }
+                    },
+                    {
+                        text: 'Add friend',
+                        handler: function (data) {
+                            resolve(data.friendId);
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        });
+    };
+    ;
+    FriendListPrompt.presentUnknownId = function (promptControl, friendId) {
+        var alert = promptControl.create({
+            title: 'Unknown id',
+            subTitle: "No Person found with id:\n" + friendId,
+            buttons: ['Dismiss']
+        });
+        alert.present();
+    };
+    return FriendListPrompt;
+}());
+
+//# sourceMappingURL=friend-list-promt.js.map
+
+/***/ }),
+
 /***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -813,7 +811,7 @@ var LoginRegisterPrompt = /** @class */ (function () {
                         placeholder: 'E-Mail'
                     },
                     {
-                        name: 'displayName',
+                        name: 'firstName',
                         placeholder: 'First name'
                     },
                     {
@@ -968,13 +966,13 @@ var BlogDetailComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 53:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1040,7 +1038,10 @@ var UserRepositoryProvider = /** @class */ (function () {
     UserRepositoryProvider.prototype.addNewPerson = function (person) {
         var ref = this.angularFireDatabase.list('/persons').push({});
         person.key = ref.key;
-        this.angularFireDatabase.list('/persons').update(ref, person);
+        person.friends = [''];
+        person.blogs = [''];
+        console.log(person);
+        ref.set(person);
     };
     UserRepositoryProvider.prototype.addNewFriend = function (person, friend) {
         var updatedFriends = person.friends;
@@ -1070,10 +1071,10 @@ var UserRepositoryProvider = /** @class */ (function () {
     };
     UserRepositoryProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object])
     ], UserRepositoryProvider);
     return UserRepositoryProvider;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=user-repository.js.map
@@ -1087,12 +1088,12 @@ var UserRepositoryProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__full_blog_full_blog__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_blog_detail_blog_detail_actionsheet__ = __webpack_require__(430);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_blog_detail_blog_detail_action__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_blog_detail_blog_detail_prompt__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_blog_detail_blog_detail_actionsheet__ = __webpack_require__(425);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_blog_detail_blog_detail_action__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_blog_detail_blog_detail_prompt__ = __webpack_require__(430);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1193,10 +1194,15 @@ var BlogListPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-blog-list',template:/*ion-inline-start:"C:\Users\alkazua\Documents\WebLab\ionic-travel-blog\src\pages\blog-list\blog-list.html"*/'<!--\n  Generated template for the BlogListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>BlogList</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <blog-detail *ngFor="let personalBlog of personalBlogs"\n               [blog]="personalBlog"\n               (click)="presentActionSheet(personalBlog)">\n  </blog-detail>\n\n  <ion-fab right bottom>\n    <button ion-fab small (click)="presentNewPrompt()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\Users\alkazua\Documents\WebLab\ionic-travel-blog\src\pages\blog-list\blog-list.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], BlogListPage);
     return BlogListPage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=blog-list.js.map

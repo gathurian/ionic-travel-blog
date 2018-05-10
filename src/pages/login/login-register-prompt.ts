@@ -15,7 +15,7 @@ export class LoginRegisterPrompt {
             placeholder: 'E-Mail'
           },
           {
-            name: 'displayName',
+            name: 'firstName',
             placeholder: 'First name'
           },
           {

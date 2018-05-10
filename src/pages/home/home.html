@@ -15,9 +15,26 @@
       User Info
     </ion-list-header>
 
-    <ion-item>{{currentUser.firstName}} {{currentUser.lastName}}</ion-item>
-    <ion-item>Friends: {{currentUser.friends.length}}</ion-item>
-    <ion-item>Blogs: {{currentUser.blogs.length}}</ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-3>Full name:</ion-col><ion-col>{{currentUser.firstName}} {{currentUser.lastName}}</ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-3>User id:</ion-col><ion-col>{{currentUser.id}}</ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-3>Friends:</ion-col><ion-col>{{currentUser.friends.length}}</ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-3>Blogs:</ion-col><ion-col>{{currentUser.blogs.length}}</ion-col>
+      </ion-row>
+    </ion-item>
   </ion-list>
 
   <div padding>

@@ -72,8 +72,11 @@ export class UserRepositoryProvider {
   addNewPerson(person: Person) {
     const ref = this.angularFireDatabase.list('/persons').push({});
     person.key = ref.key;
+    person.friends = [''];
+    person.blogs = [''];
 
-    this.angularFireDatabase.list('/persons').update(ref, person);
+    console.log(person);
+    ref.set(person);
   }
 
   addNewFriend(person: Person, friend: Person) {
