@@ -59,9 +59,7 @@ export class LoginPage {
                 let person: Person = {
                   id: this.angularFireAuth.auth.currentUser.uid,
                   firstName: loginData.firstName,
-                  lastName: loginData.lastName,
-                  friends: [''],
-                  blogs: ['']
+                  lastName: loginData.lastName
                 };
 
                 this.userRepository.addNewPerson(person);

@@ -3,6 +3,6 @@ export interface Person {
   key?: string;
   firstName: string;
   lastName: string;
-  friends: string[];
-  blogs: string[];
+  friends?: string[];
+  blogs?: string[];
 }
