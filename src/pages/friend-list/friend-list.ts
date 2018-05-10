@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
-import {AlertController, IonicPage} from 'ionic-angular';
+import {AlertController, IonicPage, NavController} from 'ionic-angular';
 import {Observable} from "rxjs/Observable";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {Person} from "../../entities/person";
 import {FriendListPrompt} from "./friend-list-promt";
+import {BlogListPage} from "../blog-list/blog-list";
 
 /**
  * Generated class for the FriendListPage page.
@@ -23,7 +24,8 @@ export class FriendListPage {
   me: Person;
 
   constructor(private userRepository: UserRepositoryProvider,
-              private promptControl: AlertController) {
+              private promptControl: AlertController,
+              private navController: NavController) {
 
     this.userRepository.getPersonById('ptVtaGG0qcaDtP0HG4WjocXufNx2').then(person => {
       this.me = person;
@@ -35,12 +37,16 @@ export class FriendListPage {
     });
   }
 
-  getPersonDetails(person: Person) {
-    console.log(`person details:
+  presentBlogList(person: Person) {
+    console.log(
+      `person details:
       id:\t\t ${person.id}
       name:\t\t ${person.firstName} ${person.lastName}
       friends:\t ${person.friends}
+      blogs:\t ${person.blogs}
       key:\t\t ${person.key}`);
+
+      this.navController.push(BlogListPage, {author: person})
   }
 
   presentFriendPrompt() {

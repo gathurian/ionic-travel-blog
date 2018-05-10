@@ -19,11 +19,5 @@ export class FullBlogPage {
 
   constructor(private navCtrl: NavController, private navParams: NavParams) {
     this.blog = navParams.get('blog');
-    console.log(this.blog);
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FullBlogPage');
-  }
-
 }

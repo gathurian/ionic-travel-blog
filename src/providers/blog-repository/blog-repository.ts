@@ -26,6 +26,7 @@ export class BlogRepositoryProvider {
       this.allBlogs.subscribe(blogs => {
         blogs.forEach(blog => {
           if (person.blogs.some(x => x === blog.key)) {
+            if (blog.bannerBase64 === '') blog.bannerBase64 = '../assets/imgs/placeholder.png';
             personBlogs.push(blog);
           }
         });

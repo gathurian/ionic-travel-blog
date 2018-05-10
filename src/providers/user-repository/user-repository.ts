@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
 import {Person} from "../../entities/person";
+import {Blog} from "../../entities/blog";
 
 /*
   Generated class for the UserRepositoryProvider provider.
@@ -71,5 +72,16 @@ export class UserRepositoryProvider {
 
   private getAllPersons(): Observable<Person[]> {
     return this.angularFireDatabase.list('/persons').valueChanges();
+  }
+
+  removeBlogFromList(person: Person, blog: Blog) {
+    let index: number = person.blogs.indexOf(blog.key, 0);
+    if (index > -1) {
+      person.blogs.splice(index, 1);
+    }
+
+    this.angularFireDatabase.list('/persons/').update(person.key, {
+      blogs: person.blogs
+    });
   }
 }

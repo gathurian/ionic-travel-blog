@@ -9,8 +9,8 @@ import {TravelBlog} from "../../entities/travel-blog";
   templateUrl: 'home.html'
 })
 export class HomePage {
-  bannerBase64: string;
-  welcomeText: string;
+  bannerBase64: string = '../assets/imgs/placeholder.png';
+  welcomeText: string = 'Hello World! If you see this your internet connection probably is slow...';
 
   constructor(private travelBlogRepository: TravelBlogRepositoryProvider) {
     travelBlogRepository.getBannerAsBase64().then(imageBase64 => this.bannerBase64 = imageBase64);
