@@ -15,10 +15,20 @@
 </ion-header>
 
 <ion-content padding>
-  <blog-detail *ngFor="let personalBlog of personalBlogs"
-               [blog]="personalBlog"
-               (click)="presentActionSheet(personalBlog)">
-  </blog-detail>
+  <div *ngIf="personalBlogs; else no_blogs">
+    <blog-detail *ngFor="let personalBlog of personalBlogs"
+                 [blog]="personalBlog"
+                 (click)="presentActionSheet(personalBlog)">
+    </blog-detail>
+  </div>
+
+  <ng-template #no_blogs>
+    <div *ngIf="author">
+      <h1 text-center text-uppercase no-padding style="margin-top: 50px">
+        {{author.firstName}} {{author.lastName}} has 0 blogs
+      </h1>
+    </div>
+  </ng-template>
 
   <ion-fab right bottom>
     <button ion-fab small (click)="presentNewPrompt()">

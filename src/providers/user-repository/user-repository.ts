@@ -76,12 +76,15 @@ export class UserRepositoryProvider {
     ref.set(person);
   }
 
-  addNewFriend(person: Person, friend: Person) {
-    let updatedFriends: string[] = person.friends != undefined ? person.friends : [];
-    updatedFriends.push(friend.id);
+  addNewFriend(person: Person, friend: Person): Promise<boolean> {
 
-    this.angularFireDatabase.list('/persons').update(person.key, {
-      friends: updatedFriends
+    return new Promise<boolean>(resolve => {
+      let updatedFriends: string[] = person.friends != undefined ? person.friends : [];
+      updatedFriends.push(friend.id);
+
+      this.angularFireDatabase.list('/persons').update(person.key, {
+        friends: updatedFriends
+      }).then(() => resolve(true));
     });
   }
 

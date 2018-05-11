@@ -30,9 +30,13 @@ export class FriendListPage {
     this.userRepository.getCurrentUser().then(person => {
       this.currentUser = person;
 
-      this.userRepository.getAllFriends(this.currentUser).then(friends => {
-        this.friends = Observable.of(friends);
-      });
+      this.updateFriendList();
+    });
+  }
+
+  private updateFriendList() {
+    this.userRepository.getAllFriends(this.currentUser).then(friends => {
+      this.friends = Observable.of(friends);
     });
   }
 
@@ -50,13 +54,15 @@ export class FriendListPage {
 
   presentFriendPrompt() {
     FriendListPrompt.presentFriendId(this.promptControl).then(friendId => {
-      console.log(`friendId: ${friendId}`);
+
       this.userRepository.getPersonById(friendId)
         .then(friend => {
           console.log(`fullname: ${friend.firstName} ${friend.lastName}`);
           console.log(`fullname: ${this.currentUser.firstName} ${this.currentUser.lastName}`);
 
-          this.userRepository.addNewFriend(this.currentUser, friend);
+          this.userRepository.addNewFriend(this.currentUser, friend).then(() => {
+            this.updateFriendList();
+          });
         })
         .catch(() => {
           FriendListPrompt.presentUnknownId(this.promptControl, friendId);

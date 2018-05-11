@@ -16,7 +16,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list inset>
+  <ion-list inset *ngIf="friends;else no_friends">
     <ion-list-header>
       My Friends
     </ion-list-header>
@@ -25,6 +25,10 @@
       {{friend.firstName}} {{friend.lastName}}
     </ion-item>
   </ion-list>
+
+  <ng-template #no_friends>
+    <h1 text-center text-uppercase no-padding style="margin-top: 50px">You have 0 friends</h1>
+  </ng-template>
 
   <ion-fab right bottom>
     <button ion-fab small (click)="presentFriendPrompt()">
