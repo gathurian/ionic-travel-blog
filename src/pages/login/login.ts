@@ -5,6 +5,7 @@ import {LoginRegisterPrompt} from "./login-register-prompt";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {Person} from "../../entities/person";
 import {AngularFireAuth} from "angularfire2/auth";
+import {LoggerProvider} from "../../providers/logger/logger";
 
 /**
  * Generated class for the LoginPage page.
@@ -27,7 +28,8 @@ export class LoginPage {
               private userRepository: UserRepositoryProvider,
               private promptControl: AlertController,
               private viewCtrl: ViewController,
-              private navCtrl: NavController) {
+              private navCtrl: NavController)
+  {
   }
 
   ionViewWillEnter() {

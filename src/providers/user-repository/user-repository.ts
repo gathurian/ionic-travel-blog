@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {Person} from "../../entities/person";
 import {Blog} from "../../entities/blog";
 import {AngularFireAuth} from "angularfire2/auth";
+import {LoggerProvider} from "../logger/logger";
 
 /*
   Generated class for the UserRepositoryProvider provider.
@@ -17,7 +18,8 @@ export class UserRepositoryProvider {
 
   constructor(
     private angularFireAuth: AngularFireAuth,
-    private angularFireDatabase: AngularFireDatabase)
+    private angularFireDatabase: AngularFireDatabase,
+    private logger: LoggerProvider)
   {
     this.persons = this.getAllPersons();
   }
@@ -28,6 +30,9 @@ export class UserRepositoryProvider {
       let key: string = this.angularFireAuth.auth.currentUser.uid;
 
       this.getPersonById(key).then(person => {
+        this.logger.setUserId(person.id);
+        this.logger.logEvent('has logged in');
+
         resolve(person);
       });
     });
@@ -73,6 +78,9 @@ export class UserRepositoryProvider {
     const ref = this.angularFireDatabase.list('/persons').push({});
     person.key = ref.key;
 
+    this.logger.setUserId(person.id);
+    this.logger.logEvent('new registered user');
+
     ref.set(person);
   }
 
@@ -84,7 +92,10 @@ export class UserRepositoryProvider {
 
       this.angularFireDatabase.list('/persons').update(person.key, {
         friends: updatedFriends
-      }).then(() => resolve(true));
+      }).then(() => {
+        this.logger.logEvent(`added ${friend.id} as a friend`);
+        resolve(true);
+      });
     });
   }
 
@@ -109,6 +120,6 @@ export class UserRepositoryProvider {
 
     this.angularFireDatabase.list('/persons').update(person.key, {
       blogs: updatedBlogs
-    });
+    }).then(() => this.logger.logEvent(`new blog ${key} added`));
   }
 }

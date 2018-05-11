@@ -3,6 +3,7 @@ import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
 import {Blog} from "../../entities/blog";
 import {Person} from "../../entities/person";
+import {LoggerProvider} from "../logger/logger";
 
 /*
   Generated class for the BlogRepositoryProvider provider.
@@ -14,7 +15,10 @@ import {Person} from "../../entities/person";
 export class BlogRepositoryProvider {
   allBlogs: Observable<Blog[]>;
 
-  constructor(private angularFireDatabase: AngularFireDatabase) {
+  constructor(
+    private angularFireDatabase: AngularFireDatabase,
+    private logger: LoggerProvider)
+  {
     this.allBlogs = this.angularFireDatabase.list('/blogs').valueChanges();
   }
 
@@ -37,18 +41,19 @@ export class BlogRepositoryProvider {
   }
 
   updateBlog(blog: Blog) {
-    console.log('Update');
-    console.log(blog);
-    this.angularFireDatabase.list('/blogs').update(blog.key, blog);
+    this.angularFireDatabase.list('/blogs').update(blog.key, blog).then(() => {
+      this.logger.logEvent(`blog ${blog.key} updated`);
+    });
   }
 
   createBlog(blog: Blog): Promise<string> {
     return new Promise<string>(resolve => {
       const ref = this.angularFireDatabase.list('/blogs').push({});
       blog.key = ref.key;
-      blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' })
+      blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
 
       this.angularFireDatabase.list('/persons').update(ref, blog).then(() => {
+          this.logger.logEvent(`new blog ${blog.key} created`);
           resolve(blog.key);
         });
     });

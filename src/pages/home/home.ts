@@ -5,6 +5,7 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {AngularFireDatabase} from "angularfire2/database";
 import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
+import {LoggerProvider} from "../../providers/logger/logger";
 
 @Component({
   selector: 'page-home',
@@ -20,8 +21,8 @@ export class HomePage {
               private angularFireDatabase: AngularFireDatabase,
               private travelBlogRepository: TravelBlogRepositoryProvider,
               private userRepository: UserRepositoryProvider,
-              private viewCtrl: ViewController) {
-
+              private viewCtrl: ViewController)
+  {
     this.travelBlogRepository.getBannerAsBase64().then(imageBase64 => this.bannerBase64 = imageBase64);
     this.travelBlogRepository.getWelcomeText().then(welcomeText => this.welcomeText = welcomeText);
 

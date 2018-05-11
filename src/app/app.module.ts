@@ -20,6 +20,8 @@ import {BlogDetailComponent} from "../components/blog-detail/blog-detail";
 import {FullBlogPage} from "../pages/full-blog/full-blog";
 import {AngularFireAuth} from "angularfire2/auth";
 import {LoginPage} from "../pages/login/login";
+import { LoggerRepositoryProvider } from '../providers/logger-repository/logger-repository';
+import { LoggerProvider } from '../providers/logger/logger';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
@@ -63,7 +65,9 @@ const firebaseConfig = {
     UserRepositoryProvider,
     TravelBlogRepositoryProvider,
     BlogRepositoryProvider,
-    AngularFireAuth
+    AngularFireAuth,
+    LoggerRepositoryProvider,
+    LoggerProvider
   ]
 })
 export class AppModule {
