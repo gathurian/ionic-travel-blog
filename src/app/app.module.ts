@@ -22,6 +22,7 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {LoginPage} from "../pages/login/login";
 import { LoggerRepositoryProvider } from '../providers/logger-repository/logger-repository';
 import { LoggerProvider } from '../providers/logger/logger';
+import {LogPage} from "../pages/log/log";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
@@ -40,7 +41,8 @@ const firebaseConfig = {
     BlogListPage,
     BlogDetailComponent,
     FullBlogPage,
-    LoginPage
+    LoginPage,
+    LogPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ const firebaseConfig = {
     FriendListPage,
     BlogListPage,
     FullBlogPage,
-    LoginPage
+    LoginPage,
+    LogPage
   ],
   providers: [
     StatusBar,

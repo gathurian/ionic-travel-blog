@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {TravelBlogRepositoryProvider} from "../../providers/travel-blog-repository/travel-blog-repository";
-import {ViewController} from "ionic-angular";
+import {NavController, ViewController} from "ionic-angular";
 import {AngularFireAuth} from "angularfire2/auth";
 import {AngularFireDatabase} from "angularfire2/database";
 import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
-import {LoggerProvider} from "../../providers/logger/logger";
+import {LogPage} from "../log/log";
 
 @Component({
   selector: 'page-home',
@@ -16,18 +16,24 @@ export class HomePage {
   bannerBase64: string = '../assets/imgs/placeholder.png';
   welcomeText: string = 'Hello World!';
   currentUser: Person;
+  isAdmin: boolean;
 
   constructor(private angularFireAuth: AngularFireAuth,
               private angularFireDatabase: AngularFireDatabase,
               private travelBlogRepository: TravelBlogRepositoryProvider,
               private userRepository: UserRepositoryProvider,
-              private viewCtrl: ViewController)
+              private viewCtrl: ViewController,
+              private navCtrl: NavController)
   {
     this.travelBlogRepository.getBannerAsBase64().then(imageBase64 => this.bannerBase64 = imageBase64);
     this.travelBlogRepository.getWelcomeText().then(welcomeText => this.welcomeText = welcomeText);
 
     this.userRepository.getCurrentUser().then(person => {
       this.currentUser = person;
+
+      if (this.currentUser.id == 'C8jXTNCwx1XNsqysngpwI0fnk5z2') {
+        this.isAdmin = true;
+      }
     });
   }
 
@@ -40,5 +46,11 @@ export class HomePage {
     this.angularFireAuth.auth.signOut().then(() => {
       location.reload();
     });
+  }
+
+  presentLogPage() {
+    if (this.isAdmin) {
+      this.navCtrl.push(LogPage);
+    }
   }
 }
