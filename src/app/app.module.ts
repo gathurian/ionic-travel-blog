@@ -25,12 +25,12 @@ import { LoggerProvider } from '../providers/logger/logger';
 import {LogPage} from "../pages/log/log";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBhK8ZOG_azP0hYZNn4zQtWSvSjbPl9Uiw",
-  authDomain: "weblab-travel-blog.firebaseapp.com",
-  databaseURL: "https://weblab-travel-blog.firebaseio.com",
-  projectId: "weblab-travel-blog",
-  storageBucket: "weblab-travel-blog.appspot.com",
-  messagingSenderId: "627387247590"
+  apiKey: "AIzaSyDTLCfr68Rm2MGEC_pq7dW5wSOXPPnxGus",
+  authDomain: "mobpro-travel-blog.firebaseapp.com",
+  databaseURL: "https://mobpro-travel-blog.firebaseio.com",
+  projectId: "mobpro-travel-blog",
+  storageBucket: "",
+  messagingSenderId: "138279644991"
 };
 
 @NgModule({

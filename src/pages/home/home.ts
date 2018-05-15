@@ -25,8 +25,6 @@ export class HomePage {
               private viewCtrl: ViewController,
               private navCtrl: NavController)
   {
-    this.travelBlogRepository.getBannerAsBase64().then(imageBase64 => this.bannerBase64 = imageBase64);
-    this.travelBlogRepository.getWelcomeText().then(welcomeText => this.welcomeText = welcomeText);
 
     this.userRepository.getCurrentUser().then(person => {
       this.currentUser = person;
