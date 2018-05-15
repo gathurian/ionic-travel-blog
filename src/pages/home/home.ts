@@ -29,7 +29,7 @@ export class HomePage {
     this.userRepository.getCurrentUser().then(person => {
       this.currentUser = person;
 
-      if (this.currentUser.id == 'C8jXTNCwx1XNsqysngpwI0fnk5z2') {
+      if (this.currentUser.id == 'YUZHDCuiOdgZvyBAwBeSia9dZU22') {
         this.isAdmin = true;
       }
     });

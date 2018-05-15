@@ -52,7 +52,7 @@ export class BlogRepositoryProvider {
       blog.key = ref.key;
       blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
 
-      this.angularFireDatabase.list('/persons').update(ref, blog).then(() => {
+      this.angularFireDatabase.list('/blogs').update(ref, blog).then(() => {
           this.logger.logEvent(`new blog ${blog.key} created`);
           resolve(blog.key);
         });

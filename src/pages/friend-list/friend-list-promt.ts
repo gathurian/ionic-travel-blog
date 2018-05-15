@@ -5,12 +5,12 @@ export class FriendListPrompt {
   static presentFriendId(promptControl: AlertController): Promise<string> {
     return new Promise(resolve => {
       let alert = promptControl.create({
-        title: 'Add a friend',
-        message: 'Ask you friend for his id and type it in below...',
+        title: 'Freund hinzufügen',
+        message: 'Frag deinen Freund nach seiner ID (zu finden auf der Homepage unter "User-Info"',
         inputs: [
           {
             name: 'friendId',
-            placeholder: 'Friend id'
+            placeholder: 'Id'
           }
         ],
         buttons: [
@@ -22,7 +22,7 @@ export class FriendListPrompt {
             }
           },
           {
-            text: 'Add friend',
+            text: 'Hinzufügen',
             handler: data => {
               resolve(data.friendId);
             }
@@ -37,9 +37,9 @@ export class FriendListPrompt {
 
   static presentUnknownId(promptControl: AlertController, friendId: string) {
     let alert = promptControl.create({
-      title: 'Unknown id',
-      subTitle: `No Person found with id:\n${friendId}`,
-      buttons: ['Dismiss']
+      title: 'Unbekannte ID',
+      subTitle: `Sorry, aber wir konnten keine Person mit der folgenden ID finden: \n${friendId}`,
+      buttons: ['OK']
     });
 
     alert.present();

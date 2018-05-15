@@ -5,6 +5,7 @@ import {UserRepositoryProvider} from "../../providers/user-repository/user-repos
 import {Person} from "../../entities/person";
 import {FriendListPrompt} from "./friend-list-promt";
 import {BlogListPage} from "../blog-list/blog-list";
+import {FriendDetailPage} from "../friend-detail/friend-detail";
 
 /**
  * Generated class for the FriendListPage page.
@@ -49,7 +50,7 @@ export class FriendListPage {
       blogs:\t ${person.blogs}
       key:\t\t ${person.key}`);
 
-      this.navController.push(BlogListPage, {author: person})
+      this.navController.push(FriendDetailPage, {person})
   }
 
   presentFriendPrompt() {

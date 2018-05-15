@@ -11,6 +11,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {FriendListPage} from "../pages/friend-list/friend-list";
+import {FriendDetailPage} from "../pages/friend-detail/friend-detail";
 import {UserRepositoryProvider} from '../providers/user-repository/user-repository';
 import {HttpModule} from "@angular/http";
 import {BlogListPage} from "../pages/blog-list/blog-list";
@@ -38,6 +39,7 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     FriendListPage,
+    FriendDetailPage,
     BlogListPage,
     BlogDetailComponent,
     FullBlogPage,
@@ -56,6 +58,7 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     FriendListPage,
+    FriendDetailPage,
     BlogListPage,
     FullBlogPage,
     LoginPage,

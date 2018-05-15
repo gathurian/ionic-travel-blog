@@ -25730,6 +25730,28 @@ blog-detail .card-background-page .card-subtitle {
   z-index: 1;
 }
 
+friend-detail img {
+  border-radius: 50%;
+  height: 100pt;
+  width: 100pt;
+  margin-left: 30%;
+}
+
+friend-detail .photo {
+  float: left;
+  width: 100%;
+}
+
+friend-detail .details {
+  float: left;
+  width: 100%;
+  font-size: large;
+}
+
+friend-detail ion-content {
+  margin: 10pt;
+}
+
 page-home ion-header {
   margin: 0;
 }

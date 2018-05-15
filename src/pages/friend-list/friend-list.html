@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Friend List</ion-title>
+    <ion-title>Meine Freunde</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +18,7 @@
 <ion-content padding>
   <ion-list inset *ngIf="friends;else no_friends">
     <ion-list-header>
-      My Friends
+      Meine Freunde
     </ion-list-header>
     <ion-item *ngFor="let friend of friends | async" (click)="presentBlogList(friend)">
       <ion-icon name="contact" item-start></ion-icon>
@@ -27,7 +27,8 @@
   </ion-list>
 
   <ng-template #no_friends>
-    <h1 text-center text-uppercase no-padding style="margin-top: 50px">You have 0 friends</h1>
+    <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.
+    Falls du welche hinzufügen willst, drücke auf das + unten rechts</h1>
   </ng-template>
 
   <ion-fab right bottom>
