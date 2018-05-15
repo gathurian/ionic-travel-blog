@@ -1,0 +1,49 @@
+<!--
+  Generated template for the EditblogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{mode}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img src="{{blog.previewImage}}"/>
+
+  <ion-fab right top>
+    <button color="light" round ion-fab class="fab-map" (click)="navToEditBlog($event, blog)">
+      <ion-icon name="camera"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Titel</ion-label>
+      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Kurzbeschreibung</ion-label>
+      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Datum</ion-label>
+      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer no-border>
+
+  <ion-toolbar>
+    <button start color="danger" ion-button>Abbrechen</button>
+    <button (click)="save()" end ion-button>Speichern</button>
+  </ion-toolbar>
+
+</ion-footer>

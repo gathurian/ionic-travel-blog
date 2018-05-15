@@ -24,6 +24,16 @@ import { LoggerRepositoryProvider } from '../providers/logger-repository/logger-
 import { LoggerProvider } from '../providers/logger/logger';
 import {LogPage} from "../pages/log/log";
 
+
+//Kevins Pages
+import {HttpClientModule} from '@angular/common/http';
+
+import {EditblogPage} from '../pages/editblog/editblog';
+import {FilterpopoverforblogsPage} from '../pages/filterpopoverforblogs/filterpopoverforblogs';
+import {MytravelblogsPage} from '../pages/mytravelblogs/mytravelblogs';
+import {ViewblogPage} from '../pages/viewblog/viewblog';
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyDTLCfr68Rm2MGEC_pq7dW5wSOXPPnxGus",
   authDomain: "mobpro-travel-blog.firebaseapp.com",
@@ -42,14 +52,19 @@ const firebaseConfig = {
     BlogDetailComponent,
     FullBlogPage,
     LoginPage,
-    LogPage
+    LogPage,
+    EditblogPage,
+    FilterpopoverforblogsPage,
+    MytravelblogsPage,
+    ViewblogPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +74,11 @@ const firebaseConfig = {
     BlogListPage,
     FullBlogPage,
     LoginPage,
-    LogPage
+    LogPage,
+    EditblogPage,
+    FilterpopoverforblogsPage,
+    MytravelblogsPage,
+    ViewblogPage
   ],
   providers: [
     StatusBar,
@@ -70,7 +89,8 @@ const firebaseConfig = {
     BlogRepositoryProvider,
     AngularFireAuth,
     LoggerRepositoryProvider,
-    LoggerProvider
+    LoggerProvider,
+    HttpClientModule
   ]
 })
 export class AppModule {

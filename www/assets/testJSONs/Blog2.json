@@ -1,0 +1,11 @@
+{
+  "id": "Blog2",
+  "title": "Blog 2",
+  "abstract": "Hier steht ein test Text",
+  "date": "1996-02-01",
+  "previewImage": "#",
+  "content": ["Blog2Component1"],
+  "draftFlag": true,
+  "publicFlag": true,
+  "visibleFor": []
+}

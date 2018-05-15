@@ -25730,6 +25730,25 @@ blog-detail .card-background-page .card-subtitle {
   z-index: 1;
 }
 
+page-editblog .profilebutton {
+  z-index: 2;
+  position: absolute;
+  left: 22%;
+  top: 8%;
+  margin: auto;
+}
+
+page-editblog .profilepic {
+  border: 1px solid #000;
+  width: 65%;
+  height: 65%;
+}
+
+page-editblog .profilepic-border {
+  position: relative;
+  background: #a3a3a3;
+}
+
 page-home ion-header {
   margin: 0;
 }
@@ -25739,4 +25758,31 @@ page-home ion-content img {
   transform: none;
   -webkit-box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2);
   box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+page-mytravelblogs ion-content .toolbar .toolbar-background {
+  background: transparent;
+}
+
+page-mytravelblogs ion-card.adv-map p {
+  font-size: 0.7em !important;
+}
+
+page-mytravelblogs button[fab].fab-map {
+  top: calc(100% - 70px);
+  z-index: 50;
+}
+
+page-mytravelblogs ion-item-divider {
+  background-color: transparent !important;
+}
+
+page-mytravelblogs .smallTravelBlogs:hover {
+  background-color: rgba(161, 161, 161, 0.15) !important;
+  cursor: pointer !important;
+}
+
+page-mytravelblogs .smallTravelBlogs ion-fab button:hover {
+  background-color: rgba(161, 161, 161, 0.4) !important;
+  cursor: pointer !important;
 }

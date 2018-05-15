@@ -1,0 +1,90 @@
+<!--
+  Generated template for the MytravelblogsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meine Travel Blogs</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="more()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="myInput"
+      showCancelButton=true
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+    <ion-buttons end>
+      <button round="true" ion-button icon-only (click)='presentFilterPopover()'>
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor='let blog of blogs'>
+        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">
+          <ion-fab right top>
+            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">
+              <ion-icon name="settings"></ion-icon>
+            </button>
+          </ion-fab>
+          <img [src]="blog.previewImage"/>
+          <ion-card-content>
+            <ion-card-title>
+              {{blog.title}}
+              <p>{{blog.date}}</p>
+              <ion-item-divider></ion-item-divider>
+            </ion-card-title>
+            <p>
+              {{blog.abstract}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>
+        <ion-fab left middle>
+          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!--<div showWhen="android">
+    I am visible on Android!
+  </div>
+  <container-element [ngSwitch]="switch_expression">
+    <some-element *ngSwitchCase="match_expression_1">...</some-element>
+    <some-element *ngSwitchCase="match_expression_2">...</some-element>
+    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>
+    <ng-container *ngSwitchCase="match_expression_3">
+      <!-- use a ng-container to group multiple root nodes -->
+  <!--<inner-element></inner-element>
+  <inner-other-element></inner-other-element>
+</ng-container>
+<some-element *ngSwitchDefault>...</some-element>
+</container-element>-->
+
+</ion-content>

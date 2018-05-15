@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
-import {Blog} from "../../entities/blog";
+import {Blog} from "../../assets/classes/Blog";
 import {Person} from "../../entities/person";
 import {LoggerProvider} from "../logger/logger";
 
@@ -29,8 +29,8 @@ export class BlogRepositoryProvider {
 
       this.allBlogs.subscribe(blogs => {
         blogs.forEach(blog => {
-          if (person.blogs.some(x => x === blog.key)) {
-            if (blog.bannerBase64 === '') blog.bannerBase64 = '../assets/imgs/placeholder.png';
+          if (person.blogs.some(x => x === blog.id)) {
+            if (blog.previewImage === '') blog.previewImage = '../assets/imgs/placeholder.png';
             personBlogs.push(blog);
           }
         });
@@ -41,20 +41,20 @@ export class BlogRepositoryProvider {
   }
 
   updateBlog(blog: Blog) {
-    this.angularFireDatabase.list('/blogs').update(blog.key, blog).then(() => {
-      this.logger.logEvent(`blog ${blog.key} updated`);
+    this.angularFireDatabase.list('/blogs').update(blog.id, blog).then(() => {
+      this.logger.logEvent(`blog ${blog.id} updated`);
     });
   }
 
   createBlog(blog: Blog): Promise<string> {
     return new Promise<string>(resolve => {
       const ref = this.angularFireDatabase.list('/blogs').push({});
-      blog.key = ref.key;
+      blog.id = ref.key;
       blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
 
-      this.angularFireDatabase.list('/persons').update(ref, blog).then(() => {
-          this.logger.logEvent(`new blog ${blog.key} created`);
-          resolve(blog.key);
+      this.angularFireDatabase.list('/blogs').update(ref, blog).then(() => {
+          this.logger.logEvent(`new blog ${blog.id} created`);
+          resolve(blog.id);
         });
     });
   }

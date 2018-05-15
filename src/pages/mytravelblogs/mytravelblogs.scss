@@ -1,0 +1,33 @@
+page-mytravelblogs {
+  ion-content {
+    .toolbar {
+      .toolbar-background {
+        background: transparent;
+      }
+    }
+  }
+
+  ion-card.adv-map p {
+    font-size: 0.7em !important;
+  }
+
+  button[fab].fab-map {
+    top: calc(100% - 70px);
+    z-index: 50;
+  }
+
+  ion-item-divider{
+    background-color: transparent !important;
+  }
+
+  .smallTravelBlogs:hover{
+    background-color: rgba(161,161,161,0.15) !important;
+    cursor: pointer !important;
+  }
+
+  .smallTravelBlogs ion-fab button:hover{
+    background-color: rgba(161,161,161,0.4) !important;
+    cursor: pointer !important;
+  }
+
+}

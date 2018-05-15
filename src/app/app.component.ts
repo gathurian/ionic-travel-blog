@@ -8,6 +8,9 @@ import {FriendListPage} from "../pages/friend-list/friend-list";
 import {BlogListPage} from "../pages/blog-list/blog-list";
 import {LoginPage} from "../pages/login/login";
 
+//Kevins Pages
+import {MytravelblogsPage} from '../pages/mytravelblogs/mytravelblogs';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,7 +29,7 @@ export class MyApp {
     this.pages = [
       {title: 'Home', component: HomePage},
       {title: 'My Friends', component: FriendListPage},
-      {title: 'My Travel Blogs', component: BlogListPage}
+      {title: 'My Travel Blogs', component: MytravelblogsPage}
     ];
 
   }
