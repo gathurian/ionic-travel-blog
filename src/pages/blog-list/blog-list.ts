@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ActionSheetController, AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
-import {Blog} from "../../entities/blog";
+import {Blog} from "../../assets/classes/Blog";
 import {Person} from "../../entities/person";
 import {FullBlogPage} from "../full-blog/full-blog";
 import {BlogDetailActionsheet} from "../../components/blog-detail/blog-detail-actionsheet";
@@ -84,7 +84,7 @@ export class BlogListPage {
   }
 
   presentNewPrompt() {
-    BlogDetailPrompt.present(this.promptController, {title: '', bannerBase64: '', story: ''})
+    BlogDetailPrompt.present(this.promptController, new Blog({}))
       .then(newBlog => {
         this.blogRepository.createBlog(newBlog)
           .then(key => {

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
 import {Person} from "../../entities/person";
-import {Blog} from "../../entities/blog";
+import {Blog} from "../../assets/classes/Blog";
 import {AngularFireAuth} from "angularfire2/auth";
 import {LoggerProvider} from "../logger/logger";
 
@@ -104,7 +104,7 @@ export class UserRepositoryProvider {
   }
 
   removeBlogFromList(person: Person, blog: Blog) {
-    let index: number = person.blogs.indexOf(blog.key, 0);
+    let index: number = person.blogs.indexOf(blog.id, 0);
     if (index > -1) {
       person.blogs.splice(index, 1);
     }

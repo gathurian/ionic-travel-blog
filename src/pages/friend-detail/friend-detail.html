@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{selectedPerson.firstName}} {{selectedPerson.lastName}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="photo">
+    <img src="../../assets/imgs/team-placeholder.jpg">
+  </div>
+  <div class="details">
+    Vorname: <b>{{selectedPerson.firstName}}</b>
+    <hr>
+    Nachname: <b>{{selectedPerson.lastName}}</b>
+    <hr>
+  </div>
+  <div class="details">
+  Freunde:
+  <ion-item *ngFor="let friend of friends">
+    <ion-icon name="contact" item-start></ion-icon>
+    {{friend.firstName}} {{friend.lastName}}
+  </ion-item>
+</div>
+  <div class="details">
+    Blogs:
+    <ion-item *ngFor="let blog of blogs">
+      <ion-icon name="contact" item-start></ion-icon>
+      {{blog.title}} am {{blog.date}}
+    </ion-item>
+  </div>
+</ion-content>

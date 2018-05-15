@@ -1,5 +1,5 @@
 import {AlertController} from "ionic-angular";
-import {Blog} from "../../entities/blog";
+import {Blog} from "../../assets/classes/Blog";
 
 export class BlogDetailPrompt {
 
@@ -18,12 +18,12 @@ export class BlogDetailPrompt {
           {
             name: 'image',
             placeholder: 'Image as base64',
-            value: blog.bannerBase64
+            value: blog.previewImage
           },
           {
             name: 'story',
             placeholder: 'Blog story',
-            value: blog.story
+            value: blog.abstract
           }
         ],
         buttons: [
@@ -38,8 +38,8 @@ export class BlogDetailPrompt {
             text: 'Add blog',
             handler: data => {
               blog.title = data.title;
-              blog.bannerBase64 = data.bannerBase64 == null ? '../assets/imgs/placeholder.png' : data.bannerBase64;
-              blog.story = data.story;
+              blog.previewImage = data.bannerBase64 == null ? '../assets/imgs/placeholder.png' : data.bannerBase64;
+              blog.abstract = data.story;
 
               resolve(blog);
             }
