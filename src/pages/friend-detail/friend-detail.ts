@@ -4,6 +4,7 @@ import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
+import {FullBlogPage} from "../full-blog/full-blog";
 
 /**
  * Generated class for the FriendDetailComponent component.
@@ -20,8 +21,8 @@ export class FriendDetailPage {
   friends: Person[];
   selectedPerson: Person;
 
-  constructor(navCtrl: NavController,
-              navParams: NavParams,
+  constructor(private navCtrl: NavController,
+              private navParams: NavParams,
               private userRepository: UserRepositoryProvider,
               private blogRepository:BlogRepositoryProvider)
   {
@@ -41,6 +42,10 @@ export class FriendDetailPage {
       console.log(blogs);
       this.blogs = blogs;
     });
+  }
+
+  showBlogs(blog:Blog){
+    this.navCtrl.push(FullBlogPage, {blog});
   }
 
 }

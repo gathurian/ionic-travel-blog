@@ -17,17 +17,33 @@
     <hr>
   </div>
   <div class="details">
-  Freunde:
-  <ion-item *ngFor="let friend of friends">
-    <ion-icon name="contact" item-start></ion-icon>
-    {{friend.firstName}} {{friend.lastName}}
-  </ion-item>
-</div>
+    Freunde:
+    <div *ngIf="friends.length > 0; else no_friends">
+      <ion-item *ngFor="let friend of friends">
+        <ion-icon name="contact" item-start></ion-icon>
+        {{friend.firstName}} {{friend.lastName}}
+      </ion-item>
+    </div>
+  </div>
   <div class="details">
     Blogs:
-    <ion-item *ngFor="let blog of blogs">
-      <ion-icon name="contact" item-start></ion-icon>
-      {{blog.title}} am {{blog.date}}
-    </ion-item>
+    <!--<div *ngIf="blogs.length > 0; else no_blogs">-->
+      <ion-item *ngFor="let blog of blogs" (click)="showBlogs(blog)">
+        <ion-icon name="contact" item-start ></ion-icon>
+        {{blog.title}} am {{blog.date}}
+      </ion-item>
+    <!--</div>-->
   </div>
+
+  <ng-template #no_friends>
+    <div class="nothing">
+      {{selectedPerson.firstName}} hat (noch) keine Freunde.
+    </div>
+  </ng-template>
+
+  <ng-template #no_blogs>
+    <div class="nothing">
+      {{selectedPerson.firstName}} hat (noch) keine Blogs.
+    </div>
+  </ng-template>
 </ion-content>

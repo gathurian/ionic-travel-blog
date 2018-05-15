@@ -23,6 +23,7 @@ import {FriendDetailPage} from "../friend-detail/friend-detail";
 export class FriendListPage {
   friends: Observable<Person[]>;
   currentUser: Person;
+  date:Date;
 
   constructor(private userRepository: UserRepositoryProvider,
               private promptControl: AlertController,
@@ -35,13 +36,16 @@ export class FriendListPage {
     });
   }
 
+
+
+
   private updateFriendList() {
     this.userRepository.getAllFriends(this.currentUser).then(friends => {
       this.friends = Observable.of(friends);
     });
   }
 
-  presentBlogList(person: Person) {
+  goToDetails(person: Person) {
     console.log(
       `person details:
       id:\t\t ${person.id}
