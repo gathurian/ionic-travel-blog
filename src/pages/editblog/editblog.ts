@@ -7,6 +7,7 @@ import {iBlog} from "../../assets/interfaces/iBlog";
 import {Person} from "../../entities/person";
 import { ToastController } from 'ionic-angular';
 import {MytravelblogsPage} from "../mytravelblogs/mytravelblogs";
+import {EditblogcomponentPage} from "../editblogcomponent/editblogcomponent";
 
 /**
  * Generated class for the EditblogPage page.
@@ -132,6 +133,14 @@ export class EditblogPage {
         //});
         toast.present();
       });
+  }
+
+  createNewBlog()
+  {
+    console.log("New Blog Component");
+    this.navCtrl.push(EditblogcomponentPage, {
+      blog: this.blog
+    });
   }
 
 

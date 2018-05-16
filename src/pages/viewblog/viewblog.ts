@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Blog} from "../../assets/classes/Blog";
+import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogComponent} from "../../assets/classes/BlogComponent";
 
 /**
@@ -16,7 +16,7 @@ import {BlogComponent} from "../../assets/classes/BlogComponent";
   templateUrl: 'viewblog.html',
 })
 export class ViewblogPage {
-  blog: Blog;
+  blog: iBlog;
   blogComponents: Array<BlogComponent>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams)

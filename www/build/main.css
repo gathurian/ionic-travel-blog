@@ -25808,3 +25808,7 @@ page-mytravelblogs .smallTravelBlogs ion-fab button:hover {
   background-color: rgba(161, 161, 161, 0.4) !important;
   cursor: pointer !important;
 }
+
+page-mytravelblogs .plusMitte {
+  min-height: 366px !important;
+}

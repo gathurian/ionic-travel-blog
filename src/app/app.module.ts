@@ -33,6 +33,7 @@ import {EditblogPage} from '../pages/editblog/editblog';
 import {FilterpopoverforblogsPage} from '../pages/filterpopoverforblogs/filterpopoverforblogs';
 import {MytravelblogsPage} from '../pages/mytravelblogs/mytravelblogs';
 import {ViewblogPage} from '../pages/viewblog/viewblog';
+import {EditblogcomponentPage} from '../pages/editblogcomponent/editblogcomponent';
 
 
 const firebaseConfig = {
@@ -58,6 +59,7 @@ const firebaseConfig = {
     EditblogPage,
     FilterpopoverforblogsPage,
     MytravelblogsPage,
+    EditblogcomponentPage,
     ViewblogPage
   ],
   imports: [
@@ -81,7 +83,8 @@ const firebaseConfig = {
     EditblogPage,
     FilterpopoverforblogsPage,
     MytravelblogsPage,
-    ViewblogPage
+    ViewblogPage,
+    EditblogcomponentPage
   ],
   providers: [
     StatusBar,

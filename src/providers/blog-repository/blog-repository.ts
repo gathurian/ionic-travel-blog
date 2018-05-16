@@ -70,4 +70,28 @@ export class BlogRepositoryProvider {
       });
     });
   }
+
+
+  removeComponentFromBlog(blog: iBlog, id: string) {
+    let index: number = blog.content.indexOf(id, 0);
+    if (index > -1) {
+      blog.content.splice(index, 1);
+    }
+    else console.log("ID konnte im Array nicht gefunden werden")
+
+    this.angularFireDatabase.list('/blogs/').update(blog.id, {
+      content: blog.content
+    });
+  }
+
+  addComponentToBlog(blog: iBlog, id: string) {
+    let updatedBlogs: string[] = blog.content != undefined ? blog.content : [];
+    updatedBlogs.push(id);
+
+    console.log(updatedBlogs)
+
+    this.angularFireDatabase.list('/blogs').update(blog.id, {
+      content: updatedBlogs
+    }).then(() => this.logger.logEvent(`new blogComponent ${id} added`));
+  }
 }

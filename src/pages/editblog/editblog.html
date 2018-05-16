@@ -37,6 +37,21 @@
     </ion-item>
   </ion-list>
 
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-fab center top *ngIf="mode=='edit'">
+          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlog($event, blog)">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>
 
 <ion-footer no-border>
