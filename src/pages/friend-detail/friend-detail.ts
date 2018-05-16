@@ -45,7 +45,9 @@ export class FriendDetailPage {
   }
 
   showBlogs(blog:iBlog){
-    this.navCtrl.push(ViewblogPage, {blog});
+    this.navCtrl.push(ViewblogPage, {
+      clickedBlog: blog
+    });
   }
 
 }

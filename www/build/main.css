@@ -25767,8 +25767,21 @@ friend-detail .details {
   font-size: large;
 }
 
+friend-detail .blogs {
+  cursor: pointer;
+}
+
 friend-detail ion-content {
   margin: 10pt;
+}
+
+friend-detail .nothing {
+  margin-left: 20pt;
+  font-size: medium;
+}
+
+page-friend-list .friend {
+  cursor: pointer;
 }
 
 page-home ion-header {

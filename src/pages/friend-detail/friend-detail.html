@@ -28,7 +28,7 @@
   <div class="details">
     Blogs:
     <div *ngIf="blogs.length > 0; else no_blogs">
-      <ion-item *ngFor="let blog of blogs" (click)="showBlogs(blog)">
+      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">
         <ion-icon name="contact" item-start ></ion-icon>
         {{blog.title}} am {{blog.date}}
       </ion-item>
