@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{mode}}</ion-title>
+    <ion-title>{{modeText}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -42,8 +42,13 @@
 <ion-footer no-border>
 
   <ion-toolbar>
-    <button start color="danger" ion-button>Abbrechen</button>
-    <button (click)="save()" end ion-button>Speichern</button>
+    <ion-buttons *ngIf="mode=='edit'">
+      <button (click)="delete()" color="danger" ion-button>Löschen</button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>
+      <button (click)="save()" end ion-button>Speichern</button>
+    </ion-buttons>
   </ion-toolbar>
 
 </ion-footer>

@@ -3,8 +3,10 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {AngularFireAuth} from "angularfire2/auth";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
-import {Blog} from "../../assets/classes/Blog";
+import {iBlog} from "../../assets/interfaces/iBlog";
 import {Person} from "../../entities/person";
+import { ToastController } from 'ionic-angular';
+import {MytravelblogsPage} from "../mytravelblogs/mytravelblogs";
 
 /**
  * Generated class for the EditblogPage page.
@@ -19,27 +21,29 @@ import {Person} from "../../entities/person";
   templateUrl: 'editblog.html',
 })
 export class EditblogPage {
-  blog: Blog;
-  mode: String;
+  blog: iBlog;
+  modeText: String;
+  mode: String
   author: Person;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private angularFireAuth: AngularFireAuth,
               private promptController: AlertController,
               private blogRepository: BlogRepositoryProvider,
-              private userRepository: UserRepositoryProvider,)
+              private userRepository: UserRepositoryProvider,
+              private toastCtrl: ToastController)
   {
     this.userRepository.getCurrentUser().then(person => {
       this.author = person;
     });
-
-    if(navParams.get('mode') == "edit")
+    this.mode=navParams.get('mode');
+    if(this.mode == "edit")
     {
       this.blog = navParams.get('clickedBlog');
       console.log(this.blog);
-      this.mode= "Blog bearbeiten";
+      this.modeText= "Blog bearbeiten";
     }else
     {
-      this.blog = new Blog({});
+      this.blog = <iBlog>{};
       this.blog.previewImage='../assets/imgs/placeholder.png';
       this.blog.draftFlag=false;
       this.blog.publicFlag=true;
@@ -58,7 +62,7 @@ export class EditblogPage {
 
       this.blog.date= yyyy+"-"+mmm+"-"+dd;
 
-      this.mode= "Blog erstellen";
+      this.modeText= "Blog erstellen";
       console.log(this.blog);
     }
 
@@ -71,10 +75,62 @@ export class EditblogPage {
 
   save()
   {
-    console.log(this.blog);
-    this.blogRepository.createBlog(this.blog)
+    if(this.mode == "edit")
+    {
+      this.blogRepository.updateBlog(this.blog);
+
+        this.navCtrl.push(MytravelblogsPage, {});
+        let toast = this.toastCtrl.create({
+          message: 'Blog wurde erfolgreich geändert',
+          duration: 4000,
+          position: 'bottom'
+        });
+        //toast.onDidDismiss(() => {
+        //  console.log('Dismissed toast');
+        //});
+        toast.present();
+    }
+    else{
+      this.blogRepository.createBlog(this.blog)
+        .then(key => {
+          this.userRepository.addNewBlog(this.author, key);
+
+          this.navCtrl.push(MytravelblogsPage, {});
+          let toast = this.toastCtrl.create({
+            message: 'Blog wurde erfolgreich erstellt',
+            duration: 4000,
+            position: 'bottom'
+          });
+          //toast.onDidDismiss(() => {
+          //  console.log('Dismissed toast');
+          //});
+          toast.present();
+        });
+    }
+
+  }
+
+  cancel()
+  {
+    this.navCtrl.push(MytravelblogsPage, {});
+  }
+
+  delete()
+  {
+    this.blogRepository.deleteBlog(this.blog)
       .then(key => {
-        this.userRepository.addNewBlog(this.author, key);
+        this.userRepository.removeBlogFromList(this.author, key);
+
+        this.navCtrl.push(MytravelblogsPage, {});
+        let toast = this.toastCtrl.create({
+          message: 'Blog wurde erfolgreich gelöscht',
+          duration: 4000,
+          position: 'bottom'
+        });
+        //toast.onDidDismiss(() => {
+        //  console.log('Dismissed toast');
+        //});
+        toast.present();
       });
   }
 

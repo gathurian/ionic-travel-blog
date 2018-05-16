@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from "ionic-angular";
 import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
-import {Blog} from "../../assets/classes/Blog";
+import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
 
 /**
@@ -16,7 +16,7 @@ import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repos
   templateUrl: 'friend-detail.html'
 })
 export class FriendDetailPage {
-  blogs: Blog[];
+  blogs: iBlog[];
   friends: Person[];
   selectedPerson: Person;
 

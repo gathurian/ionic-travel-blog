@@ -46,7 +46,7 @@ export class UserRepositoryProvider {
 
         persons.forEach(friend => {
 
-          if (person.friends.some(x => x === friend.id)) {
+          if (person.friends.some(x => x === friend.key)) {
             friends.push(friend);
           }
         });
@@ -78,7 +78,7 @@ export class UserRepositoryProvider {
     const ref = this.angularFireDatabase.list('/persons').push({});
     person.key = ref.key;
 
-    this.logger.setUserId(person.id);
+    this.logger.setUserId(person.key);
     this.logger.logEvent('new registered user');
 
     ref.set(person);
@@ -88,12 +88,12 @@ export class UserRepositoryProvider {
 
     return new Promise<boolean>(resolve => {
       let updatedFriends: string[] = person.friends != undefined ? person.friends : [];
-      updatedFriends.push(friend.id);
+      updatedFriends.push(friend.key);
 
       this.angularFireDatabase.list('/persons').update(person.key, {
         friends: updatedFriends
       }).then(() => {
-        this.logger.logEvent(`added ${friend.id} as a friend`);
+        this.logger.logEvent(`added ${friend.key} as a friend`);
         resolve(true);
       });
     });
@@ -103,11 +103,12 @@ export class UserRepositoryProvider {
     return this.angularFireDatabase.list('/persons').valueChanges();
   }
 
-  removeBlogFromList(person: Person, blog: Blog) {
-    let index: number = person.blogs.indexOf(blog.id, 0);
+  removeBlogFromList(person: Person, key: string) {
+    let index: number = person.blogs.indexOf(key, 0);
     if (index > -1) {
       person.blogs.splice(index, 1);
     }
+    else console.log("ID konnte im Array nicht gefunden werden")
 
     this.angularFireDatabase.list('/persons/').update(person.key, {
       blogs: person.blogs
@@ -117,6 +118,8 @@ export class UserRepositoryProvider {
   addNewBlog(person: Person, key: string) {
     let updatedBlogs: string[] = person.blogs != undefined ? person.blogs : [];
     updatedBlogs.push(key);
+
+    console.log(updatedBlogs)
 
     this.angularFireDatabase.list('/persons').update(person.key, {
       blogs: updatedBlogs

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from "angularfire2/database";
 import {Observable} from "rxjs/Observable";
-import {Blog} from "../../assets/classes/Blog";
+import {iBlog} from "../../assets/interfaces/iBlog";
 import {Person} from "../../entities/person";
 import {LoggerProvider} from "../logger/logger";
 
@@ -13,7 +13,7 @@ import {LoggerProvider} from "../logger/logger";
 */
 @Injectable()
 export class BlogRepositoryProvider {
-  allBlogs: Observable<Blog[]>;
+  allBlogs: Observable<iBlog[]>;
 
   constructor(
     private angularFireDatabase: AngularFireDatabase,
@@ -22,10 +22,10 @@ export class BlogRepositoryProvider {
     this.allBlogs = this.angularFireDatabase.list('/blogs').valueChanges();
   }
 
-  getAllBlogsFrom(person: Person): Promise<Blog[]> {
+  getAllBlogsFrom(person: Person): Promise<iBlog[]> {
 
-    return new Promise<Blog[]>( resolve => {
-      let personBlogs: Blog[] = [];
+    return new Promise<iBlog[]>( resolve => {
+      let personBlogs: iBlog[] = [];
 
       this.allBlogs.subscribe(blogs => {
         blogs.forEach(blog => {
@@ -34,28 +34,40 @@ export class BlogRepositoryProvider {
             personBlogs.push(blog);
           }
         });
-
         resolve(personBlogs);
       });
     });
   }
 
-  updateBlog(blog: Blog) {
+  updateBlog(blog: iBlog) {
     this.angularFireDatabase.list('/blogs').update(blog.id, blog).then(() => {
       this.logger.logEvent(`blog ${blog.id} updated`);
     });
   }
 
-  createBlog(blog: Blog): Promise<string> {
+  createBlog(blog: iBlog): Promise<string> {
     return new Promise<string>(resolve => {
       const ref = this.angularFireDatabase.list('/blogs').push({});
       blog.id = ref.key;
       blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
 
       this.angularFireDatabase.list('/blogs').update(ref, blog).then(() => {
-          this.logger.logEvent(`new blog ${blog.id} created`);
-          resolve(blog.id);
-        });
+        this.logger.logEvent(`new blog ${blog.id} created`);
+        resolve(blog.id);
+      });
+    });
+  }
+
+  deleteBlog(blog: iBlog): Promise<string> {
+    return new Promise<string>(resolve => {
+      //const ref = this.angularFireDatabase.list('/blogs').push({});
+      //blog.id = ref.key;
+      //blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
+
+      this.angularFireDatabase.list('/blogs').remove(blog.id).then(() => {
+        this.logger.logEvent(`new blog ${blog.id} deleted`);
+        resolve(blog.id);
+      });
     });
   }
 }
