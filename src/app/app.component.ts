@@ -6,7 +6,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {HomePage} from '../pages/home/home';
 import {FriendListPage} from "../pages/friend-list/friend-list";
 import {FriendDetailPage} from "../pages/friend-detail/friend-detail";
-import {BlogListPage} from "../pages/blog-list/blog-list";
 import {LoginPage} from "../pages/login/login";
 
 //Kevins Pages

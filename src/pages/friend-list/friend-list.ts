@@ -4,7 +4,6 @@ import {Observable} from "rxjs/Observable";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {Person} from "../../entities/person";
 import {FriendListPrompt} from "./friend-list-promt";
-import {BlogListPage} from "../blog-list/blog-list";
 import {FriendDetailPage} from "../friend-detail/friend-detail";
 
 /**

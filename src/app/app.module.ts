@@ -14,7 +14,6 @@ import {FriendListPage} from "../pages/friend-list/friend-list";
 import {FriendDetailPage} from "../pages/friend-detail/friend-detail";
 import {UserRepositoryProvider} from '../providers/user-repository/user-repository';
 import {HttpModule} from "@angular/http";
-import {BlogListPage} from "../pages/blog-list/blog-list";
 import { TravelBlogRepositoryProvider } from '../providers/travel-blog-repository/travel-blog-repository';
 import { BlogRepositoryProvider } from '../providers/blog-repository/blog-repository';
 import {BlogDetailComponent} from "../components/blog-detail/blog-detail";
@@ -51,7 +50,6 @@ const firebaseConfig = {
     HomePage,
     FriendListPage,
     FriendDetailPage,
-    BlogListPage,
     BlogDetailComponent,
     FullBlogPage,
     LoginPage,
@@ -76,7 +74,6 @@ const firebaseConfig = {
     HomePage,
     FriendListPage,
     FriendDetailPage,
-    BlogListPage,
     FullBlogPage,
     LoginPage,
     LogPage,

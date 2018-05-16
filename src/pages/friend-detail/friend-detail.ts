@@ -4,7 +4,7 @@ import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
-import {FullBlogPage} from "../full-blog/full-blog";
+import {ViewblogPage} from "../viewblog/viewblog";
 
 /**
  * Generated class for the FriendDetailComponent component.
@@ -44,8 +44,9 @@ export class FriendDetailPage {
     });
   }
 
-  showBlogs(blog:Blog){
-    this.navCtrl.push(FullBlogPage, {blog});
+  showBlogs(blog:iBlog){
+    this.navCtrl.push(ViewblogPage, {blog});
   }
 
 }
+
