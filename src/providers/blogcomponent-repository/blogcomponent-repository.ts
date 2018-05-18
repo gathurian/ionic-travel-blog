@@ -13,7 +13,7 @@ import {LoggerProvider} from "../logger/logger";
   and Angular DI.
 */
 @Injectable()
-export class BlogRepositoryProvider {
+export class BlogComponentRepositoryProvider {
   allBlogComponents: Observable<iBlogComponent[]>;
 
   constructor(
@@ -59,7 +59,7 @@ export class BlogRepositoryProvider {
     });
   }
 
-  deleteBlog(blogComponent: iBlogComponent): Promise<string> {
+  deleteBlogComponent(blogComponent: iBlogComponent): Promise<string> {
     return new Promise<string>(resolve => {
       //const ref = this.angularFireDatabase.list('/blogs').push({});
       //blog.id = ref.key;

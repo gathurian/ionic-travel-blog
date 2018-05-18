@@ -8,6 +8,8 @@ import {Person} from "../../entities/person";
 import { ToastController } from 'ionic-angular';
 import {MytravelblogsPage} from "../mytravelblogs/mytravelblogs";
 import {EditblogcomponentPage} from "../editblogcomponent/editblogcomponent";
+import {iBlogComponent} from "../../assets/interfaces/iBlogComponent";
+import {BlogComponentRepositoryProvider} from "../../providers/blogcomponent-repository/blogcomponent-repository";
 
 /**
  * Generated class for the EditblogPage page.
@@ -23,6 +25,7 @@ import {EditblogcomponentPage} from "../editblogcomponent/editblogcomponent";
 })
 export class EditblogPage {
   blog: iBlog;
+  blogComponents: Array<iBlogComponent>;
   modeText: String;
   mode: String
   author: Person;
@@ -31,6 +34,7 @@ export class EditblogPage {
               private promptController: AlertController,
               private blogRepository: BlogRepositoryProvider,
               private userRepository: UserRepositoryProvider,
+              private blogComponentRepository: BlogComponentRepositoryProvider,
               private toastCtrl: ToastController)
   {
     this.userRepository.getCurrentUser().then(person => {
@@ -68,10 +72,16 @@ export class EditblogPage {
     }
 
 
+    this.blogComponentRepository.getAllComponentsFrom(this.blog).then(blogComponents => {
+      this.blogComponents = blogComponents;
+      console.log(blogComponents);
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditblogPage');
+
+    //this.blogComponents = Array<iBlogComponent>();
   }
 
   save()
@@ -135,13 +145,25 @@ export class EditblogPage {
       });
   }
 
-  createNewBlog()
+  createNewBlogComponent()
   {
     console.log("New Blog Component");
     this.navCtrl.push(EditblogcomponentPage, {
-      blog: this.blog
+      blog: this.blog,
+      mode: "create"
     });
   }
+  editBlogComponent(event, blogComponent)
+  {
+    console.log("Edit Blog Component");
+    this.navCtrl.push(EditblogcomponentPage, {
+      blog: this.blog,
+      mode: "edit",
+      blogComponent: blogComponent
+    });
+  }
+
+
 
 
 }

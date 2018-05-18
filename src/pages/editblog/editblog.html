@@ -40,9 +40,25 @@
 
   <ion-grid>
     <ion-row>
+      <ion-col col-12 *ngFor='let blogComponent of blogComponents'>
+        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">
+          <img [src]="blogComponent.image"/>
+          <ion-card-content>
+            <p>
+              {{blogComponent.text}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <ion-row>
       <ion-col col-12>
         <ion-fab center top *ngIf="mode=='edit'">
-          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlog($event, blog)">
+          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">
             <ion-icon name="add"></ion-icon>
           </button>
         </ion-fab>

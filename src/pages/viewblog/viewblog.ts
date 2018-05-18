@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogComponent} from "../../assets/classes/BlogComponent";
+import {BlogComponentRepositoryProvider} from "../../providers/blogcomponent-repository/blogcomponent-repository";
+import {iBlogComponent} from "../../assets/interfaces/iBlogComponent";
 
 /**
  * Generated class for the ViewblogPage page.
@@ -17,12 +19,17 @@ import {BlogComponent} from "../../assets/classes/BlogComponent";
 })
 export class ViewblogPage {
   blog: iBlog;
-  blogComponents: Array<BlogComponent>;
+  blogComponents: Array<iBlogComponent>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams)
+  constructor(public navCtrl: NavController, public navParams: NavParams, private blogComponentRepository: BlogComponentRepositoryProvider,)
   {
     this.blog = navParams.get('clickedBlog');
     console.log(this.blog);
+
+    this.blogComponentRepository.getAllComponentsFrom(this.blog).then(blogComponents => {
+      this.blogComponents = blogComponents;
+      console.log(blogComponents);
+    });
 
     //HTTP Request auf this.blog.content <Array String>
   }

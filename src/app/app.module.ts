@@ -16,6 +16,7 @@ import {UserRepositoryProvider} from '../providers/user-repository/user-reposito
 import {HttpModule} from "@angular/http";
 import { TravelBlogRepositoryProvider } from '../providers/travel-blog-repository/travel-blog-repository';
 import { BlogRepositoryProvider } from '../providers/blog-repository/blog-repository';
+import { BlogComponentRepositoryProvider } from '../providers/blogcomponent-repository/blogcomponent-repository';
 import {BlogDetailComponent} from "../components/blog-detail/blog-detail";
 import {FullBlogPage} from "../pages/full-blog/full-blog";
 import {AngularFireAuth} from "angularfire2/auth";
@@ -90,6 +91,7 @@ const firebaseConfig = {
     UserRepositoryProvider,
     TravelBlogRepositoryProvider,
     BlogRepositoryProvider,
+    BlogComponentRepositoryProvider,
     AngularFireAuth,
     LoggerRepositoryProvider,
     LoggerProvider,

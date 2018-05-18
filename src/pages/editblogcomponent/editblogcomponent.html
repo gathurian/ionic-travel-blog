@@ -23,6 +23,13 @@
     </button>
   </ion-fab>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>Blogtext</ion-label>
+      <ion-textarea placeholder="" max="3000" [(ngModel)]="blogComponent.text"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
 
 <ion-footer no-border>

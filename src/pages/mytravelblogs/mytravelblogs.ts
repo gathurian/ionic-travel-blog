@@ -9,6 +9,7 @@ import {EditblogPage} from "../editblog/editblog";
 import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
+import {iBlogComponent} from "../../assets/interfaces/iBlogComponent";
 /**
  * Generated class for the MytravelblogsPage page.
  *
@@ -27,6 +28,7 @@ export class MytravelblogsPage
   blogs: Array<iBlog>;
   navigationSwitch: Boolean = true;
   author: Person;
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public popoverCtrl: PopoverController,
