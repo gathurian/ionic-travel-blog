@@ -5,4 +5,5 @@ export interface Person {
   lastName: string;
   friends?: string[];
   blogs?: string[];
+  image?: string;
 }

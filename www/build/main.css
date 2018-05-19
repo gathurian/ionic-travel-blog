@@ -25795,6 +25795,37 @@ page-home ion-content img {
   box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
+myProfile img {
+  border-radius: 50%;
+  height: 100pt;
+  width: 100pt;
+  margin-left: 30%;
+}
+
+myProfile .photo {
+  float: left;
+  width: 100%;
+}
+
+myProfile .details {
+  float: left;
+  width: 100%;
+  font-size: large;
+}
+
+myProfile .blogs {
+  cursor: pointer;
+}
+
+myProfile ion-content {
+  margin: 10pt;
+}
+
+myProfile .nothing {
+  margin-left: 20pt;
+  font-size: medium;
+}
+
 page-mytravelblogs ion-content .toolbar .toolbar-background {
   background: transparent;
 }

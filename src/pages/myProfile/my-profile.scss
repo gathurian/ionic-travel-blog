@@ -1,0 +1,34 @@
+myProfile{
+  img {
+    border-radius: 50%;
+    height: 100pt;
+    width: 100pt;
+    margin-left: 30%;
+  }
+
+  .photo {
+    float: left;
+    width: 100%;
+    //background-color: #488aff;
+  }
+
+  .details {
+    float: left;
+    width: 100%;
+    font-size: large;
+    //background-color: #f53d3d;
+  }
+
+  .blogs{
+    cursor:pointer;
+  }
+
+  ion-content {
+    margin: 10pt;
+  }
+
+  .nothing{
+    margin-left: 20pt;
+    font-size: medium;
+  }
+}

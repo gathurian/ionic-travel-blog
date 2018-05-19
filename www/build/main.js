@@ -1,12 +1,12 @@
 webpackJsonp([9],{
 
-/***/ 119:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,18 +47,18 @@ var LoggerRepositoryProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__log_log__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__log_log__ = __webpack_require__(147);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -109,7 +109,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <img src="{{bannerBase64}}">\n  <p padding>{{welcomeText}}</p>\n  <ion-list padding *ngIf="currentUser">\n    <ion-list-header>\n      User Info\n    </ion-list-header>\n\n    <ion-item>\n      <ion-row>\n        <ion-col>Full name:</ion-col><ion-col col-7>{{currentUser.firstName}} {{currentUser.lastName}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item>\n      <ion-row>\n        <ion-col>User id:</ion-col><ion-col col-7>{{currentUser.id}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item *ngIf="currentUser.friends">\n      <ion-row>\n        <ion-col>Friends:</ion-col><ion-col col-7>{{currentUser.friends.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item *ngIf="currentUser.blogs">\n      <ion-row>\n        <ion-col>Blogs:</ion-col><ion-col col-7>{{currentUser.blogs.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n  </ion-list>\n\n  <div padding>\n    <button *ngIf="isAdmin" ion-button color="light" block (click)="presentLogPage()">\n      <ion-icon name="book" class="icon-left"></ion-icon>\n      Show anonymous logs\n    </button>\n    <button ion-button color="dark" block (click)="logOut()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Log out\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <img src="{{bannerBase64}}">\n  <p padding>{{welcomeText}}</p>\n  <ion-list padding *ngIf="currentUser">\n    <ion-list-header>\n      User Info\n    </ion-list-header>\n\n    <ion-item>\n      <ion-row>\n        <ion-col>Full name:</ion-col><ion-col col-7>{{currentUser.firstName}} {{currentUser.lastName}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item>\n      <ion-row>\n        <ion-col>User id:</ion-col><ion-col col-7>{{currentUser.id}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item *ngIf="currentUser.friends">\n      <ion-row>\n        <ion-col>Friends:</ion-col><ion-col col-7>{{currentUser.friends.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item *ngIf="currentUser.blogs">\n      <ion-row>\n        <ion-col>Blogs:</ion-col><ion-col col-7>{{currentUser.blogs.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n  </ion-list>\n\n  <div padding>\n    <button *ngIf="isAdmin" ion-button color="light" block (click)="presentLogPage()">\n      <ion-icon name="book" class="icon-left"></ion-icon>\n      Show anonymous logs\n    </button>\n    <button ion-button color="dark" block (click)="logOut()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Log out\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */],
@@ -125,53 +125,6 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 143:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpopoverforblogsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the FilterpopoverforblogsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var FilterpopoverforblogsPage = /** @class */ (function () {
-    function FilterpopoverforblogsPage(navParams) {
-        this.navParams = navParams;
-    }
-    FilterpopoverforblogsPage.prototype.ngOnInit = function () {
-        if (this.navParams.data) {
-            this.contentEle = this.navParams.data.contentEle;
-            this.textEle = this.navParams.data.textEle;
-        }
-    };
-    FilterpopoverforblogsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-filterpopoverforblogs',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/'<!--\n  Generated template for the FilterpopoverforblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="f">Female</ion-option>\n        <ion-option value="m">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Gaming</ion-label>\n      <ion-select [(ngModel)]="gaming" interface="popover">\n        <ion-option value="nes">NES</ion-option>\n        <ion-option value="n64">Nintendo64</ion-option>\n        <ion-option value="ps">PlayStation</ion-option>\n        <ion-option value="genesis">Sega Genesis</ion-option>\n        <ion-option value="saturn">Sega Saturn</ion-option>\n        <ion-option value="snes">SNES</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Notifications</ion-label>\n      <ion-select [(ngModel)]="notifications" interface="action-sheet">\n        <ion-option value="enable">Enable</ion-option>\n        <ion-option value="mute">Mute</ion-option>\n        <ion-option value="mute_week">Mute for a week</ion-option>\n        <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Operating System</ion-label>\n      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">\n        <ion-option value="dos">DOS</ion-option>\n        <ion-option value="lunix">Linux</ion-option>\n        <ion-option value="mac7">Mac OS 7</ion-option>\n        <ion-option value="mac8">Mac OS 8</ion-option>\n        <ion-option value="win3.1">Windows 3.1</ion-option>\n        <ion-option value="win95">Windows 95</ion-option>\n        <ion-option value="win98">Windows 98</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Music</ion-label>\n      <ion-select [(ngModel)]="music" [selectOptions]="musicAlertOpts">\n        <ion-option>Alice in Chains</ion-option>\n        <ion-option>Green Day</ion-option>\n        <ion-option>Nirvana</ion-option>\n        <ion-option>Pearl Jam</ion-option>\n        <ion-option>Smashing Pumpkins</ion-option>\n        <ion-option>Soundgarden</ion-option>\n        <ion-option (select)="stpSelect()">Stone Temple Pilots</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-select [(ngModel)]="month">\n        <ion-option value="01">January</ion-option>\n        <ion-option value="02">February</ion-option>\n        <ion-option value="03">March</ion-option>\n        <ion-option value="04">April</ion-option>\n        <ion-option value="05">May</ion-option>\n        <ion-option value="06">June</ion-option>\n        <ion-option value="07">July</ion-option>\n        <ion-option value="08">August</ion-option>\n        <ion-option value="09">September</ion-option>\n        <ion-option value="10">October</ion-option>\n        <ion-option value="11">November</ion-option>\n        <ion-option value="12" checked="true">December</ion-option>\n      </ion-select>\n      <ion-select [(ngModel)]="year">\n        <ion-option>1989</ion-option>\n        <ion-option>1990</ion-option>\n        <ion-option>1991</ion-option>\n        <ion-option>1992</ion-option>\n        <ion-option>1993</ion-option>\n        <ion-option checked="true">1994</ion-option>\n        <ion-option>1995</ion-option>\n        <ion-option>1996</ion-option>\n        <ion-option>1997</ion-option>\n        <ion-option>1998</ion-option>\n        <ion-option>1999</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], FilterpopoverforblogsPage);
-    return FilterpopoverforblogsPage;
-}());
-
-//# sourceMappingURL=filterpopoverforblogs.js.map
-
-/***/ }),
-
 /***/ 144:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -179,9 +132,9 @@ var FilterpopoverforblogsPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditblogcomponentPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editblog_editblog__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editblog_editblog__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -315,12 +268,14 @@ var EditblogcomponentPage = /** @class */ (function () {
     };
     EditblogcomponentPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editblogcomponent',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblogcomponent\editblogcomponent.html"*/'<!--\n  Generated template for the EditblogcomponentPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>editblogcomponent</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img src="{{blogComponent.image}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="navToEditBlog($event, blog)">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Blogtext</ion-label>\n      <ion-textarea placeholder="" max="3000" [(ngModel)]="blogComponent.text"></ion-textarea>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblogcomponent\editblogcomponent.html"*/,
+            selector: 'page-editblogcomponent',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblogcomponent/editblogcomponent.html"*/'<!--\n  Generated template for the EditblogcomponentPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>editblogcomponent</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img src="{{blogComponent.image}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="navToEditBlog($event, blog)">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Blogtext</ion-label>\n      <ion-textarea placeholder="" max="3000" [(ngModel)]="blogComponent.text"></ion-textarea>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblogcomponent/editblogcomponent.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]])
     ], EditblogcomponentPage);
     return EditblogcomponentPage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=editblogcomponent.js.map
@@ -331,14 +286,9 @@ var EditblogcomponentPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpopoverforblogsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__friend_detail_friend_detail__ = __webpack_require__(256);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -348,6 +298,60 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
+/**
+ * Generated class for the FilterpopoverforblogsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FilterpopoverforblogsPage = /** @class */ (function () {
+    function FilterpopoverforblogsPage(navParams) {
+        this.navParams = navParams;
+    }
+    FilterpopoverforblogsPage.prototype.ngOnInit = function () {
+        if (this.navParams.data) {
+            this.contentEle = this.navParams.data.contentEle;
+            this.textEle = this.navParams.data.textEle;
+        }
+    };
+    FilterpopoverforblogsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-filterpopoverforblogs',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/filterpopoverforblogs/filterpopoverforblogs.html"*/'<!--\n  Generated template for the FilterpopoverforblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="f">Female</ion-option>\n        <ion-option value="m">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Gaming</ion-label>\n      <ion-select [(ngModel)]="gaming" interface="popover">\n        <ion-option value="nes">NES</ion-option>\n        <ion-option value="n64">Nintendo64</ion-option>\n        <ion-option value="ps">PlayStation</ion-option>\n        <ion-option value="genesis">Sega Genesis</ion-option>\n        <ion-option value="saturn">Sega Saturn</ion-option>\n        <ion-option value="snes">SNES</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Notifications</ion-label>\n      <ion-select [(ngModel)]="notifications" interface="action-sheet">\n        <ion-option value="enable">Enable</ion-option>\n        <ion-option value="mute">Mute</ion-option>\n        <ion-option value="mute_week">Mute for a week</ion-option>\n        <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Operating System</ion-label>\n      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">\n        <ion-option value="dos">DOS</ion-option>\n        <ion-option value="lunix">Linux</ion-option>\n        <ion-option value="mac7">Mac OS 7</ion-option>\n        <ion-option value="mac8">Mac OS 8</ion-option>\n        <ion-option value="win3.1">Windows 3.1</ion-option>\n        <ion-option value="win95">Windows 95</ion-option>\n        <ion-option value="win98">Windows 98</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Music</ion-label>\n      <ion-select [(ngModel)]="music" [selectOptions]="musicAlertOpts">\n        <ion-option>Alice in Chains</ion-option>\n        <ion-option>Green Day</ion-option>\n        <ion-option>Nirvana</ion-option>\n        <ion-option>Pearl Jam</ion-option>\n        <ion-option>Smashing Pumpkins</ion-option>\n        <ion-option>Soundgarden</ion-option>\n        <ion-option (select)="stpSelect()">Stone Temple Pilots</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-select [(ngModel)]="month">\n        <ion-option value="01">January</ion-option>\n        <ion-option value="02">February</ion-option>\n        <ion-option value="03">March</ion-option>\n        <ion-option value="04">April</ion-option>\n        <ion-option value="05">May</ion-option>\n        <ion-option value="06">June</ion-option>\n        <ion-option value="07">July</ion-option>\n        <ion-option value="08">August</ion-option>\n        <ion-option value="09">September</ion-option>\n        <ion-option value="10">October</ion-option>\n        <ion-option value="11">November</ion-option>\n        <ion-option value="12" checked="true">December</ion-option>\n      </ion-select>\n      <ion-select [(ngModel)]="year">\n        <ion-option>1989</ion-option>\n        <ion-option>1990</ion-option>\n        <ion-option>1991</ion-option>\n        <ion-option>1992</ion-option>\n        <ion-option>1993</ion-option>\n        <ion-option checked="true">1994</ion-option>\n        <ion-option>1995</ion-option>\n        <ion-option>1996</ion-option>\n        <ion-option>1997</ion-option>\n        <ion-option>1998</ion-option>\n        <ion-option>1999</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/filterpopoverforblogs/filterpopoverforblogs.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], FilterpopoverforblogsPage);
+    return FilterpopoverforblogsPage;
+}());
+
+//# sourceMappingURL=filterpopoverforblogs.js.map
+
+/***/ }),
+
+/***/ 146:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__friend_detail_friend_detail__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__myProfile_my_profile__ = __webpack_require__(258);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 
@@ -397,28 +401,31 @@ var FriendListPage = /** @class */ (function () {
             });
         });
     };
+    FriendListPage.prototype.goToMyProfile = function () {
+        var myself = this.currentUser;
+        this.navController.push(__WEBPACK_IMPORTED_MODULE_6__myProfile_my_profile__["a" /* MyProfilePage */], { myself: myself });
+    };
     FriendListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-friend-list',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\friend-list\friend-list.html"*/'<!--\n  Generated template for the FriendListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Freunde</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list inset *ngIf="friends;else no_friends">\n    <ion-list-header>\n      Meine Freunde\n    </ion-list-header>\n    <ion-item class="friend" *ngFor="let friend of friends | async" (click)="goToDetails(friend)">\n      <ion-icon name="contact" item-start></ion-icon>\n      {{friend.firstName}} {{friend.lastName}}\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_friends>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.\n    Falls du welche hinzufügen willst, drücke auf das + unten rechts</h1>\n  </ng-template>\n\n  <ion-fab right bottom>\n    <button ion-fab small (click)="presentFriendPrompt()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\friend-list\friend-list.html"*/,
+            selector: 'page-friend-list',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-list/friend-list.html"*/'<!--\n  Generated template for the FriendListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Freunde</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-list inset *ngIf="friends;else no_friends">\n    <ion-list-header>\n      Meine Freunde\n    </ion-list-header>\n    <ion-item class="friend" *ngFor="let friend of friends | async" (click)="goToDetails(friend)">\n      <ion-icon name="contact" item-start></ion-icon>\n      {{friend.firstName}} {{friend.lastName}}\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_friends>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.\n    Falls du welche hinzufügen willst, drücke auf das + unten rechts</h1>\n  </ng-template>\n\n  <ion-fab right bottom>\n    <button ion-fab small (click)="presentFriendPrompt()">\n      <ion-icon name="person-add"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab right top>\n    <button ion-fab small (click)="goToMyProfile()">\n      <ion-icon name="person"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-list/friend-list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _c || Object])
     ], FriendListPage);
     return FriendListPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=friend-list.js.map
 
 /***/ }),
 
-/***/ 146:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__ = __webpack_require__(120);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -443,7 +450,7 @@ var LogPage = /** @class */ (function () {
     }
     LogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-log',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\log\log.html"*/'<!--\n  Generated template for the LogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Log</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list *ngIf="logs;else no_logs">\n    <ion-list-header>\n      Travel-Blog logs\n    </ion-list-header>\n    <ion-item *ngFor="let log of logs | async">\n      <ion-icon name="book" item-start></ion-icon>\n      <ion-row><ion-col></ion-col><ion-col></ion-col></ion-row>\n      <h2>{{log.dateTime}}</h2>\n      <h3>{{log.userId}}</h3>\n      <p>{{log.message}}</p>\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_logs>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">There are 0 logs</h1>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\log\log.html"*/,
+            selector: 'page-log',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/log/log.html"*/'<!--\n  Generated template for the LogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Log</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list *ngIf="logs;else no_logs">\n    <ion-list-header>\n      Travel-Blog logs\n    </ion-list-header>\n    <ion-item *ngFor="let log of logs | async">\n      <ion-icon name="book" item-start></ion-icon>\n      <ion-row><ion-col></ion-col><ion-col></ion-col></ion-row>\n      <h2>{{log.dateTime}}</h2>\n      <h3>{{log.userId}}</h3>\n      <p>{{log.message}}</p>\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_logs>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">There are 0 logs</h1>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/log/log.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__["a" /* LoggerRepositoryProvider */]])
     ], LogPage);
@@ -454,17 +461,17 @@ var LogPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 147:
+/***/ 148:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(442);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -543,7 +550,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list padding-right>\n\n    <ion-item>\n      <ion-label stacked>E-Mail</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n\n    <ion-item style="display: none"></ion-item>\n\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="signIn()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Sign In\n    </button>\n    <button ion-button color="dark" block (click)="presentRegister()">\n      <ion-icon name="person-add" class="icon-left"></ion-icon>\n      Register\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list padding-right>\n\n    <ion-item>\n      <ion-label stacked>E-Mail</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n\n    <ion-item style="display: none"></ion-item>\n\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="signIn()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Sign In\n    </button>\n    <button ion-button color="dark" block (click)="presentRegister()">\n      <ion-icon name="person-add" class="icon-left"></ion-icon>\n      Register\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
@@ -558,7 +565,7 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -571,16 +578,16 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 160;
+webpackEmptyAsyncContext.id = 161;
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/editblog/editblog.module": [
-		470,
+		473,
 		8
 	],
 	"../pages/editblogcomponent/editblogcomponent.module": [
@@ -592,7 +599,7 @@ var map = {
 		6
 	],
 	"../pages/friend-list/friend-list.module": [
-		473,
+		475,
 		5
 	],
 	"../pages/full-blog/full-blog.module": [
@@ -600,19 +607,19 @@ var map = {
 		4
 	],
 	"../pages/log/log.module": [
-		475,
+		476,
 		3
 	],
 	"../pages/login/login.module": [
-		476,
+		477,
 		2
 	],
 	"../pages/mytravelblogs/mytravelblogs.module": [
-		477,
+		478,
 		1
 	],
 	"../pages/viewblog/viewblog.module": [
-		478,
+		479,
 		0
 	]
 };
@@ -627,21 +634,21 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 202;
+webpackAsyncContext.id = 203;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 256:
+/***/ 257:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewblog_viewblog__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewblog_viewblog__ = __webpack_require__(63);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -691,7 +698,7 @@ var FriendDetailPage = /** @class */ (function () {
     };
     FriendDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'friend-detail',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\friend-detail\friend-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{selectedPerson.firstName}} {{selectedPerson.lastName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="photo">\n    <img src="../../assets/imgs/team-placeholder.jpg">\n  </div>\n  <div class="details">\n    Vorname: <b>{{selectedPerson.firstName}}</b>\n    <hr>\n    Nachname: <b>{{selectedPerson.lastName}}</b>\n    <hr>\n  </div>\n  <div class="details">\n    Freunde:\n    <div *ngIf="friends.length > 0; else no_friends">\n      <ion-item *ngFor="let friend of friends">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{friend.firstName}} {{friend.lastName}}\n      </ion-item>\n    </div>\n  </div>\n  <div class="details">\n    Blogs:\n    <div *ngIf="blogs.length > 0; else no_blogs">\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n        <ion-icon name="contact" item-start ></ion-icon>\n        {{blog.title}} am {{blog.date}}\n      </ion-item>\n    </div>\n  </div>\n\n  <ng-template #no_friends>\n    <div class="nothing">\n      {{selectedPerson.firstName}} hat (noch) keine Freunde.\n    </div>\n  </ng-template>\n\n  <ng-template #no_blogs>\n    <div class="nothing">\n      {{selectedPerson.firstName}} hat (noch) keine Blogs.\n    </div>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\friend-detail\friend-detail.html"*/
+            selector: 'friend-detail',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-detail/friend-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{selectedPerson.firstName}} {{selectedPerson.lastName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="photo">\n    <img src="../../assets/imgs/team-placeholder.jpg">\n  </div>\n  <div class="details">\n    Vorname: <b>{{selectedPerson.firstName}}</b>\n    <hr>\n    Nachname: <b>{{selectedPerson.lastName}}</b>\n    <hr>\n  </div>\n  <div class="details">\n    Freunde:\n    <div *ngIf="friends.length > 0; else no_friends">\n      <ion-item *ngFor="let friend of friends">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{friend.firstName}} {{friend.lastName}}\n      </ion-item>\n    </div>\n  </div>\n  <div class="details">\n    Blogs:\n    <div *ngIf="blogs.length > 0; else no_blogs">\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n        <ion-icon name="contact" item-start ></ion-icon>\n        {{blog.title}} am {{blog.date}}\n      </ion-item>\n    </div>\n  </div>\n\n  <ng-template #no_friends>\n    <div class="nothing">\n      {{selectedPerson.firstName}} hat (noch) keine Freunde.\n    </div>\n  </ng-template>\n\n  <ng-template #no_blogs>\n    <div class="nothing">\n      {{selectedPerson.firstName}} hat (noch) keine Blogs.\n    </div>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-detail/friend-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -705,13 +712,84 @@ var FriendDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyProfilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewblog_viewblog__ = __webpack_require__(63);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the FriendDetailComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var MyProfilePage = /** @class */ (function () {
+    function MyProfilePage(navCtrl, navParams, userRepository, blogRepository) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.userRepository = userRepository;
+        this.blogRepository = blogRepository;
+        this.me = navParams.get('myself');
+        this.blogs = [];
+        this.friends = [];
+        this.userRepository.getAllFriends(this.me).then(function (friends) {
+            console.log("------");
+            console.log(friends);
+            console.log("Person: " + _this.me);
+            _this.friends = friends;
+        });
+        this.blogRepository.getAllBlogsFrom(this.me).then(function (blogs) {
+            console.log("-------------");
+            console.log(blogs);
+            _this.blogs = blogs;
+        });
+    }
+    MyProfilePage.prototype.showBlogs = function (blog) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__viewblog_viewblog__["a" /* ViewblogPage */], {
+            clickedBlog: blog
+        });
+    };
+    MyProfilePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'myProfile',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/myProfile/my-profile.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{me.firstName}} {{me.lastName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="photo">\n    <img src="../../assets/imgs/team-placeholder.jpg">\n  </div>\n  <div class="details">\n    Vorname: <b>{{me.firstName}}</b>\n    <hr>\n    Nachname: <b>{{me.lastName}}</b>\n    <hr>\n  </div>\n  <div class="details">\n    Freunde:\n    <div *ngIf="friends.length > 0; else no_friends">\n      <ion-item *ngFor="let friend of friends">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{friend.firstName}} {{friend.lastName}}\n      </ion-item>\n    </div>\n  </div>\n  <div class="details">\n    Blogs:\n    <div *ngIf="blogs.length > 0; else no_blogs">\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{blog.title}} am {{blog.date}}\n      </ion-item>\n    </div>\n  </div>\n\n  <ng-template #no_friends>\n    <div class="nothing">\n      {{me.firstName}} hat (noch) keine Freunde.\n    </div>\n  </ng-template>\n\n  <ng-template #no_blogs>\n    <div class="nothing">\n      {{me.firstName}} hat (noch) keine Blogs.\n    </div>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/myProfile/my-profile.html"*/
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]) === "function" && _d || Object])
+    ], MyProfilePage);
+    return MyProfilePage;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=my-profile.js.map
+
+/***/ }),
+
+/***/ 259:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TravelBlogRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -761,7 +839,7 @@ var TravelBlogRepositoryProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 301:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -792,7 +870,7 @@ var FullBlogPage = /** @class */ (function () {
     }
     FullBlogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-full-blog',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\full-blog\full-blog.html"*/'<!--\n  Generated template for the FullBlogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Full Blog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card *ngIf="blog">\n    <img src="{{blog.bannerBase64}}"/>\n    <ion-card-content>\n      <ion-card-title>\n        {{blog.title}}\n      </ion-card-title>\n      <p>\n        {{blog.story}}\n      </p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\full-blog\full-blog.html"*/,
+            selector: 'page-full-blog',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/full-blog/full-blog.html"*/'<!--\n  Generated template for the FullBlogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Full Blog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card *ngIf="blog">\n    <img src="{{blog.bannerBase64}}"/>\n    <ion-card-content>\n      <ion-card-title>\n        {{blog.title}}\n      </ion-card-title>\n      <p>\n        {{blog.story}}\n      </p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/full-blog/full-blog.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], FullBlogPage);
@@ -803,13 +881,13 @@ var FullBlogPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 302:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(324);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 
 
@@ -820,46 +898,48 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 322:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_friend_list_friend_list__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_friend_detail_friend_detail__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(468);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_blog_repository_blog_repository__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_blog_detail_blog_detail__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_full_blog_full_blog__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2_auth__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_login__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_logger_repository_logger_repository__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_logger_logger__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_log_log__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__angular_common_http__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_editblog_editblog__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_viewblog_viewblog__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_editblogcomponent_editblogcomponent__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_friend_list_friend_list__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_friend_detail_friend_detail__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_blog_repository_blog_repository__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_blog_detail_blog_detail__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_full_blog_full_blog__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2_auth__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_login__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_logger_repository_logger_repository__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_logger_logger__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_log_log__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_myProfile_my_profile__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__angular_common_http__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_editblog_editblog__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_viewblog_viewblog__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_editblogcomponent_editblogcomponent__ = __webpack_require__(144);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -912,22 +992,23 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_17__pages_full_blog_full_blog__["a" /* FullBlogPage */],
                 __WEBPACK_IMPORTED_MODULE_19__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_log_log__["a" /* LogPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_editblog_editblog__["a" /* EditblogPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_filterpopoverforblogs_filterpopoverforblogs__["a" /* FilterpopoverforblogsPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_viewblog_viewblog__["a" /* ViewblogPage */]
+                __WEBPACK_IMPORTED_MODULE_25__pages_editblog_editblog__["a" /* EditblogPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_filterpopoverforblogs_filterpopoverforblogs__["a" /* FilterpopoverforblogsPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_viewblog_viewblog__["a" /* ViewblogPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_myProfile_my_profile__["a" /* MyProfilePage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_12__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/editblog/editblog.module#EditblogPageModule', name: 'EditblogPage', segment: 'editblog', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editblogcomponent/editblogcomponent.module#EditblogcomponentPageModule', name: 'EditblogcomponentPage', segment: 'editblogcomponent', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/filterpopoverforblogs/filterpopoverforblogs.module#FilterpopoverforblogsPageModule', name: 'FilterpopoverforblogsPage', segment: 'filterpopoverforblogs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/friend-list/friend-list.module#FriendListPageModule', name: 'FriendListPage', segment: 'friend-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editblog/editblog.module#EditblogPageModule', name: 'EditblogPage', segment: 'editblog', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/full-blog/full-blog.module#FullBlogPageModule', name: 'FullBlogPage', segment: 'full-blog', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/friend-list/friend-list.module#FriendListPageModule', name: 'FriendListPage', segment: 'friend-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mytravelblogs/mytravelblogs.module#MytravelblogsPageModule', name: 'MytravelblogsPage', segment: 'mytravelblogs', priority: 'low', defaultHistory: [] },
@@ -936,7 +1017,7 @@ var AppModule = /** @class */ (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
                 __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__["b" /* AngularFireDatabaseModule */],
-                __WEBPACK_IMPORTED_MODULE_23__angular_common_http__["b" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_24__angular_common_http__["b" /* HttpClientModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
@@ -947,11 +1028,12 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_17__pages_full_blog_full_blog__["a" /* FullBlogPage */],
                 __WEBPACK_IMPORTED_MODULE_19__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_log_log__["a" /* LogPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_editblog_editblog__["a" /* EditblogPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_filterpopoverforblogs_filterpopoverforblogs__["a" /* FilterpopoverforblogsPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_viewblog_viewblog__["a" /* ViewblogPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */]
+                __WEBPACK_IMPORTED_MODULE_25__pages_editblog_editblog__["a" /* EditblogPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_filterpopoverforblogs_filterpopoverforblogs__["a" /* FilterpopoverforblogsPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_viewblog_viewblog__["a" /* ViewblogPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_myProfile_my_profile__["a" /* MyProfilePage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */],
@@ -964,7 +1046,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_18_angularfire2_auth__["a" /* AngularFireAuth */],
                 __WEBPACK_IMPORTED_MODULE_20__providers_logger_repository_logger_repository__["a" /* LoggerRepositoryProvider */],
                 __WEBPACK_IMPORTED_MODULE_21__providers_logger_logger__["a" /* LoggerProvider */],
-                __WEBPACK_IMPORTED_MODULE_23__angular_common_http__["b" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_24__angular_common_http__["b" /* HttpClientModule */]
             ]
         })
     ], AppModule);
@@ -975,15 +1057,15 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 40:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_logger__ = __webpack_require__(77);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1105,330 +1187,14 @@ var UserRepositoryProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 439:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogComponentRepositoryProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(76);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/*
-  Generated class for the BlogRepositoryProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var BlogComponentRepositoryProvider = /** @class */ (function () {
-    function BlogComponentRepositoryProvider(angularFireDatabase, logger) {
-        this.angularFireDatabase = angularFireDatabase;
-        this.logger = logger;
-        this.allBlogComponents = this.angularFireDatabase.list('/blogcomponents').valueChanges();
-    }
-    BlogComponentRepositoryProvider.prototype.getAllComponentsFrom = function (blog) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            var componentsOfBlog = [];
-            _this.allBlogComponents.subscribe(function (components) {
-                components.forEach(function (blogComponent) {
-                    if (blog.content.some(function (x) { return x === blogComponent.id; })) {
-                        componentsOfBlog.push(blogComponent);
-                    }
-                });
-                resolve(componentsOfBlog);
-            });
-        });
-    };
-    BlogComponentRepositoryProvider.prototype.updateBlogComponent = function (blogComponent) {
-        var _this = this;
-        this.angularFireDatabase.list('/blogcomponents').update(blogComponent.id, blogComponent).then(function () {
-            _this.logger.logEvent("blogComponent " + blogComponent.id + " updated");
-        });
-    };
-    BlogComponentRepositoryProvider.prototype.createBlogComponent = function (blogComponent) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            var ref = _this.angularFireDatabase.list('/blogcomponents').push({});
-            blogComponent.id = ref.key;
-            _this.angularFireDatabase.list('/blogcomponents').update(ref, blogComponent).then(function () {
-                _this.logger.logEvent("new blogComponent " + blogComponent.id + " created");
-                resolve(blogComponent.id);
-            });
-        });
-    };
-    BlogComponentRepositoryProvider.prototype.deleteBlogComponent = function (blogComponent) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            //const ref = this.angularFireDatabase.list('/blogs').push({});
-            //blog.id = ref.key;
-            //blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
-            _this.angularFireDatabase.list('/blogcomponents').remove(blogComponent.id).then(function () {
-                _this.logger.logEvent("new blogComponent " + blogComponent.id + " deleted");
-                resolve(blogComponent.id);
-            });
-        });
-    };
-    BlogComponentRepositoryProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */]) === "function" && _b || Object])
-    ], BlogComponentRepositoryProvider);
-    return BlogComponentRepositoryProvider;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=blogcomponent-repository.js.map
-
-/***/ }),
-
-/***/ 440:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPrompt; });
-var FriendListPrompt = /** @class */ (function () {
-    function FriendListPrompt() {
-    }
-    FriendListPrompt.presentFriendId = function (promptControl) {
-        return new Promise(function (resolve) {
-            var alert = promptControl.create({
-                title: 'Freund hinzufügen',
-                message: 'Frag deinen Freund nach seiner ID (zu finden auf der Homepage unter "User-Info"',
-                inputs: [
-                    {
-                        name: 'friendId',
-                        placeholder: 'Id'
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Cancel',
-                        role: 'cancel',
-                        handler: function () {
-                            resolve('');
-                        }
-                    },
-                    {
-                        text: 'Hinzufügen',
-                        handler: function (data) {
-                            resolve(data.friendId);
-                        }
-                    }
-                ]
-            });
-            alert.present();
-        });
-    };
-    ;
-    FriendListPrompt.presentUnknownId = function (promptControl, friendId) {
-        var alert = promptControl.create({
-            title: 'Unbekannte ID',
-            subTitle: "Sorry, aber wir konnten keine Person mit der folgenden ID finden: \n" + friendId,
-            buttons: ['OK']
-        });
-        alert.present();
-    };
-    return FriendListPrompt;
-}());
-
-//# sourceMappingURL=friend-list-promt.js.map
-
-/***/ }),
-
-/***/ 441:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginRegisterPrompt; });
-var LoginRegisterPrompt = /** @class */ (function () {
-    function LoginRegisterPrompt() {
-    }
-    LoginRegisterPrompt.present = function (promptControl) {
-        return new Promise(function (resolve) {
-            var alert = promptControl.create({
-                title: 'Welcome',
-                inputs: [
-                    {
-                        name: 'email',
-                        type: 'email',
-                        placeholder: 'E-Mail'
-                    },
-                    {
-                        name: 'firstName',
-                        placeholder: 'First name'
-                    },
-                    {
-                        name: 'lastName',
-                        placeholder: 'Last name'
-                    },
-                    {
-                        name: 'password',
-                        type: 'password',
-                        placeholder: 'Password'
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Cancel',
-                        role: 'cancel',
-                        handler: function () {
-                            resolve({ email: '', password: '' });
-                        }
-                    },
-                    {
-                        text: 'Register',
-                        handler: function (loginData) {
-                            resolve(loginData);
-                        }
-                    }
-                ]
-            });
-            alert.present();
-        });
-    };
-    return LoginRegisterPrompt;
-}());
-
-//# sourceMappingURL=login-register-prompt.js.map
-
-/***/ }),
-
-/***/ 459:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(82);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-//Kevins Pages
-
-var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen) {
-        this.platform = platform;
-        this.statusBar = statusBar;
-        this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */];
-        this.initializeApp();
-        // used for an example of ngFor and navigation
-        this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
-            { title: 'My Friends', component: __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__["a" /* FriendListPage */] },
-            { title: 'My Travel Blogs', component: __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */] }
-        ];
-    }
-    MyApp.prototype.initializeApp = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            _this.statusBar.styleDefault();
-            _this.splashScreen.hide();
-        });
-    };
-    MyApp.prototype.openPage = function (page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
-        this.nav.setRoot(page.component);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
-    ], MyApp.prototype, "nav", void 0);
-    MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\app\app.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
-    ], MyApp);
-    return MyApp;
-}());
-
-//# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 469:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogDetailComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-/**
- * Generated class for the BlogDetailComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
-var BlogDetailComponent = /** @class */ (function () {
-    function BlogDetailComponent() {
-    }
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('blog'),
-        __metadata("design:type", Object)
-    ], BlogDetailComponent.prototype, "blog", void 0);
-    BlogDetailComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'blog-detail',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\components\blog-detail\blog-detail.html"*/'<!-- Generated template for the BlogDetailComponent component -->\n<ion-card *ngIf="blog" class="card-background-page">\n  <img src="{{blog.bannerBase64}}"/>\n  <div class="card-title">{{blog.title}}</div>\n  <div class="card-subtitle">{{blog.date}}</div>\n</ion-card>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\components\blog-detail\blog-detail.html"*/
-        }),
-        __metadata("design:paramtypes", [])
-    ], BlogDetailComponent);
-    return BlogDetailComponent;
-}());
-
-//# sourceMappingURL=blog-detail.js.map
-
-/***/ }),
-
-/***/ 58:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogRepositoryProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(77);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1531,13 +1297,298 @@ var BlogRepositoryProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 76:
+/***/ 441:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPrompt; });
+var FriendListPrompt = /** @class */ (function () {
+    function FriendListPrompt() {
+    }
+    FriendListPrompt.presentFriendId = function (promptControl) {
+        return new Promise(function (resolve) {
+            var alert = promptControl.create({
+                title: 'Freund hinzufügen',
+                message: 'Frag deinen Freund nach seiner ID (zu finden auf der Homepage unter "User-Info"',
+                inputs: [
+                    {
+                        name: 'friendId',
+                        placeholder: 'Id'
+                    }
+                ],
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        handler: function () {
+                            resolve('');
+                        }
+                    },
+                    {
+                        text: 'Hinzufügen',
+                        handler: function (data) {
+                            resolve(data.friendId);
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        });
+    };
+    ;
+    FriendListPrompt.presentUnknownId = function (promptControl, friendId) {
+        var alert = promptControl.create({
+            title: 'Unbekannte ID',
+            subTitle: "Sorry, aber wir konnten keine Person mit der folgenden ID finden: \n" + friendId,
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    return FriendListPrompt;
+}());
+
+//# sourceMappingURL=friend-list-promt.js.map
+
+/***/ }),
+
+/***/ 442:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginRegisterPrompt; });
+var LoginRegisterPrompt = /** @class */ (function () {
+    function LoginRegisterPrompt() {
+    }
+    LoginRegisterPrompt.present = function (promptControl) {
+        return new Promise(function (resolve) {
+            var alert = promptControl.create({
+                title: 'Welcome',
+                inputs: [
+                    {
+                        name: 'email',
+                        type: 'email',
+                        placeholder: 'E-Mail'
+                    },
+                    {
+                        name: 'firstName',
+                        placeholder: 'First name'
+                    },
+                    {
+                        name: 'lastName',
+                        placeholder: 'Last name'
+                    },
+                    {
+                        name: 'password',
+                        type: 'password',
+                        placeholder: 'Password'
+                    }
+                ],
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        handler: function () {
+                            resolve({ email: '', password: '' });
+                        }
+                    },
+                    {
+                        text: 'Register',
+                        handler: function (loginData) {
+                            resolve(loginData);
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        });
+    };
+    return LoginRegisterPrompt;
+}());
+
+//# sourceMappingURL=login-register-prompt.js.map
+
+/***/ }),
+
+/***/ 460:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(84);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+//Kevins Pages
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */];
+        this.initializeApp();
+        // used for an example of ngFor and navigation
+        this.pages = [
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
+            { title: 'My Friends', component: __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__["a" /* FriendListPage */] },
+            { title: 'My Travel Blogs', component: __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */] }
+        ];
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/app/app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 470:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogDetailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the BlogDetailComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var BlogDetailComponent = /** @class */ (function () {
+    function BlogDetailComponent() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('blog'),
+        __metadata("design:type", Object)
+    ], BlogDetailComponent.prototype, "blog", void 0);
+    BlogDetailComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'blog-detail',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/components/blog-detail/blog-detail.html"*/'<!-- Generated template for the BlogDetailComponent component -->\n<ion-card *ngIf="blog" class="card-background-page">\n  <img src="{{blog.bannerBase64}}"/>\n  <div class="card-title">{{blog.title}}</div>\n  <div class="card-subtitle">{{blog.date}}</div>\n</ion-card>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/components/blog-detail/blog-detail.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], BlogDetailComponent);
+    return BlogDetailComponent;
+}());
+
+//# sourceMappingURL=blog-detail.js.map
+
+/***/ }),
+
+/***/ 63:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewblogPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the ViewblogPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ViewblogPage = /** @class */ (function () {
+    function ViewblogPage(navCtrl, navParams, blogComponentRepository) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.blogComponentRepository = blogComponentRepository;
+        this.blog = navParams.get('clickedBlog');
+        console.log(this.blog);
+        this.blogComponentRepository.getAllComponentsFrom(this.blog).then(function (blogComponents) {
+            _this.blogComponents = blogComponents;
+            console.log(blogComponents);
+        });
+        //HTTP Request auf this.blog.content <Array String>
+    }
+    ViewblogPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ViewblogPage');
+    };
+    ViewblogPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-viewblog',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/viewblog/viewblog.html"*/'<!--\n  Generated template for the ViewblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{blog.title}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img [src]="blog.previewImage"/>\n\n  <h1>{{blog.title}}</h1>\n\n  <h3>{{blog.date}}</h3>\n\n  <p>\n    {{blog.abstract}}\n  </p>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <img [src]="blogComponent.image"/>\n        <ion-card-content>\n          <p>\n            {{blogComponent.text}}\n          </p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/viewblog/viewblog.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */]])
+    ], ViewblogPage);
+    return ViewblogPage;
+}());
+
+//# sourceMappingURL=viewblog.js.map
+
+/***/ }),
+
+/***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logger_repository_logger_repository__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logger_repository_logger_repository__ = __webpack_require__(120);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1580,19 +1631,106 @@ var LoggerProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 81:
+/***/ 78:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogComponentRepositoryProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logger_logger__ = __webpack_require__(77);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the BlogRepositoryProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var BlogComponentRepositoryProvider = /** @class */ (function () {
+    function BlogComponentRepositoryProvider(angularFireDatabase, logger) {
+        this.angularFireDatabase = angularFireDatabase;
+        this.logger = logger;
+        this.allBlogComponents = this.angularFireDatabase.list('/blogcomponents').valueChanges();
+    }
+    BlogComponentRepositoryProvider.prototype.getAllComponentsFrom = function (blog) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            var componentsOfBlog = [];
+            _this.allBlogComponents.subscribe(function (components) {
+                components.forEach(function (blogComponent) {
+                    if (blog.content.some(function (x) { return x === blogComponent.id; })) {
+                        componentsOfBlog.push(blogComponent);
+                    }
+                });
+                resolve(componentsOfBlog);
+            });
+        });
+    };
+    BlogComponentRepositoryProvider.prototype.updateBlogComponent = function (blogComponent) {
+        var _this = this;
+        this.angularFireDatabase.list('/blogcomponents').update(blogComponent.id, blogComponent).then(function () {
+            _this.logger.logEvent("blogComponent " + blogComponent.id + " updated");
+        });
+    };
+    BlogComponentRepositoryProvider.prototype.createBlogComponent = function (blogComponent) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            var ref = _this.angularFireDatabase.list('/blogcomponents').push({});
+            blogComponent.id = ref.key;
+            _this.angularFireDatabase.list('/blogcomponents').update(ref, blogComponent).then(function () {
+                _this.logger.logEvent("new blogComponent " + blogComponent.id + " created");
+                resolve(blogComponent.id);
+            });
+        });
+    };
+    BlogComponentRepositoryProvider.prototype.deleteBlogComponent = function (blogComponent) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            //const ref = this.angularFireDatabase.list('/blogs').push({});
+            //blog.id = ref.key;
+            //blog.date = new Date().toLocaleDateString('de-DE', { timeZone: 'UTC' });
+            _this.angularFireDatabase.list('/blogcomponents').remove(blogComponent.id).then(function () {
+                _this.logger.logEvent("new blogComponent " + blogComponent.id + " deleted");
+                resolve(blogComponent.id);
+            });
+        });
+    };
+    BlogComponentRepositoryProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_2__logger_logger__["a" /* LoggerProvider */]])
+    ], BlogComponentRepositoryProvider);
+    return BlogComponentRepositoryProvider;
+}());
+
+//# sourceMappingURL=blogcomponent-repository.js.map
+
+/***/ }),
+
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditblogPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editblogcomponent_editblogcomponent__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1733,31 +1871,35 @@ var EditblogPage = /** @class */ (function () {
     };
     EditblogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editblog',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblog\editblog.html"*/'<!--\n  Generated template for the EditblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <img src="{{blog.previewImage}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="navToEditBlog($event, blog)">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Titel</ion-label>\n      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Kurzbeschreibung</ion-label>\n      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Datum</ion-label>\n      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">\n          <img [src]="blogComponent.image"/>\n          <ion-card-content>\n            <p>\n              {{blogComponent.text}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <ion-fab center top *ngIf="mode==\'edit\'">\n          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblog\editblog.html"*/,
+            selector: 'page-editblog',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblog/editblog.html"*/'<!--\n  Generated template for the EditblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <img src="{{blog.previewImage}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="navToEditBlog($event, blog)">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Titel</ion-label>\n      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Kurzbeschreibung</ion-label>\n      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Datum</ion-label>\n      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">\n          <img [src]="blogComponent.image"/>\n          <ion-card-content>\n            <p>\n              {{blogComponent.text}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <ion-fab center top *ngIf="mode==\'edit\'">\n          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblog/editblog.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]])
     ], EditblogPage);
     return EditblogPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=editblog.js.map
 
 /***/ }),
 
-/***/ 82:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MytravelblogsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblog_editblog__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblog_editblog__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1839,74 +1981,18 @@ var MytravelblogsPage = /** @class */ (function () {
     };
     MytravelblogsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-mytravelblogs',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/'<!--\n  Generated template for the MytravelblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Travel Blogs</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="more()">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-toolbar>\n    <ion-searchbar\n      [(ngModel)]="myInput"\n      showCancelButton=true\n      (ionInput)="onInput($event)"\n      (ionCancel)="onCancel($event)">\n    </ion-searchbar>\n    <ion-buttons end>\n      <button round="true" ion-button icon-only (click)=\'presentFilterPopover()\'>\n        <ion-icon name="funnel"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor=\'let blog of blogs\'>\n        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">\n          <ion-fab right top>\n            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">\n              <ion-icon name="settings"></ion-icon>\n            </button>\n          </ion-fab>\n          <img [src]="blog.previewImage"/>\n          <ion-card-content>\n            <ion-card-title>\n              {{blog.title}}\n              <p>{{blog.date}}</p>\n              <ion-item-divider></ion-item-divider>\n            </ion-card-title>\n            <p>\n              {{blog.abstract}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col  col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>\n        <ion-fab center top>\n          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <!--<div showWhen="android">\n    I am visible on Android!\n  </div>\n  <container-element [ngSwitch]="switch_expression">\n    <some-element *ngSwitchCase="match_expression_1">...</some-element>\n    <some-element *ngSwitchCase="match_expression_2">...</some-element>\n    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>\n    <ng-container *ngSwitchCase="match_expression_3">\n      <!-- use a ng-container to group multiple root nodes -->\n  <!--<inner-element></inner-element>\n  <inner-other-element></inner-other-element>\n</ng-container>\n<some-element *ngSwitchDefault>...</some-element>\n</container-element>-->\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/,
+            selector: 'page-mytravelblogs',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/mytravelblogs/mytravelblogs.html"*/'<!--\n  Generated template for the MytravelblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Travel Blogs</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="more()">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-toolbar>\n    <ion-searchbar\n      [(ngModel)]="myInput"\n      showCancelButton=true\n      (ionInput)="onInput($event)"\n      (ionCancel)="onCancel($event)">\n    </ion-searchbar>\n    <ion-buttons end>\n      <button round="true" ion-button icon-only (click)=\'presentFilterPopover()\'>\n        <ion-icon name="funnel"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor=\'let blog of blogs\'>\n        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">\n          <ion-fab right top>\n            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">\n              <ion-icon name="settings"></ion-icon>\n            </button>\n          </ion-fab>\n          <img [src]="blog.previewImage"/>\n          <ion-card-content>\n            <ion-card-title>\n              {{blog.title}}\n              <p>{{blog.date}}</p>\n              <ion-item-divider></ion-item-divider>\n            </ion-card-title>\n            <p>\n              {{blog.abstract}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col  col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>\n        <ion-fab center top>\n          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <!--<div showWhen="android">\n    I am visible on Android!\n  </div>\n  <container-element [ngSwitch]="switch_expression">\n    <some-element *ngSwitchCase="match_expression_1">...</some-element>\n    <some-element *ngSwitchCase="match_expression_2">...</some-element>\n    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>\n    <ng-container *ngSwitchCase="match_expression_3">\n      <!-- use a ng-container to group multiple root nodes -->\n  <!--<inner-element></inner-element>\n  <inner-other-element></inner-other-element>\n</ng-container>\n<some-element *ngSwitchDefault>...</some-element>\n</container-element>-->\n\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/mytravelblogs/mytravelblogs.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* PopoverController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* PopoverController */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]])
     ], MytravelblogsPage);
     return MytravelblogsPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=mytravelblogs.js.map
 
-/***/ }),
-
-/***/ 83:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewblogPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(439);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the ViewblogPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ViewblogPage = /** @class */ (function () {
-    function ViewblogPage(navCtrl, navParams, blogComponentRepository) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.blogComponentRepository = blogComponentRepository;
-        this.blog = navParams.get('clickedBlog');
-        console.log(this.blog);
-        this.blogComponentRepository.getAllComponentsFrom(this.blog).then(function (blogComponents) {
-            _this.blogComponents = blogComponents;
-            console.log(blogComponents);
-        });
-        //HTTP Request auf this.blog.content <Array String>
-    }
-    ViewblogPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ViewblogPage');
-    };
-    ViewblogPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-viewblog',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\viewblog\viewblog.html"*/'<!--\n  Generated template for the ViewblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{blog.title}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img [src]="blog.previewImage"/>\n\n  <h1>{{blog.title}}</h1>\n\n  <h3>{{blog.date}}</h3>\n\n  <p>\n    {{blog.abstract}}\n  </p>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <img [src]="blogComponent.image"/>\n        <ion-card-content>\n          <p>\n            {{blogComponent.text}}\n          </p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\viewblog\viewblog.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */]) === "function" && _c || Object])
-    ], ViewblogPage);
-    return ViewblogPage;
-    var _a, _b, _c;
-}());
-
-//# sourceMappingURL=viewblog.js.map
-
 /***/ })
 
-},[302]);
+},[304]);
 //# sourceMappingURL=main.js.map

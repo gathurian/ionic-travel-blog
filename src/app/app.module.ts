@@ -24,6 +24,7 @@ import {LoginPage} from "../pages/login/login";
 import { LoggerRepositoryProvider } from '../providers/logger-repository/logger-repository';
 import { LoggerProvider } from '../providers/logger/logger';
 import {LogPage} from "../pages/log/log";
+import {MyProfilePage} from "../pages/myProfile/my-profile";
 
 
 //Kevins Pages
@@ -59,7 +60,8 @@ const firebaseConfig = {
     FilterpopoverforblogsPage,
     MytravelblogsPage,
     EditblogcomponentPage,
-    ViewblogPage
+    ViewblogPage,
+    MyProfilePage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ const firebaseConfig = {
     FilterpopoverforblogsPage,
     MytravelblogsPage,
     ViewblogPage,
-    EditblogcomponentPage
+    EditblogcomponentPage,
+    MyProfilePage
   ],
   providers: [
     StatusBar,

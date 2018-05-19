@@ -5,6 +5,7 @@ import {UserRepositoryProvider} from "../../providers/user-repository/user-repos
 import {Person} from "../../entities/person";
 import {FriendListPrompt} from "./friend-list-promt";
 import {FriendDetailPage} from "../friend-detail/friend-detail";
+import {MyProfilePage} from "../myProfile/my-profile";
 
 /**
  * Generated class for the FriendListPage page.
@@ -72,6 +73,11 @@ export class FriendListPage {
           FriendListPrompt.presentUnknownId(this.promptControl, friendId);
         });
     });
+  }
+
+  goToMyProfile(){
+    let myself:Person = this.currentUser;
+    this.navController.push(MyProfilePage, {myself});
   }
 
 }

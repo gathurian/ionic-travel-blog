@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{me.firstName}} {{me.lastName}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="photo">
+    <img src="../../assets/imgs/team-placeholder.jpg">
+  </div>
+  <div class="details">
+    Vorname: <b>{{me.firstName}}</b>
+    <hr>
+    Nachname: <b>{{me.lastName}}</b>
+    <hr>
+  </div>
+  <div class="details">
+    Freunde:
+    <div *ngIf="friends.length > 0; else no_friends">
+      <ion-item *ngFor="let friend of friends">
+        <ion-icon name="contact" item-start></ion-icon>
+        {{friend.firstName}} {{friend.lastName}}
+      </ion-item>
+    </div>
+  </div>
+  <div class="details">
+    Blogs:
+    <div *ngIf="blogs.length > 0; else no_blogs">
+      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">
+        <ion-icon name="contact" item-start></ion-icon>
+        {{blog.title}} am {{blog.date}}
+      </ion-item>
+    </div>
+  </div>
+
+  <ng-template #no_friends>
+    <div class="nothing">
+      {{me.firstName}} hat (noch) keine Freunde.
+    </div>
+  </ng-template>
+
+  <ng-template #no_blogs>
+    <div class="nothing">
+      {{me.firstName}} hat (noch) keine Blogs.
+    </div>
+  </ng-template>
+</ion-content>
