@@ -74,6 +74,23 @@ export class UserRepositoryProvider {
     });
   }
 
+  getPersonByName(firstName:string, lastName:string): Promise<Person>{
+    return new Promise((resolve, reject) => {
+      this.persons.subscribe(persons => {
+
+        persons.forEach(person => {
+
+          if ((person.firstName === firstName)&&(person.lastName === lastName)) {
+            resolve(person);
+          }
+        });
+
+        /* Unknown Id */
+        reject();
+      });
+    });
+  }
+
   addNewPerson(person: Person) {
     const ref = this.angularFireDatabase.list('/persons').push({});
     person.key = ref.key;

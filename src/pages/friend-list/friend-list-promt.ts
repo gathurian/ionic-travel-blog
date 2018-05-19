@@ -6,11 +6,14 @@ export class FriendListPrompt {
     return new Promise(resolve => {
       let alert = promptControl.create({
         title: 'Freund hinzufügen',
-        message: 'Frag deinen Freund nach seiner ID (zu finden auf der Homepage unter "User-Info"',
         inputs: [
           {
-            name: 'friendId',
-            placeholder: 'Id'
+            name: 'firstName',
+            placeholder: 'Vorname'
+          },
+          {
+            name: 'lastName',
+            placeholder: 'Nachname'
           }
         ],
         buttons: [
@@ -24,7 +27,8 @@ export class FriendListPrompt {
           {
             text: 'Hinzufügen',
             handler: data => {
-              resolve(data.friendId);
+              let fullName:string = data.firstName + " " + data.lastName;
+              resolve(fullName);
             }
           }
         ]

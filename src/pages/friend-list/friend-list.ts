@@ -58,9 +58,12 @@ export class FriendListPage {
   }
 
   presentFriendPrompt() {
-    FriendListPrompt.presentFriendId(this.promptControl).then(friendId => {
+    FriendListPrompt.presentFriendId(this.promptControl).then(fullName => {
+      let names = fullName.split(" ");
+      let firstName = names[0];
+      let lastName = names[1];
 
-      this.userRepository.getPersonById(friendId)
+      this.userRepository.getPersonByName(firstName, lastName)
         .then(friend => {
           console.log(`fullname: ${friend.firstName} ${friend.lastName}`);
           console.log(`fullname: ${this.currentUser.firstName} ${this.currentUser.lastName}`);
@@ -70,7 +73,7 @@ export class FriendListPage {
           });
         })
         .catch(() => {
-          FriendListPrompt.presentUnknownId(this.promptControl, friendId);
+          FriendListPrompt.presentUnknownId(this.promptControl, fullName);
         });
     });
   }
