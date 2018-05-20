@@ -5,6 +5,8 @@ import {UserRepositoryProvider} from "../../providers/user-repository/user-repos
 import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
 import {ViewblogPage} from "../viewblog/viewblog";
+import {Camera} from "@ionic-native/camera";
+import {ImageRepositoryProvider} from "../../providers/image-repository/image-repository";
 
 /**
  * Generated class for the FriendDetailComponent component.
@@ -25,8 +27,9 @@ export class MyProfilePage {
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
               private userRepository: UserRepositoryProvider,
-              private blogRepository:BlogRepositoryProvider)
-  {
+              private blogRepository: BlogRepositoryProvider,
+              private camera: Camera,
+              private imageRepository:ImageRepositoryProvider) {
     this.me = navParams.get('myself');
     this.blogs = [];
     this.friends = [];
@@ -45,11 +48,26 @@ export class MyProfilePage {
     });
   }
 
-  showBlogs(blog:iBlog){
+  showBlogs(blog: iBlog) {
     this.navCtrl.push(ViewblogPage, {
       clickedBlog: blog
     });
   }
 
+  takePicture() {
+    this.camera.getPicture({
+      quality: 100,
+      targetHeight: 100,
+      targetWidth: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      correctOrientation: true
+    }).then(imageData => {
+        let image:string = "data:image/jpeg;base64," + imageData;
+        this.me.image = image;
+        this.imageRepository.addProfileImage(this.me, image);
+      }
+    )
+  }
 }
 

@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
   <div class="photo">
-    <img src="../../assets/imgs/team-placeholder.jpg">
+    <img src={{me.image}} (click)="takePicture()">
   </div>
   <div class="details">
     Vorname: <b>{{me.firstName}}</b>

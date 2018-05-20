@@ -25,6 +25,8 @@ import { LoggerRepositoryProvider } from '../providers/logger-repository/logger-
 import { LoggerProvider } from '../providers/logger/logger';
 import {LogPage} from "../pages/log/log";
 import {MyProfilePage} from "../pages/myProfile/my-profile";
+import {Camera} from "@ionic-native/camera";
+import {ImageRepositoryProvider} from "../providers/image-repository/image-repository";
 
 
 //Kevins Pages
@@ -97,8 +99,10 @@ const firebaseConfig = {
     BlogComponentRepositoryProvider,
     AngularFireAuth,
     LoggerRepositoryProvider,
+    ImageRepositoryProvider,
     LoggerProvider,
-    HttpClientModule
+    HttpClientModule,
+    Camera
   ]
 })
 export class AppModule {

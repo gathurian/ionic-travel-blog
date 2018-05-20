@@ -82,5 +82,4 @@ export class FriendListPage {
     let myself:Person = this.currentUser;
     this.navController.push(MyProfilePage, {myself});
   }
-
 }
