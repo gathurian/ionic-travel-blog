@@ -7,6 +7,7 @@ import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repos
 import {ViewblogPage} from "../viewblog/viewblog";
 import {Camera} from "@ionic-native/camera";
 import {ImageRepositoryProvider} from "../../providers/image-repository/image-repository";
+import {AlertController} from "ionic-angular";
 
 /**
  * Generated class for the FriendDetailComponent component.
@@ -23,13 +24,13 @@ export class MyProfilePage {
   friends: Person[];
   me: Person;
 
-
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
               private userRepository: UserRepositoryProvider,
               private blogRepository: BlogRepositoryProvider,
               private camera: Camera,
-              private imageRepository:ImageRepositoryProvider) {
+              private imageRepository: ImageRepositoryProvider,
+              private alertCtrl: AlertController) {
     this.me = navParams.get('myself');
     this.blogs = [];
     this.friends = [];
@@ -54,7 +55,7 @@ export class MyProfilePage {
     });
   }
 
-  takePicture() {
+  takePictureFromCamera() {
     this.camera.getPicture({
       quality: 100,
       targetHeight: 100,
@@ -63,11 +64,60 @@ export class MyProfilePage {
       sourceType: this.camera.PictureSourceType.CAMERA,
       correctOrientation: true
     }).then(imageData => {
-        let image:string = "data:image/jpeg;base64," + imageData;
-        this.me.image = image;
-        this.imageRepository.addProfileImage(this.me, image);
-      }
-    )
+      let image: string = "data:image/jpeg;base64," + imageData;
+      this.me.image = image;
+      this.imageRepository.addProfileImage(this.me, image)
+    })
+      .catch(() => {
+
+      })
   }
+
+  takePictureFromGallery() {
+    this.camera.getPicture({
+      quality: 100,
+      targetHeight: 100,
+      targetWidth: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation: true
+    }).then(imageData => {
+      let image: string = "data:image/jpeg;base64," + imageData;
+      this.me.image = image;
+      this.imageRepository.addProfileImage(this.me, image)
+    })
+      .catch(() => {
+
+      })
+  }
+
+  chosoePictureLocation() {
+    let alert = this.alertCtrl.create({
+      title: "Photo aufnehmen oder aus der Galerie auswählen?",
+      buttons: [
+        {
+          text: 'Kamera',
+          handler: () => {
+            this.takePictureFromCamera();
+          }
+        },
+        {
+          text: 'Galerie',
+          handler: () => {
+            this.takePictureFromGallery();
+          }
+        },
+        {
+          text: 'Abbrechen',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
 }
 
