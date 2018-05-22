@@ -25784,6 +25784,16 @@ page-friend-list .friend {
   cursor: pointer;
 }
 
+page-friend-list .profile {
+  float: right;
+}
+
+page-friend-list ion-title {
+  float: left;
+  display: block;
+  padding-top: 7pt;
+}
+
 page-home ion-header {
   margin: 0;
 }
@@ -25837,7 +25847,8 @@ myProfile img {
   border-radius: 50%;
   height: 100pt;
   width: 100pt;
-  margin-left: 30%;
+  display: block;
+  margin: auto;
 }
 
 myProfile .photo {

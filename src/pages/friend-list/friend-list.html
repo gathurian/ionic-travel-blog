@@ -11,11 +11,29 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Meine Freunde</ion-title>
+
+    <button class="profile" ion-fab mini (click)="goToMyProfile()">
+      <ion-icon name="person"></ion-icon>
+    </button>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
+
+
+  <ion-searchbar
+    [(ngModel)]="searchInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInputOnChange($event)"
+    (ionCancel)="onSearchCancel($event)">
+  </ion-searchbar>
+
+  <ion-item *ngFor="let possibleCandidate of possibleCandidates | async"(click)="presentFriendPrompt(possibleCandidate)">
+    <ion-icon name="contact" item-start></ion-icon>
+    {{possibleCandidate.firstName}} {{possibleCandidate.lastName}}
+  </ion-item>
+
   <ion-list inset *ngIf="friends;else no_friends">
     <ion-list-header>
       Meine Freunde
@@ -28,18 +46,13 @@
 
   <ng-template #no_friends>
     <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.
-    Falls du welche hinzufügen willst, drücke auf das + unten rechts</h1>
+      Falls du welche hinzufügen willst, drücke auf das + unten rechts</h1>
   </ng-template>
 
-  <ion-fab right bottom>
+<!--  <ion-fab right bottom>
     <button ion-fab small (click)="presentFriendPrompt()">
       <ion-icon name="person-add"></ion-icon>
     </button>
-  </ion-fab>
+  </ion-fab>-->
 
-  <ion-fab right top>
-    <button ion-fab small (click)="goToMyProfile()">
-      <ion-icon name="person"></ion-icon>
-    </button>
-  </ion-fab>
 </ion-content>

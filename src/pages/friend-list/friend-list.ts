@@ -24,6 +24,8 @@ export class FriendListPage {
   friends: Observable<Person[]>;
   currentUser: Person;
   date:Date;
+  searchInput:string;
+  possibleCandidates:Observable<Person[]>
 
   constructor(private userRepository: UserRepositoryProvider,
               private promptControl: AlertController,
@@ -81,5 +83,28 @@ export class FriendListPage {
   goToMyProfile(){
     let myself:Person = this.currentUser;
     this.navController.push(MyProfilePage, {myself});
+  }
+
+  onSearchCancel($event: UIEvent) {
+    this.emptyPossibleCandidates();
+  }
+
+  onInputOnChange($event: UIEvent) {
+    if (this.searchInput.length !== 0) {
+      this.friends.subscribe(friends => {
+        this.userRepository.getPossibleCandidates(friends, this.searchInput).then(possibleCandidates => {
+          this.possibleCandidates = Observable.of(possibleCandidates);
+        });
+      });
+        console.log(this.possibleCandidates);
+      console.log("shits still kinda working");
+    } else {
+      this.emptyPossibleCandidates();
+      console.log("Shits working");
+    }
+  }
+
+  private emptyPossibleCandidates() {
+    this.possibleCandidates = Observable.of([]);
   }
 }

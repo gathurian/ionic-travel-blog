@@ -2,4 +2,14 @@ page-friend-list {
   .friend{
     cursor:pointer
   }
+
+  .profile{
+    float: right;
+  }
+
+  ion-title{
+    float: left;
+    display: block;
+    padding-top: 7pt;
+  }
 }

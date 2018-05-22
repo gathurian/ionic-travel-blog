@@ -27,8 +27,6 @@ import { LoggerProvider } from '../providers/logger/logger';
 import {LogPage} from "../pages/log/log";
 import {MyProfilePage} from "../pages/myProfile/my-profile";
 import {Camera} from "@ionic-native/camera";
-import {ImageRepositoryProvider} from "../providers/image-repository/image-repository";
-
 
 //Kevins Pages
 import {HttpClientModule} from '@angular/common/http';
@@ -102,7 +100,6 @@ const firebaseConfig = {
     BlogComponentRepositoryProvider,
     AngularFireAuth,
     LoggerRepositoryProvider,
-    ImageRepositoryProvider,
     LoggerProvider,
     HttpClientModule,
     Camera

@@ -6,8 +6,9 @@ import {iBlog} from "../../assets/interfaces/iBlog";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
 import {ViewblogPage} from "../viewblog/viewblog";
 import {Camera} from "@ionic-native/camera";
-import {ImageRepositoryProvider} from "../../providers/image-repository/image-repository";
 import {AlertController} from "ionic-angular";
+import {AngularFireDatabase} from "angularfire2/database";
+import {LoggerProvider} from "../../providers/logger/logger";
 
 /**
  * Generated class for the FriendDetailComponent component.
@@ -29,8 +30,9 @@ export class MyProfilePage {
               private userRepository: UserRepositoryProvider,
               private blogRepository: BlogRepositoryProvider,
               private camera: Camera,
-              private imageRepository: ImageRepositoryProvider,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private angularFireDatabase:AngularFireDatabase,
+              private logger:LoggerProvider) {
     this.me = navParams.get('myself');
     this.blogs = [];
     this.friends = [];
@@ -58,15 +60,15 @@ export class MyProfilePage {
   takePictureFromCamera() {
     this.camera.getPicture({
       quality: 100,
-      targetHeight: 100,
-      targetWidth: 100,
+      targetHeight: 512,
+      targetWidth: 512,
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.CAMERA,
       correctOrientation: true
     }).then(imageData => {
       let image: string = "data:image/jpeg;base64," + imageData;
       this.me.image = image;
-      this.imageRepository.addProfileImage(this.me, image)
+      this.addProfileImage(this.me, image)
     })
       .catch(() => {
 
@@ -76,22 +78,22 @@ export class MyProfilePage {
   takePictureFromGallery() {
     this.camera.getPicture({
       quality: 100,
-      targetHeight: 100,
-      targetWidth: 100,
+      targetHeight: 512,
+      targetWidth: 512,
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation: true
     }).then(imageData => {
       let image: string = "data:image/jpeg;base64," + imageData;
       this.me.image = image;
-      this.imageRepository.addProfileImage(this.me, image)
+      this.addProfileImage(this.me, image)
     })
       .catch(() => {
 
       })
   }
 
-  chosoePictureLocation() {
+  choosePictureLocation() {
     let alert = this.alertCtrl.create({
       title: "Photo aufnehmen oder aus der Galerie auswählen?",
       buttons: [
@@ -119,5 +121,21 @@ export class MyProfilePage {
     alert.present();
   }
 
-}
+  addProfileImage(person: Person, image: string): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      this.angularFireDatabase.list('/persons').update(person.key, {
+        image: image
+      }).then(() => {
+        this.logger.logEvent('added image to database');
+      })
+        .catch(() => {
+          let alert = this.alertCtrl.create({
+            title: 'Kein Bild ausgewählt',
+            buttons: ['OK']
+          });
+          alert.present();
+        })
+    });
+  }
 
+}
