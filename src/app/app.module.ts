@@ -4,6 +4,7 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
+import {LogoutPage} from '../pages/home/logout';
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
@@ -52,6 +53,7 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
+    LogoutPage,
     FriendListPage,
     FriendDetailPage,
     BlogDetailComponent,
@@ -77,6 +79,7 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
+    LogoutPage,
     FriendListPage,
     FriendDetailPage,
     FullBlogPage,

@@ -25795,6 +25795,44 @@ page-home ion-content img {
   box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
+page-home .card-background-page {
+  position: relative;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+}
+
+page-home .card-background-page ion-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: rgba(21, 21, 21, 0.1);
+}
+
+page-home .card-background-page .card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1;
+}
+
+page-home .card-background-page .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+}
+
 myProfile img {
   border-radius: 50%;
   height: 100pt;

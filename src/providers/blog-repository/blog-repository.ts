@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {iBlog} from "../../assets/interfaces/iBlog";
 import {Person} from "../../entities/person";
 import {LoggerProvider} from "../logger/logger";
+import {AlertController} from "ionic-angular";
 
 /*
   Generated class for the BlogRepositoryProvider provider.
@@ -17,7 +18,8 @@ export class BlogRepositoryProvider {
 
   constructor(
     private angularFireDatabase: AngularFireDatabase,
-    private logger: LoggerProvider)
+    private logger: LoggerProvider,
+    private alertCtrl:AlertController)
   {
     this.allBlogs = this.angularFireDatabase.list('/blogs').valueChanges();
   }
@@ -93,5 +95,22 @@ export class BlogRepositoryProvider {
     this.angularFireDatabase.list('/blogs').update(blog.id, {
       content: updatedBlogs
     }).then(() => this.logger.logEvent(`new blogComponent ${id} added`));
+  }
+
+  addImage(blog: iBlog, image: string): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      this.angularFireDatabase.list('/blogs').update(blog.id, {
+        previewImage: image
+      }).then(() => {
+        this.logger.logEvent('added image to database');
+      })
+        .catch(() => {
+          let alert = this.alertCtrl.create({
+            title: 'Kein Bild ausgewählt',
+            buttons: ['OK']
+          });
+          alert.present();
+        })
+    });
   }
 }

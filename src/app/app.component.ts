@@ -10,6 +10,7 @@ import {LoginPage} from "../pages/login/login";
 
 //Kevins Pages
 import {MytravelblogsPage} from '../pages/mytravelblogs/mytravelblogs';
+import {LogoutPage} from "../pages/home/logout";
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +30,8 @@ export class MyApp {
     this.pages = [
       {title: 'Home', component: HomePage},
       {title: 'My Friends', component: FriendListPage},
-      {title: 'My Travel Blogs', component: MytravelblogsPage}
+      {title: 'My Travel Blogs', component: MytravelblogsPage},
+      {title: 'Logout', component: LogoutPage}
     ];
 
   }

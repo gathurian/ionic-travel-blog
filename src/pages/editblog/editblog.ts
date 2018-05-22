@@ -10,6 +10,8 @@ import {MytravelblogsPage} from "../mytravelblogs/mytravelblogs";
 import {EditblogcomponentPage} from "../editblogcomponent/editblogcomponent";
 import {iBlogComponent} from "../../assets/interfaces/iBlogComponent";
 import {BlogComponentRepositoryProvider} from "../../providers/blogcomponent-repository/blogcomponent-repository";
+import {Camera} from "@ionic-native/camera";
+import {ImageRepositoryProvider} from "../../providers/image-repository/image-repository";
 
 /**
  * Generated class for the EditblogPage page.
@@ -35,7 +37,9 @@ export class EditblogPage {
               private blogRepository: BlogRepositoryProvider,
               private userRepository: UserRepositoryProvider,
               private blogComponentRepository: BlogComponentRepositoryProvider,
-              private toastCtrl: ToastController)
+              private toastCtrl: ToastController,
+              private camera: Camera,
+              private alertCtrl: AlertController)
   {
     this.userRepository.getCurrentUser().then(person => {
       this.author = person;
@@ -163,6 +167,77 @@ export class EditblogPage {
     });
   }
 
+
+
+
+
+  //Photos ++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+  takePictureFromCamera() {
+    this.camera.getPicture({
+      quality: 100,
+      targetHeight: 720,
+      targetWidth: 1080,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      correctOrientation: true
+    }).then(imageData => {
+      let image: string = "data:image/jpeg;base64," + imageData;
+      this.blog.previewImage = image;
+      this.blogRepository.addImage(this.blog, image)
+    })
+      .catch(() => {
+
+      })
+  }
+
+  takePictureFromGallery() {
+    this.camera.getPicture({
+      quality: 100,
+      targetHeight: 720,
+      targetWidth: 1080,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation: true
+    }).then(imageData => {
+      let image: string = "data:image/jpeg;base64," + imageData;
+      this.blog.previewImage = image;
+      this.blogRepository.addImage(this.blog, image)
+    })
+      .catch(() => {
+
+      })
+  }
+
+  chosoePictureLocation() {
+    let alert = this.alertCtrl.create({
+      title: "Photo aufnehmen oder aus der Galerie auswählen?",
+      buttons: [
+        {
+          text: 'Kamera',
+          handler: () => {
+            this.takePictureFromCamera();
+          }
+        },
+        {
+          text: 'Galerie',
+          handler: () => {
+            this.takePictureFromGallery();
+          }
+        },
+        {
+          text: 'Abbrechen',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
 
 
 

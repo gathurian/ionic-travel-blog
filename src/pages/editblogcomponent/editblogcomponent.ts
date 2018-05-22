@@ -6,6 +6,7 @@ import {MytravelblogsPage} from "../mytravelblogs/mytravelblogs";
 import {BlogRepositoryProvider} from "../../providers/blog-repository/blog-repository";
 import {BlogComponentRepositoryProvider} from "../../providers/blogcomponent-repository/blogcomponent-repository";
 import {EditblogPage} from "../editblog/editblog";
+import {Camera} from "@ionic-native/camera";
 
 /**
  * Generated class for the EditblogcomponentPage page.
@@ -29,7 +30,8 @@ export class EditblogcomponentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private alertCtrl: AlertController,
               private blogRepository: BlogRepositoryProvider,
               private blogComponentRepository: BlogComponentRepositoryProvider,
-              private toastCtrl: ToastController)
+              private toastCtrl: ToastController,
+              private camera: Camera)
   {
     this.mode=navParams.get('mode');
     this.blog = navParams.get('blog');
@@ -151,6 +153,83 @@ export class EditblogcomponentPage {
         //});
         toast.present();
       });
+  }
+
+
+
+  //Photos ++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+  takePictureFromCamera() {
+    this.camera.getPicture({
+      quality: 100,
+      targetHeight: 720,
+      targetWidth: 1080,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      correctOrientation: true
+    }).then(imageData => {
+      let image: string = "data:image/jpeg;base64," + imageData;
+      this.blogComponent.image = image;
+      this.blogComponentRepository.addImage(this.blogComponent, image)
+    })
+      .catch(() => {
+
+      })
+  }
+
+  takePictureFromGallery() {
+    this.camera.getPicture({
+      quality: 100,
+      targetHeight: 720,
+      targetWidth: 1080,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation: true
+    }).then(imageData => {
+      let image: string = "data:image/jpeg;base64," + imageData;
+      this.blogComponent.image = image;
+      this.blogComponentRepository.addImage(this.blogComponent, image)
+    })
+      .catch(() => {
+
+      })
+  }
+
+  chosoePictureLocation() {
+    let alert = this.alertCtrl.create({
+      title: "Photo aufnehmen oder aus der Galerie auswählen?",
+      buttons: [
+        {
+          text: 'Kamera',
+          handler: () => {
+            this.takePictureFromCamera();
+          }
+        },
+        {
+          text: 'Galerie',
+          handler: () => {
+            this.takePictureFromGallery();
+          }
+        },
+        {
+          text: 'Abbrechen',
+          handler: () => {
+
+          }
+        }
+      ],
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Bild Untertitel',
+          value: this.blogComponent.imageSubtitle
+        }
+        ]
+    });
+
+    alert.present();
   }
 
 }

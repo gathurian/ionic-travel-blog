@@ -8,7 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <img src="{{bannerBase64}}">
+  <ion-card class="card-background-page">
+    <img src="{{bannerBase64}}"/>
+    <div class="card-title">Travel-Blog</div>
+    <div class="card-subtitle">{{date}}</div>
+  </ion-card>
   <p padding>{{welcomeText}}</p>
   <ion-list padding *ngIf="currentUser">
     <ion-list-header>
