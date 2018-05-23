@@ -42,7 +42,7 @@
     <ion-row>
       <ion-col col-12 *ngFor='let blogComponent of blogComponents'>
         <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">
-          <img [src]="blogComponent.image"/>
+          <img *ngIf="blogComponent.image!=''" [src]="blogComponent.image"/>
           <ion-card-content>
             <p>
               {{blogComponent.text}}

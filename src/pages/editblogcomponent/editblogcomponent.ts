@@ -25,7 +25,8 @@ export class EditblogcomponentPage {
   blogComponent: iBlogComponent;
   blog: iBlog;
   modeText: String;
-  mode: String
+  mode: String;
+  placeholderimage: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private alertCtrl: AlertController,
               private blogRepository: BlogRepositoryProvider,
@@ -33,6 +34,8 @@ export class EditblogcomponentPage {
               private toastCtrl: ToastController,
               private camera: Camera)
   {
+    this.placeholderimage="../assets/imgs/placeholder.png";
+
     this.mode=navParams.get('mode');
     this.blog = navParams.get('blog');
 
@@ -44,11 +47,10 @@ export class EditblogcomponentPage {
     }else
     {
       this.blogComponent = <iBlogComponent>{};
-      this.blog.previewImage='../assets/imgs/placeholder.png';
 
       this.blogComponent.layout=1;
       this.blogComponent.text="";
-      this.blogComponent.image='../assets/imgs/placeholder.png';
+      this.blogComponent.image="";
       this.blogComponent.imageSubtitle="";
 
       this.blogComponent.name="";
@@ -85,10 +87,7 @@ export class EditblogcomponentPage {
     {
       this.blogComponentRepository.updateBlogComponent(this.blogComponent);
 
-      this.navCtrl.push(EditblogPage, {
-        clickedBlog: this.blog,
-        mode: "edit"
-      });
+      this.navCtrl.pop();
       let toast = this.toastCtrl.create({
         message: 'BlogComponent wurde erfolgreich geändert',
         duration: 4000,
@@ -104,10 +103,7 @@ export class EditblogcomponentPage {
         .then(key => {
           this.blogRepository.addComponentToBlog(this.blog, key);
 
-          this.navCtrl.push(EditblogPage, {
-            clickedBlog: this.blog,
-            mode: "edit"
-          });
+          this.navCtrl.pop();
           let toast = this.toastCtrl.create({
             message: 'Blogbereich wurde erfolgreich erstellt',
             duration: 4000,
@@ -124,10 +120,8 @@ export class EditblogcomponentPage {
 
   cancel()
   {
-    this.navCtrl.push(EditblogPage, {
-      clickedBlog: this.blog,
-      mode: "edit"
-    });
+
+    this.navCtrl.pop();
   }
 
   delete()
@@ -136,10 +130,7 @@ export class EditblogcomponentPage {
       .then(key => {
         this.blogRepository.removeComponentFromBlog(this.blog, key);
 
-        this.navCtrl.push(EditblogPage, {
-          clickedBlog: this.blog,
-          mode: "edit"
-        });
+        this.navCtrl.pop();
 
 
 

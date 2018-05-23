@@ -39,16 +39,23 @@ export class MytravelblogsPage
 
     this.userRepository.getCurrentUser().then(person => {
       this.author = person;
-
       this.getBlogs();
     });
+
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MytravelblogsPage');
+
+  }
+  ionViewWillEnter()
+  {
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    this.getBlogs();
   }
 
   private getBlogs() {
+    //this.blogs=null;
     this.blogRepository.getAllBlogsFrom(this.author).then(blogs => {
       this.blogs = blogs;
       console.log(this.author)

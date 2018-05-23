@@ -6,6 +6,7 @@ import {AngularFireDatabase} from "angularfire2/database";
 import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {LogPage} from "../log/log";
+import {LoginPage} from "../login/login";
 
 @Component({
   selector: 'page-home',
@@ -27,7 +28,7 @@ export class LogoutPage {
       this.currentUser = person;
       this.logOut();
 
-      //this.navCtrl.p
+      this.navCtrl.push(LoginPage);
     });
   }
 

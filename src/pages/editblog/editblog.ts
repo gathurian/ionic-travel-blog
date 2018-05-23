@@ -11,7 +11,6 @@ import {EditblogcomponentPage} from "../editblogcomponent/editblogcomponent";
 import {iBlogComponent} from "../../assets/interfaces/iBlogComponent";
 import {BlogComponentRepositoryProvider} from "../../providers/blogcomponent-repository/blogcomponent-repository";
 import {Camera} from "@ionic-native/camera";
-import {ImageRepositoryProvider} from "../../providers/image-repository/image-repository";
 
 /**
  * Generated class for the EditblogPage page.
@@ -75,17 +74,24 @@ export class EditblogPage {
       console.log(this.blog);
     }
 
-
-    this.blogComponentRepository.getAllComponentsFrom(this.blog).then(blogComponents => {
-      this.blogComponents = blogComponents;
-      console.log(blogComponents);
-    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditblogPage');
+  }
 
-    //this.blogComponents = Array<iBlogComponent>();
+  ionViewWillEnter()
+  {
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    this.getBlogComponents();
+  }
+
+  getBlogComponents()
+  {
+    this.blogComponentRepository.getAllComponentsFrom(this.blog).then(blogComponents => {
+      this.blogComponents = blogComponents;
+      console.log(blogComponents);
+    });
   }
 
   save()
@@ -94,7 +100,7 @@ export class EditblogPage {
     {
       this.blogRepository.updateBlog(this.blog);
 
-        this.navCtrl.push(MytravelblogsPage, {});
+        //this.navCtrl.push(MytravelblogsPage, {});
         let toast = this.toastCtrl.create({
           message: 'Blog wurde erfolgreich geändert',
           duration: 4000,
@@ -104,13 +110,14 @@ export class EditblogPage {
         //  console.log('Dismissed toast');
         //});
         toast.present();
+
     }
     else{
       this.blogRepository.createBlog(this.blog)
         .then(key => {
           this.userRepository.addNewBlog(this.author, key);
 
-          this.navCtrl.push(MytravelblogsPage, {});
+          //this.navCtrl.push(MytravelblogsPage, {});
           let toast = this.toastCtrl.create({
             message: 'Blog wurde erfolgreich erstellt',
             duration: 4000,
@@ -120,6 +127,10 @@ export class EditblogPage {
           //  console.log('Dismissed toast');
           //});
           toast.present();
+
+
+          this.modeText= "Blog bearbeiten";
+          this.mode = "edit";
         });
     }
 
@@ -127,7 +138,8 @@ export class EditblogPage {
 
   cancel()
   {
-    this.navCtrl.push(MytravelblogsPage, {});
+    //this.navCtrl.push(MytravelblogsPage, {});
+    this.navCtrl.pop();
   }
 
   delete()
@@ -136,7 +148,8 @@ export class EditblogPage {
       .then(key => {
         this.userRepository.removeBlogFromList(this.author, key);
 
-        this.navCtrl.push(MytravelblogsPage, {});
+        //this.navCtrl.push(MytravelblogsPage, {});
+        this.navCtrl.pop();
         let toast = this.toastCtrl.create({
           message: 'Blog wurde erfolgreich gelöscht',
           duration: 4000,
