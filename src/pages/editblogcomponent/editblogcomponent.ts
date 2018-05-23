@@ -163,7 +163,7 @@ export class EditblogcomponentPage {
     }).then(imageData => {
       let image: string = "data:image/jpeg;base64," + imageData;
       this.blogComponent.image = image;
-      this.blogComponentRepository.addImage(this.blogComponent, image)
+      //this.blogComponentRepository.addImage(this.blogComponent, image)
     })
       .catch(() => {
 
@@ -181,7 +181,7 @@ export class EditblogcomponentPage {
     }).then(imageData => {
       let image: string = "data:image/jpeg;base64," + imageData;
       this.blogComponent.image = image;
-      this.blogComponentRepository.addImage(this.blogComponent, image)
+      //this.blogComponentRepository.addImage(this.blogComponent, image)
     })
       .catch(() => {
 

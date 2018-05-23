@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 121:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47,13 +47,13 @@ var LoggerRepositoryProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 124:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(29);
@@ -125,7 +125,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 125:
+/***/ 124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -181,13 +181,19 @@ var TravelBlogRepositoryProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 147:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpopoverforblogsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditblogPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblogcomponent_editblogcomponent__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -199,36 +205,227 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
+
+
+
 /**
- * Generated class for the FilterpopoverforblogsPage page.
+ * Generated class for the EditblogPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var FilterpopoverforblogsPage = /** @class */ (function () {
-    function FilterpopoverforblogsPage(navParams) {
+var EditblogPage = /** @class */ (function () {
+    function EditblogPage(navCtrl, navParams, angularFireAuth, promptController, blogRepository, userRepository, blogComponentRepository, toastCtrl, camera, alertCtrl) {
+        var _this = this;
+        this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.angularFireAuth = angularFireAuth;
+        this.promptController = promptController;
+        this.blogRepository = blogRepository;
+        this.userRepository = userRepository;
+        this.blogComponentRepository = blogComponentRepository;
+        this.toastCtrl = toastCtrl;
+        this.camera = camera;
+        this.alertCtrl = alertCtrl;
+        this.userRepository.getCurrentUser().then(function (person) {
+            _this.author = person;
+        });
+        this.mode = navParams.get('mode');
+        if (this.mode == "edit") {
+            this.blog = navParams.get('clickedBlog');
+            console.log(this.blog);
+            this.modeText = "Blog bearbeiten";
+        }
+        else {
+            this.blog = {};
+            this.blog.previewImage = '../assets/imgs/placeholder.png';
+            this.blog.draftFlag = false;
+            this.blog.publicFlag = true;
+            this.blog.content = null;
+            this.blog.visibleFor = null;
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            if (mm < 10) {
+                var mmm = "0" + mm.toString();
+            }
+            var yyyy = today.getFullYear();
+            this.blog.date = yyyy + "-" + mmm + "-" + dd;
+            this.modeText = "Blog erstellen";
+            console.log(this.blog);
+        }
     }
-    FilterpopoverforblogsPage.prototype.ngOnInit = function () {
-        if (this.navParams.data) {
-            this.contentEle = this.navParams.data.contentEle;
-            this.textEle = this.navParams.data.textEle;
+    EditblogPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditblogPage');
+    };
+    EditblogPage.prototype.ionViewWillEnter = function () {
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        this.getBlogComponents();
+    };
+    EditblogPage.prototype.getBlogComponents = function () {
+        var _this = this;
+        this.blogComponentRepository.getAllComponentsFrom(this.blog).then(function (blogComponents) {
+            _this.blogComponents = blogComponents;
+            console.log(blogComponents);
+        });
+    };
+    EditblogPage.prototype.save = function () {
+        var _this = this;
+        if (this.mode == "edit") {
+            this.blogRepository.updateBlog(this.blog);
+            //this.navCtrl.push(MytravelblogsPage, {});
+            var toast = this.toastCtrl.create({
+                message: 'Blog wurde erfolgreich geändert',
+                duration: 4000,
+                position: 'bottom'
+            });
+            //toast.onDidDismiss(() => {
+            //  console.log('Dismissed toast');
+            //});
+            toast.present();
+        }
+        else {
+            this.blogRepository.createBlog(this.blog)
+                .then(function (key) {
+                _this.userRepository.addNewBlog(_this.author, key);
+                //this.navCtrl.push(MytravelblogsPage, {});
+                var toast = _this.toastCtrl.create({
+                    message: 'Blog wurde erfolgreich erstellt',
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                //toast.onDidDismiss(() => {
+                //  console.log('Dismissed toast');
+                //});
+                toast.present();
+                _this.modeText = "Blog bearbeiten";
+                _this.mode = "edit";
+            });
         }
     };
-    FilterpopoverforblogsPage = __decorate([
+    EditblogPage.prototype.cancel = function () {
+        //this.navCtrl.push(MytravelblogsPage, {});
+        this.navCtrl.pop();
+    };
+    EditblogPage.prototype.delete = function () {
+        var _this = this;
+        this.blogRepository.deleteBlog(this.blog)
+            .then(function (key) {
+            _this.userRepository.removeBlogFromList(_this.author, key);
+            //this.navCtrl.push(MytravelblogsPage, {});
+            _this.navCtrl.pop();
+            var toast = _this.toastCtrl.create({
+                message: 'Blog wurde erfolgreich gelöscht',
+                duration: 4000,
+                position: 'bottom'
+            });
+            //toast.onDidDismiss(() => {
+            //  console.log('Dismissed toast');
+            //});
+            toast.present();
+        });
+    };
+    EditblogPage.prototype.createNewBlogComponent = function () {
+        console.log("New Blog Component");
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */], {
+            blog: this.blog,
+            mode: "create"
+        });
+    };
+    EditblogPage.prototype.editBlogComponent = function (event, blogComponent) {
+        console.log("Edit Blog Component");
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */], {
+            blog: this.blog,
+            mode: "edit",
+            blogComponent: blogComponent
+        });
+    };
+    //Photos ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    EditblogPage.prototype.takePictureFromCamera = function () {
+        var _this = this;
+        this.camera.getPicture({
+            quality: 100,
+            targetHeight: 720,
+            targetWidth: 1080,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.CAMERA,
+            correctOrientation: true
+        }).then(function (imageData) {
+            var image = "data:image/jpeg;base64," + imageData;
+            _this.blog.previewImage = image;
+            //this.blogRepository.addImage(this.blog, image)
+        })
+            .catch(function () {
+        });
+    };
+    EditblogPage.prototype.takePictureFromGallery = function () {
+        var _this = this;
+        this.camera.getPicture({
+            quality: 100,
+            targetHeight: 720,
+            targetWidth: 1080,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+            correctOrientation: true
+        }).then(function (imageData) {
+            var image = "data:image/jpeg;base64," + imageData;
+            _this.blog.previewImage = image;
+            //this.blogRepository.addImage(this.blog, image)
+        })
+            .catch(function () {
+        });
+    };
+    EditblogPage.prototype.chosoePictureLocation = function () {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: "Photo aufnehmen oder aus der Galerie auswählen?",
+            buttons: [
+                {
+                    text: 'Kamera',
+                    handler: function () {
+                        _this.takePictureFromCamera();
+                    }
+                },
+                {
+                    text: 'Galerie',
+                    handler: function () {
+                        _this.takePictureFromGallery();
+                    }
+                },
+                {
+                    text: 'Abbrechen',
+                    handler: function () {
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    EditblogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-filterpopoverforblogs',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/'<!--\n  Generated template for the FilterpopoverforblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="f">Female</ion-option>\n        <ion-option value="m">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Gaming</ion-label>\n      <ion-select [(ngModel)]="gaming" interface="popover">\n        <ion-option value="nes">NES</ion-option>\n        <ion-option value="n64">Nintendo64</ion-option>\n        <ion-option value="ps">PlayStation</ion-option>\n        <ion-option value="genesis">Sega Genesis</ion-option>\n        <ion-option value="saturn">Sega Saturn</ion-option>\n        <ion-option value="snes">SNES</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Notifications</ion-label>\n      <ion-select [(ngModel)]="notifications" interface="action-sheet">\n        <ion-option value="enable">Enable</ion-option>\n        <ion-option value="mute">Mute</ion-option>\n        <ion-option value="mute_week">Mute for a week</ion-option>\n        <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Operating System</ion-label>\n      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">\n        <ion-option value="dos">DOS</ion-option>\n        <ion-option value="lunix">Linux</ion-option>\n        <ion-option value="mac7">Mac OS 7</ion-option>\n        <ion-option value="mac8">Mac OS 8</ion-option>\n        <ion-option value="win3.1">Windows 3.1</ion-option>\n        <ion-option value="win95">Windows 95</ion-option>\n        <ion-option value="win98">Windows 98</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Music</ion-label>\n      <ion-select [(ngModel)]="music" [selectOptions]="musicAlertOpts">\n        <ion-option>Alice in Chains</ion-option>\n        <ion-option>Green Day</ion-option>\n        <ion-option>Nirvana</ion-option>\n        <ion-option>Pearl Jam</ion-option>\n        <ion-option>Smashing Pumpkins</ion-option>\n        <ion-option>Soundgarden</ion-option>\n        <ion-option (select)="stpSelect()">Stone Temple Pilots</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-select [(ngModel)]="month">\n        <ion-option value="01">January</ion-option>\n        <ion-option value="02">February</ion-option>\n        <ion-option value="03">March</ion-option>\n        <ion-option value="04">April</ion-option>\n        <ion-option value="05">May</ion-option>\n        <ion-option value="06">June</ion-option>\n        <ion-option value="07">July</ion-option>\n        <ion-option value="08">August</ion-option>\n        <ion-option value="09">September</ion-option>\n        <ion-option value="10">October</ion-option>\n        <ion-option value="11">November</ion-option>\n        <ion-option value="12" checked="true">December</ion-option>\n      </ion-select>\n      <ion-select [(ngModel)]="year">\n        <ion-option>1989</ion-option>\n        <ion-option>1990</ion-option>\n        <ion-option>1991</ion-option>\n        <ion-option>1992</ion-option>\n        <ion-option>1993</ion-option>\n        <ion-option checked="true">1994</ion-option>\n        <ion-option>1995</ion-option>\n        <ion-option>1996</ion-option>\n        <ion-option>1997</ion-option>\n        <ion-option>1998</ion-option>\n        <ion-option>1999</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/,
+            selector: 'page-editblog',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblog\editblog.html"*/'<!--\n  Generated template for the EditblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    <img src="{{blog.previewImage}}"/>\n\n    <ion-fab right top>\n      <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n        <ion-icon name="camera"></ion-icon>\n      </button>\n    </ion-fab>\n  </div>\n\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Titel</ion-label>\n      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Kurzbeschreibung</ion-label>\n      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Datum</ion-label>\n      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">\n          <img *ngIf="blogComponent.image!=\'\'" [src]="blogComponent.image"/>\n          <ion-card-content>\n            <p>\n              {{blogComponent.text}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <ion-fab center top *ngIf="mode==\'edit\'">\n          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblog\editblog.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], FilterpopoverforblogsPage);
-    return FilterpopoverforblogsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditblogPage);
+    return EditblogPage;
 }());
 
-//# sourceMappingURL=filterpopoverforblogs.js.map
+//# sourceMappingURL=editblog.js.map
 
 /***/ }),
 
-/***/ 148:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -371,7 +568,7 @@ var EditblogcomponentPage = /** @class */ (function () {
         }).then(function (imageData) {
             var image = "data:image/jpeg;base64," + imageData;
             _this.blogComponent.image = image;
-            _this.blogComponentRepository.addImage(_this.blogComponent, image);
+            //this.blogComponentRepository.addImage(this.blogComponent, image)
         })
             .catch(function () {
         });
@@ -388,7 +585,7 @@ var EditblogcomponentPage = /** @class */ (function () {
         }).then(function (imageData) {
             var image = "data:image/jpeg;base64," + imageData;
             _this.blogComponent.image = image;
-            _this.blogComponentRepository.addImage(_this.blogComponent, image);
+            //this.blogComponentRepository.addImage(this.blogComponent, image)
         })
             .catch(function () {
         });
@@ -430,13 +627,63 @@ var EditblogcomponentPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-editblogcomponent',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblogcomponent\editblogcomponent.html"*/'<!--\n  Generated template for the EditblogcomponentPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img *ngIf="blogComponent.image!=\'\'" src="{{blogComponent.image}}"/>\n  <img *ngIf="blogComponent.image==\'\'" src="{{placeholderimage}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Blogtext</ion-label>\n      <ion-textarea placeholder="" max="3000" [(ngModel)]="blogComponent.text"></ion-textarea>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblogcomponent\editblogcomponent.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]])
     ], EditblogcomponentPage);
     return EditblogcomponentPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=editblogcomponent.js.map
+
+/***/ }),
+
+/***/ 148:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpopoverforblogsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the FilterpopoverforblogsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FilterpopoverforblogsPage = /** @class */ (function () {
+    function FilterpopoverforblogsPage(navParams) {
+        this.navParams = navParams;
+    }
+    FilterpopoverforblogsPage.prototype.ngOnInit = function () {
+        if (this.navParams.data) {
+            this.contentEle = this.navParams.data.contentEle;
+            this.textEle = this.navParams.data.textEle;
+        }
+    };
+    FilterpopoverforblogsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-filterpopoverforblogs',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/'<!--\n  Generated template for the FilterpopoverforblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="f">Female</ion-option>\n        <ion-option value="m">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Gaming</ion-label>\n      <ion-select [(ngModel)]="gaming" interface="popover">\n        <ion-option value="nes">NES</ion-option>\n        <ion-option value="n64">Nintendo64</ion-option>\n        <ion-option value="ps">PlayStation</ion-option>\n        <ion-option value="genesis">Sega Genesis</ion-option>\n        <ion-option value="saturn">Sega Saturn</ion-option>\n        <ion-option value="snes">SNES</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Notifications</ion-label>\n      <ion-select [(ngModel)]="notifications" interface="action-sheet">\n        <ion-option value="enable">Enable</ion-option>\n        <ion-option value="mute">Mute</ion-option>\n        <ion-option value="mute_week">Mute for a week</ion-option>\n        <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Operating System</ion-label>\n      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">\n        <ion-option value="dos">DOS</ion-option>\n        <ion-option value="lunix">Linux</ion-option>\n        <ion-option value="mac7">Mac OS 7</ion-option>\n        <ion-option value="mac8">Mac OS 8</ion-option>\n        <ion-option value="win3.1">Windows 3.1</ion-option>\n        <ion-option value="win95">Windows 95</ion-option>\n        <ion-option value="win98">Windows 98</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Music</ion-label>\n      <ion-select [(ngModel)]="music" [selectOptions]="musicAlertOpts">\n        <ion-option>Alice in Chains</ion-option>\n        <ion-option>Green Day</ion-option>\n        <ion-option>Nirvana</ion-option>\n        <ion-option>Pearl Jam</ion-option>\n        <ion-option>Smashing Pumpkins</ion-option>\n        <ion-option>Soundgarden</ion-option>\n        <ion-option (select)="stpSelect()">Stone Temple Pilots</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-select [(ngModel)]="month">\n        <ion-option value="01">January</ion-option>\n        <ion-option value="02">February</ion-option>\n        <ion-option value="03">March</ion-option>\n        <ion-option value="04">April</ion-option>\n        <ion-option value="05">May</ion-option>\n        <ion-option value="06">June</ion-option>\n        <ion-option value="07">July</ion-option>\n        <ion-option value="08">August</ion-option>\n        <ion-option value="09">September</ion-option>\n        <ion-option value="10">October</ion-option>\n        <ion-option value="11">November</ion-option>\n        <ion-option value="12" checked="true">December</ion-option>\n      </ion-select>\n      <ion-select [(ngModel)]="year">\n        <ion-option>1989</ion-option>\n        <ion-option>1990</ion-option>\n        <ion-option>1991</ion-option>\n        <ion-option>1992</ion-option>\n        <ion-option>1993</ion-option>\n        <ion-option checked="true">1994</ion-option>\n        <ion-option>1995</ion-option>\n        <ion-option>1996</ion-option>\n        <ion-option>1997</ion-option>\n        <ion-option>1998</ion-option>\n        <ion-option>1999</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], FilterpopoverforblogsPage);
+    return FilterpopoverforblogsPage;
+}());
+
+//# sourceMappingURL=filterpopoverforblogs.js.map
 
 /***/ }),
 
@@ -450,9 +697,9 @@ var EditblogcomponentPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__friend_detail_friend_detail__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__myProfile_my_profile__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(449);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__friend_detail_friend_detail__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__myProfile_my_profile__ = __webpack_require__(261);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -562,7 +809,7 @@ var FriendListPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__ = __webpack_require__(120);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -602,13 +849,15 @@ var LogPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MytravelblogsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(452);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblog_editblog__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -624,81 +873,86 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the MytravelblogsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(angularFireAuth, userRepository, promptControl, viewCtrl, navCtrl) {
-        this.angularFireAuth = angularFireAuth;
-        this.userRepository = userRepository;
-        this.promptControl = promptControl;
-        this.viewCtrl = viewCtrl;
+var MytravelblogsPage = /** @class */ (function () {
+    function MytravelblogsPage(navCtrl, navParams, httpClient, popoverCtrl, userRepository, blogRepository) {
+        var _this = this;
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.httpClient = httpClient;
+        this.popoverCtrl = popoverCtrl;
+        this.userRepository = userRepository;
+        this.blogRepository = blogRepository;
+        this.navigationSwitch = true;
+        var array = new Array();
+        this.userRepository.getCurrentUser().then(function (person) {
+            _this.author = person;
+            _this.getBlogs();
+        });
     }
-    LoginPage.prototype.ionViewWillEnter = function () {
+    MytravelblogsPage.prototype.ionViewDidLoad = function () {
+    };
+    MytravelblogsPage.prototype.ionViewWillEnter = function () {
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        this.getBlogs();
+    };
+    MytravelblogsPage.prototype.getBlogs = function () {
         var _this = this;
-        this.viewCtrl.showBackButton(false);
-        this.angularFireAuth.authState
-            .subscribe(function (auth) {
-            if (auth) {
-                _this.continueToHomePage();
-            }
+        //this.blogs=null;
+        this.blogRepository.getAllBlogsFrom(this.author).then(function (blogs) {
+            _this.blogs = blogs;
+            console.log(_this.author);
         });
     };
-    LoginPage.prototype.signIn = function () {
-        var _this = this;
-        this.angularFireAuth.auth.signInWithEmailAndPassword(this.email, this.password)
-            .then(function () {
-            _this.continueToHomePage();
-        });
-    };
-    /** Biggest spaghetti code ever :D */
-    LoginPage.prototype.presentRegister = function () {
-        var _this = this;
-        try {
-            __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__["a" /* LoginRegisterPrompt */].present(this.promptControl).then(function (loginData) {
-                _this.angularFireAuth.auth.createUserWithEmailAndPassword(loginData.email, loginData.password)
-                    .then(function () {
-                    _this.angularFireAuth.auth.signInWithEmailAndPassword(loginData.email, loginData.password)
-                        .then(function () {
-                        var person = {
-                            id: _this.angularFireAuth.auth.currentUser.uid,
-                            firstName: loginData.firstName,
-                            lastName: loginData.lastName
-                        };
-                        _this.userRepository.addNewPerson(person);
-                    });
-                });
+    MytravelblogsPage.prototype.navToViewBlog = function (event, blog) {
+        if (this.navigationSwitch) {
+            // That's right, we're pushing to ourselves!
+            console.log("View Block");
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__["a" /* ViewblogPage */], {
+                clickedBlog: blog
             });
         }
-        catch (error) {
-            console.log(error);
-        }
+        this.navigationSwitch = true;
     };
-    LoginPage.prototype.continueToHomePage = function () {
-        var _this = this;
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]).then(function () {
-            var index = 0;
-            _this.navCtrl.remove(index);
+    MytravelblogsPage.prototype.navToEditBlog = function (event, blog) {
+        console.log("Edit Blog");
+        this.navigationSwitch = false;
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__editblog_editblog__["a" /* EditblogPage */], {
+            clickedBlog: blog,
+            mode: "edit"
         });
     };
-    LoginPage = __decorate([
+    MytravelblogsPage.prototype.navToNewBlog = function (event, blog) {
+        console.log("New Blog");
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__editblog_editblog__["a" /* EditblogPage */], {
+            mode: "create"
+        });
+    };
+    MytravelblogsPage.prototype.presentFilterPopover = function () {
+        var popover = this.popoverCtrl.create(__WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__["a" /* FilterpopoverforblogsPage */]);
+        popover.present();
+    };
+    MytravelblogsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list padding-right>\n\n    <ion-item>\n      <ion-label stacked>E-Mail</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n\n    <ion-item style="display: none"></ion-item>\n\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="signIn()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Sign In\n    </button>\n    <button ion-button color="dark" block (click)="presentRegister()">\n      <ion-icon name="person-add" class="icon-left"></ion-icon>\n      Register\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\login\login.html"*/,
+            selector: 'page-mytravelblogs',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/'<!--\n  Generated template for the MytravelblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Travel Blogs</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="more()">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-toolbar>\n    <ion-searchbar\n      [(ngModel)]="myInput"\n      showCancelButton=true\n      (ionInput)="onInput($event)"\n      (ionCancel)="onCancel($event)">\n    </ion-searchbar>\n    <ion-buttons end>\n      <button round="true" ion-button icon-only (click)=\'presentFilterPopover()\'>\n        <ion-icon name="funnel"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor=\'let blog of blogs\'>\n        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">\n          <ion-fab right top>\n            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">\n              <ion-icon name="settings"></ion-icon>\n            </button>\n          </ion-fab>\n          <img [src]="blog.previewImage"/>\n          <ion-card-content>\n            <ion-card-title>\n              {{blog.title}}\n              <p>{{blog.date}}</p>\n              <ion-item-divider></ion-item-divider>\n            </ion-card-title>\n            <p>\n              {{blog.abstract}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col  col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>\n        <ion-fab center top>\n          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <!--<div showWhen="android">\n    I am visible on Android!\n  </div>\n  <container-element [ngSwitch]="switch_expression">\n    <some-element *ngSwitchCase="match_expression_1">...</some-element>\n    <some-element *ngSwitchCase="match_expression_2">...</some-element>\n    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>\n    <ng-container *ngSwitchCase="match_expression_3">\n      <!-- use a ng-container to group multiple root nodes -->\n  <!--<inner-element></inner-element>\n  <inner-other-element></inner-other-element>\n</ng-container>\n<some-element *ngSwitchDefault>...</some-element>\n</container-element>-->\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* PopoverController */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]])
+    ], MytravelblogsPage);
+    return MytravelblogsPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=mytravelblogs.js.map
 
 /***/ }),
 
@@ -776,7 +1030,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 261:
+/***/ 260:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -849,7 +1103,7 @@ var FriendDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 262:
+/***/ 261:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1198,11 +1452,12 @@ var UserRepositoryProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogoutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_repository_user_repository__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1212,6 +1467,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1230,7 +1486,7 @@ var LogoutPage = /** @class */ (function () {
         this.userRepository.getCurrentUser().then(function (person) {
             _this.currentUser = person;
             _this.logOut();
-            //this.navCtrl.p
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__login_login__["a" /* LoginPage */]);
         });
     }
     LogoutPage.prototype.ionViewWillEnter = function () {
@@ -1328,34 +1584,34 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_logout__ = __webpack_require__(304);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_database__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_friend_list_friend_list__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_friend_detail_friend_detail__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_friend_detail_friend_detail__ = __webpack_require__(260);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_user_repository_user_repository__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_travel_blog_repository_travel_blog_repository__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_blog_repository_blog_repository__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_blog_detail_blog_detail__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_full_blog_full_blog__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2_auth__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_logger_repository_logger_repository__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_logger_repository_logger_repository__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_logger_logger__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_log_log__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_myProfile_my_profile__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_myProfile_my_profile__ = __webpack_require__(261);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_camera__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_common_http__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_editblog_editblog__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_common_http__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_editblog_editblog__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_viewblog_viewblog__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_editblogcomponent_editblogcomponent__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_editblogcomponent_editblogcomponent__ = __webpack_require__(147);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1485,7 +1741,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 451:
+/***/ 449:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1543,7 +1799,7 @@ var FriendListPrompt = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 452:
+/***/ 450:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1741,10 +1997,10 @@ var BlogRepositoryProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_logout__ = __webpack_require__(304);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1858,7 +2114,7 @@ var BlogDetailComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logger_repository_logger_repository__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logger_repository_logger_repository__ = __webpack_require__(120);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2070,16 +2326,13 @@ var BlogComponentRepositoryProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditblogPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editblogcomponent_editblogcomponent__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_camera__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2095,317 +2348,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
 /**
- * Generated class for the EditblogPage page.
+ * Generated class for the LoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var EditblogPage = /** @class */ (function () {
-    function EditblogPage(navCtrl, navParams, angularFireAuth, promptController, blogRepository, userRepository, blogComponentRepository, toastCtrl, camera, alertCtrl) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
+var LoginPage = /** @class */ (function () {
+    function LoginPage(angularFireAuth, userRepository, promptControl, viewCtrl, navCtrl) {
         this.angularFireAuth = angularFireAuth;
-        this.promptController = promptController;
-        this.blogRepository = blogRepository;
         this.userRepository = userRepository;
-        this.blogComponentRepository = blogComponentRepository;
-        this.toastCtrl = toastCtrl;
-        this.camera = camera;
-        this.alertCtrl = alertCtrl;
-        this.userRepository.getCurrentUser().then(function (person) {
-            _this.author = person;
-        });
-        this.mode = navParams.get('mode');
-        if (this.mode == "edit") {
-            this.blog = navParams.get('clickedBlog');
-            console.log(this.blog);
-            this.modeText = "Blog bearbeiten";
-        }
-        else {
-            this.blog = {};
-            this.blog.previewImage = '../assets/imgs/placeholder.png';
-            this.blog.draftFlag = false;
-            this.blog.publicFlag = true;
-            this.blog.content = null;
-            this.blog.visibleFor = null;
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1; //January is 0!
-            if (mm < 10) {
-                var mmm = "0" + mm.toString();
-            }
-            var yyyy = today.getFullYear();
-            this.blog.date = yyyy + "-" + mmm + "-" + dd;
-            this.modeText = "Blog erstellen";
-            console.log(this.blog);
-        }
-        this.blogComponentRepository.getAllComponentsFrom(this.blog).then(function (blogComponents) {
-            _this.blogComponents = blogComponents;
-            console.log(blogComponents);
-        });
-    }
-    EditblogPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditblogPage');
-        //this.blogComponents = Array<iBlogComponent>();
-    };
-    EditblogPage.prototype.save = function () {
-        var _this = this;
-        if (this.mode == "edit") {
-            this.blogRepository.updateBlog(this.blog);
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */], {});
-            var toast = this.toastCtrl.create({
-                message: 'Blog wurde erfolgreich geändert',
-                duration: 4000,
-                position: 'bottom'
-            });
-            //toast.onDidDismiss(() => {
-            //  console.log('Dismissed toast');
-            //});
-            toast.present();
-        }
-        else {
-            this.blogRepository.createBlog(this.blog)
-                .then(function (key) {
-                _this.userRepository.addNewBlog(_this.author, key);
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */], {});
-                var toast = _this.toastCtrl.create({
-                    message: 'Blog wurde erfolgreich erstellt',
-                    duration: 4000,
-                    position: 'bottom'
-                });
-                //toast.onDidDismiss(() => {
-                //  console.log('Dismissed toast');
-                //});
-                toast.present();
-            });
-        }
-    };
-    EditblogPage.prototype.cancel = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */], {});
-    };
-    EditblogPage.prototype.delete = function () {
-        var _this = this;
-        this.blogRepository.deleteBlog(this.blog)
-            .then(function (key) {
-            _this.userRepository.removeBlogFromList(_this.author, key);
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__mytravelblogs_mytravelblogs__["a" /* MytravelblogsPage */], {});
-            var toast = _this.toastCtrl.create({
-                message: 'Blog wurde erfolgreich gelöscht',
-                duration: 4000,
-                position: 'bottom'
-            });
-            //toast.onDidDismiss(() => {
-            //  console.log('Dismissed toast');
-            //});
-            toast.present();
-        });
-    };
-    EditblogPage.prototype.createNewBlogComponent = function () {
-        console.log("New Blog Component");
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */], {
-            blog: this.blog,
-            mode: "create"
-        });
-    };
-    EditblogPage.prototype.editBlogComponent = function (event, blogComponent) {
-        console.log("Edit Blog Component");
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editblogcomponent_editblogcomponent__["a" /* EditblogcomponentPage */], {
-            blog: this.blog,
-            mode: "edit",
-            blogComponent: blogComponent
-        });
-    };
-    //Photos ++++++++++++++++++++++++++++++++++++++++++++++++++++
-    EditblogPage.prototype.takePictureFromCamera = function () {
-        var _this = this;
-        this.camera.getPicture({
-            quality: 100,
-            targetHeight: 720,
-            targetWidth: 1080,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            sourceType: this.camera.PictureSourceType.CAMERA,
-            correctOrientation: true
-        }).then(function (imageData) {
-            var image = "data:image/jpeg;base64," + imageData;
-            _this.blog.previewImage = image;
-            _this.blogRepository.addImage(_this.blog, image);
-        })
-            .catch(function () {
-        });
-    };
-    EditblogPage.prototype.takePictureFromGallery = function () {
-        var _this = this;
-        this.camera.getPicture({
-            quality: 100,
-            targetHeight: 720,
-            targetWidth: 1080,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-            correctOrientation: true
-        }).then(function (imageData) {
-            var image = "data:image/jpeg;base64," + imageData;
-            _this.blog.previewImage = image;
-            _this.blogRepository.addImage(_this.blog, image);
-        })
-            .catch(function () {
-        });
-    };
-    EditblogPage.prototype.chosoePictureLocation = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create({
-            title: "Photo aufnehmen oder aus der Galerie auswählen?",
-            buttons: [
-                {
-                    text: 'Kamera',
-                    handler: function () {
-                        _this.takePictureFromCamera();
-                    }
-                },
-                {
-                    text: 'Galerie',
-                    handler: function () {
-                        _this.takePictureFromGallery();
-                    }
-                },
-                {
-                    text: 'Abbrechen',
-                    handler: function () {
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    EditblogPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editblog',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblog\editblog.html"*/'<!--\n  Generated template for the EditblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <img src="{{blog.previewImage}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Titel</ion-label>\n      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Kurzbeschreibung</ion-label>\n      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Datum</ion-label>\n      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">\n          <img *ngIf="blogComponent.image!=\'\'" [src]="blogComponent.image"/>\n          <ion-card-content>\n            <p>\n              {{blogComponent.text}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <ion-fab center top *ngIf="mode==\'edit\'">\n          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\editblog\editblog.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], EditblogPage);
-    return EditblogPage;
-}());
-
-//# sourceMappingURL=editblog.js.map
-
-/***/ }),
-
-/***/ 85:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MytravelblogsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblog_editblog__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__ = __webpack_require__(46);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-/**
- * Generated class for the MytravelblogsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var MytravelblogsPage = /** @class */ (function () {
-    function MytravelblogsPage(navCtrl, navParams, httpClient, popoverCtrl, userRepository, blogRepository) {
-        var _this = this;
+        this.promptControl = promptControl;
+        this.viewCtrl = viewCtrl;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.httpClient = httpClient;
-        this.popoverCtrl = popoverCtrl;
-        this.userRepository = userRepository;
-        this.blogRepository = blogRepository;
-        this.navigationSwitch = true;
-        var array = new Array();
-        this.userRepository.getCurrentUser().then(function (person) {
-            _this.author = person;
-            _this.getBlogs();
-        });
     }
-    MytravelblogsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad MytravelblogsPage');
-    };
-    MytravelblogsPage.prototype.getBlogs = function () {
+    LoginPage.prototype.ionViewWillEnter = function () {
         var _this = this;
-        this.blogRepository.getAllBlogsFrom(this.author).then(function (blogs) {
-            _this.blogs = blogs;
-            console.log(_this.author);
+        this.viewCtrl.showBackButton(false);
+        this.angularFireAuth.authState
+            .subscribe(function (auth) {
+            if (auth) {
+                _this.continueToHomePage();
+            }
         });
     };
-    MytravelblogsPage.prototype.navToViewBlog = function (event, blog) {
-        if (this.navigationSwitch) {
-            // That's right, we're pushing to ourselves!
-            console.log("View Block");
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__["a" /* ViewblogPage */], {
-                clickedBlog: blog
+    LoginPage.prototype.signIn = function () {
+        var _this = this;
+        this.angularFireAuth.auth.signInWithEmailAndPassword(this.email, this.password)
+            .then(function () {
+            _this.continueToHomePage();
+        });
+    };
+    /** Biggest spaghetti code ever :D */
+    LoginPage.prototype.presentRegister = function () {
+        var _this = this;
+        try {
+            __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__["a" /* LoginRegisterPrompt */].present(this.promptControl).then(function (loginData) {
+                _this.angularFireAuth.auth.createUserWithEmailAndPassword(loginData.email, loginData.password)
+                    .then(function () {
+                    _this.angularFireAuth.auth.signInWithEmailAndPassword(loginData.email, loginData.password)
+                        .then(function () {
+                        var person = {
+                            id: _this.angularFireAuth.auth.currentUser.uid,
+                            firstName: loginData.firstName,
+                            lastName: loginData.lastName
+                        };
+                        _this.userRepository.addNewPerson(person);
+                    });
+                });
             });
         }
-        this.navigationSwitch = true;
+        catch (error) {
+            console.log(error);
+        }
     };
-    MytravelblogsPage.prototype.navToEditBlog = function (event, blog) {
-        console.log("Edit Blog");
-        this.navigationSwitch = false;
-        // That's right, we're pushing to ourselves!
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__editblog_editblog__["a" /* EditblogPage */], {
-            clickedBlog: blog,
-            mode: "edit"
+    LoginPage.prototype.continueToHomePage = function () {
+        var _this = this;
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]).then(function () {
+            var index = 0;
+            _this.navCtrl.remove(index);
         });
     };
-    MytravelblogsPage.prototype.navToNewBlog = function (event, blog) {
-        console.log("New Blog");
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__editblog_editblog__["a" /* EditblogPage */], {
-            mode: "create"
-        });
-    };
-    MytravelblogsPage.prototype.presentFilterPopover = function () {
-        var popover = this.popoverCtrl.create(__WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__["a" /* FilterpopoverforblogsPage */]);
-        popover.present();
-    };
-    MytravelblogsPage = __decorate([
+    LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-mytravelblogs',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/'<!--\n  Generated template for the MytravelblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Travel Blogs</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="more()">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-toolbar>\n    <ion-searchbar\n      [(ngModel)]="myInput"\n      showCancelButton=true\n      (ionInput)="onInput($event)"\n      (ionCancel)="onCancel($event)">\n    </ion-searchbar>\n    <ion-buttons end>\n      <button round="true" ion-button icon-only (click)=\'presentFilterPopover()\'>\n        <ion-icon name="funnel"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor=\'let blog of blogs\'>\n        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">\n          <ion-fab right top>\n            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">\n              <ion-icon name="settings"></ion-icon>\n            </button>\n          </ion-fab>\n          <img [src]="blog.previewImage"/>\n          <ion-card-content>\n            <ion-card-title>\n              {{blog.title}}\n              <p>{{blog.date}}</p>\n              <ion-item-divider></ion-item-divider>\n            </ion-card-title>\n            <p>\n              {{blog.abstract}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col  col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>\n        <ion-fab center top>\n          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <!--<div showWhen="android">\n    I am visible on Android!\n  </div>\n  <container-element [ngSwitch]="switch_expression">\n    <some-element *ngSwitchCase="match_expression_1">...</some-element>\n    <some-element *ngSwitchCase="match_expression_2">...</some-element>\n    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>\n    <ng-container *ngSwitchCase="match_expression_3">\n      <!-- use a ng-container to group multiple root nodes -->\n  <!--<inner-element></inner-element>\n  <inner-other-element></inner-other-element>\n</ng-container>\n<some-element *ngSwitchDefault>...</some-element>\n</container-element>-->\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Kevin\ionic-travel-blog\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list padding-right>\n\n    <ion-item>\n      <ion-label stacked>E-Mail</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n\n    <ion-item style="display: none"></ion-item>\n\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="signIn()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Sign In\n    </button>\n    <button ion-button color="dark" block (click)="presentRegister()">\n      <ion-icon name="person-add" class="icon-left"></ion-icon>\n      Register\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Kevin\ionic-travel-blog\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */]])
-    ], MytravelblogsPage);
-    return MytravelblogsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=mytravelblogs.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 

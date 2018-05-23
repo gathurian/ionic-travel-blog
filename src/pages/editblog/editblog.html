@@ -14,13 +14,16 @@
 
 
 <ion-content padding>
-  <img src="{{blog.previewImage}}"/>
+  <div>
+    <img src="{{blog.previewImage}}"/>
 
-  <ion-fab right top>
-    <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">
-      <ion-icon name="camera"></ion-icon>
-    </button>
-  </ion-fab>
+    <ion-fab right top>
+      <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
+
 
   <ion-list>
     <ion-item>

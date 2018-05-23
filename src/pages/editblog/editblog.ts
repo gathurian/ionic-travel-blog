@@ -199,7 +199,7 @@ export class EditblogPage {
     }).then(imageData => {
       let image: string = "data:image/jpeg;base64," + imageData;
       this.blog.previewImage = image;
-      this.blogRepository.addImage(this.blog, image)
+      //this.blogRepository.addImage(this.blog, image)
     })
       .catch(() => {
 
@@ -217,7 +217,7 @@ export class EditblogPage {
     }).then(imageData => {
       let image: string = "data:image/jpeg;base64," + imageData;
       this.blog.previewImage = image;
-      this.blogRepository.addImage(this.blog, image)
+      //this.blogRepository.addImage(this.blog, image)
     })
       .catch(() => {
 
