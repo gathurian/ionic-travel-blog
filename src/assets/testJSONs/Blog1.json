@@ -3,7 +3,7 @@
   "title": "Blog 1",
   "abstract": "Hier steht ein test Text",
   "date": "1996-02-01",
-  "previewImage": "../assets/imgs/placeholder.png",
+  "previewImage": "./assets/imgs/placeholder.png",
   "content": ["Blog1Component1", "Blog1Component2", "Blog1Component3"],
   "draftFlag": true,
   "publicFlag": true,

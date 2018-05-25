@@ -52,7 +52,7 @@ export class EditblogPage {
     }else
     {
       this.blog = <iBlog>{};
-      this.blog.previewImage='../assets/imgs/placeholder.png';
+      this.blog.previewImage='./assets/imgs/placeholder.png';
       this.blog.draftFlag=false;
       this.blog.publicFlag=true;
       this.blog.content=null;

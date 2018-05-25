@@ -13,7 +13,7 @@ import {LogPage} from "../log/log";
 })
 
 export class HomePage {
-  bannerBase64: string = '../assets/imgs/travel-blog.jpg';
+  bannerBase64: string = './assets/imgs/travel-blog.jpg';
   welcomeText: string = '';
   currentUser: Person;
   isAdmin: boolean;

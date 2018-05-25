@@ -84,7 +84,7 @@ var HomePage = /** @class */ (function () {
         this.userRepository = userRepository;
         this.viewCtrl = viewCtrl;
         this.navCtrl = navCtrl;
-        this.bannerBase64 = '../assets/imgs/travel-blog.jpg';
+        this.bannerBase64 = './assets/imgs/travel-blog.jpg';
         this.welcomeText = '';
         this.userRepository.getCurrentUser().then(function (person) {
             _this.currentUser = person;
@@ -242,7 +242,7 @@ var EditblogPage = /** @class */ (function () {
         }
         else {
             this.blog = {};
-            this.blog.previewImage = '../assets/imgs/placeholder.png';
+            this.blog.previewImage = './assets/imgs/placeholder.png';
             this.blog.draftFlag = false;
             this.blog.publicFlag = true;
             this.blog.content = null;
@@ -465,7 +465,7 @@ var EditblogcomponentPage = /** @class */ (function () {
         this.blogComponentRepository = blogComponentRepository;
         this.toastCtrl = toastCtrl;
         this.camera = camera;
-        this.placeholderimage = "../assets/imgs/placeholder.png";
+        this.placeholderimage = "./assets/imgs/placeholder.png";
         this.mode = navParams.get('mode');
         this.blog = navParams.get('blog');
         if (this.mode == "edit") {
@@ -1900,7 +1900,7 @@ var BlogRepositoryProvider = /** @class */ (function () {
                 blogs.forEach(function (blog) {
                     if (person.blogs.some(function (x) { return x === blog.id; })) {
                         if (blog.previewImage === '')
-                            blog.previewImage = '../assets/imgs/placeholder.png';
+                            blog.previewImage = './assets/imgs/placeholder.png';
                         personBlogs.push(blog);
                     }
                 });

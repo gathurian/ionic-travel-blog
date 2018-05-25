@@ -32,7 +32,7 @@ export class BlogRepositoryProvider {
       this.allBlogs.subscribe(blogs => {
         blogs.forEach(blog => {
           if (person.blogs.some(x => x === blog.id)) {
-            if (blog.previewImage === '') blog.previewImage = '../assets/imgs/placeholder.png';
+            if (blog.previewImage === '') blog.previewImage = './assets/imgs/placeholder.png';
             personBlogs.push(blog);
           }
         });

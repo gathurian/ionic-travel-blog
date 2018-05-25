@@ -34,7 +34,7 @@ export class EditblogcomponentPage {
               private toastCtrl: ToastController,
               private camera: Camera)
   {
-    this.placeholderimage="../assets/imgs/placeholder.png";
+    this.placeholderimage="./assets/imgs/placeholder.png";
 
     this.mode=navParams.get('mode');
     this.blog = navParams.get('blog');

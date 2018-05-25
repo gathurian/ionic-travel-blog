@@ -38,7 +38,7 @@ export class BlogDetailPrompt {
             text: 'Add blog',
             handler: data => {
               blog.title = data.title;
-              blog.previewImage = data.bannerBase64 == null ? '../assets/imgs/placeholder.png' : data.bannerBase64;
+              blog.previewImage = data.bannerBase64 == null ? './assets/imgs/placeholder.png' : data.bannerBase64;
               blog.abstract = data.story;
 
               resolve(blog);
