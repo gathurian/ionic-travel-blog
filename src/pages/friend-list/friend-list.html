@@ -21,18 +21,18 @@
 
 <ion-content padding>
 
-
   <ion-searchbar
-    [(ngModel)]="searchInput"
+    [(ngModel)]="searchString"
+    (ionInput)="getFriends($event)">
     [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInputOnChange($event)"
-    (ionCancel)="onSearchCancel($event)">
   </ion-searchbar>
 
-  <ion-item *ngFor="let possibleCandidate of possibleCandidates | async"(click)="presentFriendPrompt(possibleCandidate)">
-    <ion-icon name="contact" item-start></ion-icon>
-    {{possibleCandidate.firstName}} {{possibleCandidate.lastName}}
-  </ion-item>
+  <ion-list *ngIf="searchString.length > 0">
+    <ion-item *ngFor="let friend of peopleList" (click)="presentFriendPrompt(friend )">
+      <ion-icon name="person" item-start=""></ion-icon>
+      {{friend.firstName}} {{friend.lastName}}
+    </ion-item>
+  </ion-list>
 
   <ion-list inset *ngIf="friends;else no_friends">
     <ion-list-header>
@@ -46,13 +46,6 @@
 
   <ng-template #no_friends>
     <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.
-      Falls du welche hinzufügen willst, drücke auf das + unten rechts</h1>
+      Falls du welche hinzufügen willst, suche nach Ihnen mit der Suchleistes</h1>
   </ng-template>
-
-<!--  <ion-fab right bottom>
-    <button ion-fab small (click)="presentFriendPrompt()">
-      <ion-icon name="person-add"></ion-icon>
-    </button>
-  </ion-fab>-->
-
 </ion-content>

@@ -6,6 +6,8 @@ import {AngularFireDatabase} from "angularfire2/database";
 import {Person} from "../../entities/person";
 import {UserRepositoryProvider} from "../../providers/user-repository/user-repository";
 import {LogPage} from "../log/log";
+import {FriendListPage} from "../friend-list/friend-list";
+import {MytravelblogsPage} from "../mytravelblogs/mytravelblogs";
 
 @Component({
   selector: 'page-home',
@@ -37,13 +39,6 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.viewCtrl.showBackButton(false);
-  }
-
-  logOut() {
-    this.angularFireDatabase.database.goOffline();
-    this.angularFireAuth.auth.signOut().then(() => {
-      location.reload();
-    });
   }
 
   presentLogPage() {

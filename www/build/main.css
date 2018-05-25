@@ -25753,7 +25753,8 @@ friend-detail img {
   border-radius: 50%;
   height: 100pt;
   width: 100pt;
-  margin-left: 30%;
+  display: block;
+  margin: auto;
 }
 
 friend-detail .photo {

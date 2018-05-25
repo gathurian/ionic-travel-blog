@@ -141,39 +141,4 @@ export class UserRepositoryProvider {
       blogs: updatedBlogs
     }).then(() => this.logger.logEvent(`new blog ${key} added`));
   }
-
-  //© Alan
-  getPossibleCandidates(friendList: Person[], search: string): Promise<Person[]> {
-    return new Promise<Person[]>(resolve => {
-      let possibleCandidates: Person[] = [];
-      this.persons.subscribe(persons => {
-        persons.forEach(person => {
-          let fullName: string = `${person.firstName} ${person.lastName}`;
-          if (this.fuzzyMatch(search, fullName)) {
-            if (friendList.some(x => x.key == person.key) == false) {
-              possibleCandidates.push(person);
-            }
-          }
-        });
-      });
-      resolve(possibleCandidates);
-    });
-  }
-
-  private fuzzyMatch(needle: string, haystack: string): boolean {
-    if (needle === "" || haystack === "") return true;
-    needle = needle.toLowerCase().replace(/ /g, "");
-    haystack = haystack.toLowerCase();
-    let j: number = 0;
-
-    for (let i: number = 0; i < needle.length; i++) {
-      while (needle[i] !== haystack[j]) {
-        j++;
-        if (j === haystack.length) {
-          return false;
-        }
-      }
-    }
-    return true;
-  }
 }

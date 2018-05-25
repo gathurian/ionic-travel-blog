@@ -1,21 +1,13 @@
 import {AlertController} from "ionic-angular";
+import {Person} from "../../entities/person";
 
 export class FriendListPrompt {
 
-  static presentFriendId(promptControl: AlertController): Promise<string> {
+  static presentFriendId(promptControl: AlertController, possibleFriend:Person): Promise<string> {
     return new Promise(resolve => {
       let alert = promptControl.create({
         title: 'Freund hinzufügen',
-        inputs: [
-          {
-            name: 'firstName',
-            placeholder: 'Vorname'
-          },
-          {
-            name: 'lastName',
-            placeholder: 'Nachname'
-          }
-        ],
+        message: `Bist du sicher, dass du ${possibleFriend.firstName} ${possibleFriend.lastName} als Freund hinzufügen willst?`,
         buttons: [
           {
             text: 'Cancel',
@@ -27,8 +19,7 @@ export class FriendListPrompt {
           {
             text: 'Hinzufügen',
             handler: data => {
-              let fullName:string = data.firstName + " " + data.lastName;
-              resolve(fullName);
+              resolve(possibleFriend.id);
             }
           }
         ]
@@ -37,15 +28,4 @@ export class FriendListPrompt {
       alert.present();
     });
   };
-
-
-  static presentUnknownId(promptControl: AlertController, friendId: string) {
-    let alert = promptControl.create({
-      title: 'Unbekannte ID',
-      subTitle: `Sorry, aber wir konnten keine Person mit der folgenden ID finden: \n${friendId}`,
-      buttons: ['OK']
-    });
-
-    alert.present();
-  }
 }
