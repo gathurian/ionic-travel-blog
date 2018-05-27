@@ -75,27 +75,43 @@ export class FriendListPage {
   }
 
   presentFriendPrompt(possibleFriend: Person) {
-    FriendListPrompt.presentFriendId(this.promptControl, possibleFriend).then(fullName => {
-      this.userRepository.getPersonById(possibleFriend.id)
-        .then(friend => {
+    //if possibleFriend is already a friend of the current user
+    if (this.currentUser.friends.some(x => x === possibleFriend.key)) {
+      this.goToDetails(possibleFriend);
+    } else {
+      FriendListPrompt.presentFriendId(this.promptControl, possibleFriend).then(fullName => {
+          this.userRepository.getPersonById(possibleFriend.id)
+            .then(friend => {
 
-          console.log(`fullname: ${friend.firstName} ${friend.lastName}`);
-          console.log(`fullname: ${this.currentUser.firstName} ${this.currentUser.lastName}`);
+              console.log(`fullname: ${friend.firstName} ${friend.lastName}`);
+              console.log(`fullname: ${this.currentUser.firstName} ${this.currentUser.lastName}`);
 
+              this.userRepository.addNewFriend(this.currentUser, friend)
+                .then(() => {
+                  this.updateFriendList();
+                })
+                .catch(() => {
+                  let alert = this.promptControl.create({
+                    title: "Der Freund konnte nicht hizugefügt werden",
+                    message: `${Error.toString()}`,
+                    buttons: ['OK']
+                  });
+                  alert.present();
+                });
 
-          this.userRepository.addNewFriend(this.currentUser, friend).then(() => {
-            this.updateFriendList();
-          });
-        })
-        .catch(() => {
-          let alert = this.promptControl.create({
-            title: "Da scheint ein Fehler aufgetreten zu sein",
-            message: `${Error.toString()}`,
-            buttons: ['OK']
-          });
-          alert.present();
-        });
-    });
+            })
+            .catch(() => {
+              let alert = this.promptControl.create({
+                title: "Da scheint ein Fehler aufgetreten zu sein",
+                message: `${Error.toString()}`,
+                buttons: ['OK']
+              });
+              alert.present();
+            });
+        }
+      );
+      this.initializeFriends();
+    }
   }
 
   goToMyProfile() {

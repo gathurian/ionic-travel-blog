@@ -58,7 +58,7 @@ var LoggerRepositoryProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__log_log__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__log_log__ = __webpack_require__(152);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,7 +103,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card class="card-background-page">\n    <img src="{{bannerBase64}}"/>\n    <div class="card-title">Travel-Blog</div>\n    <div class="card-subtitle">{{date}}</div>\n  </ion-card>\n  <p padding>{{welcomeText}}</p>\n  <ion-list padding *ngIf="currentUser">\n    <ion-list-header>\n      User Info\n    </ion-list-header>\n\n    <ion-item>\n      <ion-row>\n        <ion-col>Full name:</ion-col><ion-col col-7>{{currentUser.firstName}} {{currentUser.lastName}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item>\n      <ion-row>\n        <ion-col>User id:</ion-col><ion-col col-7>{{currentUser.id}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item *ngIf="currentUser.friends">\n      <ion-row>\n        <ion-col>Friends:</ion-col><ion-col col-7>{{currentUser.friends.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n    <ion-item *ngIf="currentUser.blogs">\n      <ion-row>\n        <ion-col>Blogs:</ion-col><ion-col col-7>{{currentUser.blogs.length}}</ion-col>\n      </ion-row>\n    </ion-item>\n  </ion-list>\n\n  <div padding>\n    <button *ngIf="isAdmin" ion-button color="light" block (click)="presentLogPage()">\n      <ion-icon name="book" class="icon-left"></ion-icon>\n      Show anonymous logs\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card class="card-background-page">\n\n    <img src="{{bannerBase64}}"/>\n\n    <div class="card-title">Travel-Blog</div>\n\n    <div class="card-subtitle">{{date}}</div>\n\n  </ion-card>\n\n  <p padding>{{welcomeText}}</p>\n\n  <ion-list padding *ngIf="currentUser">\n\n    <ion-list-header>\n\n      User Info\n\n    </ion-list-header>\n\n\n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col>Full name:</ion-col><ion-col col-7>{{currentUser.firstName}} {{currentUser.lastName}}</ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col>User id:</ion-col><ion-col col-7>{{currentUser.id}}</ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n    <ion-item *ngIf="currentUser.friends">\n\n      <ion-row>\n\n        <ion-col>Friends:</ion-col><ion-col col-7>{{currentUser.friends.length}}</ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n    <ion-item *ngIf="currentUser.blogs">\n\n      <ion-row>\n\n        <ion-col>Blogs:</ion-col><ion-col col-7>{{currentUser.blogs.length}}</ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <div padding>\n\n    <button *ngIf="isAdmin" ion-button color="light" block (click)="presentLogPage()">\n\n      <ion-icon name="book" class="icon-left"></ion-icon>\n\n      Show anonymous logs\n\n    </button>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */],
@@ -179,60 +179,13 @@ var TravelBlogRepositoryProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpopoverforblogsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the FilterpopoverforblogsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var FilterpopoverforblogsPage = /** @class */ (function () {
-    function FilterpopoverforblogsPage(navParams) {
-        this.navParams = navParams;
-    }
-    FilterpopoverforblogsPage.prototype.ngOnInit = function () {
-        if (this.navParams.data) {
-            this.contentEle = this.navParams.data.contentEle;
-            this.textEle = this.navParams.data.textEle;
-        }
-    };
-    FilterpopoverforblogsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-filterpopoverforblogs',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/filterpopoverforblogs/filterpopoverforblogs.html"*/'<!--\n  Generated template for the FilterpopoverforblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="f">Female</ion-option>\n        <ion-option value="m">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Gaming</ion-label>\n      <ion-select [(ngModel)]="gaming" interface="popover">\n        <ion-option value="nes">NES</ion-option>\n        <ion-option value="n64">Nintendo64</ion-option>\n        <ion-option value="ps">PlayStation</ion-option>\n        <ion-option value="genesis">Sega Genesis</ion-option>\n        <ion-option value="saturn">Sega Saturn</ion-option>\n        <ion-option value="snes">SNES</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Notifications</ion-label>\n      <ion-select [(ngModel)]="notifications" interface="action-sheet">\n        <ion-option value="enable">Enable</ion-option>\n        <ion-option value="mute">Mute</ion-option>\n        <ion-option value="mute_week">Mute for a week</ion-option>\n        <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Operating System</ion-label>\n      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">\n        <ion-option value="dos">DOS</ion-option>\n        <ion-option value="lunix">Linux</ion-option>\n        <ion-option value="mac7">Mac OS 7</ion-option>\n        <ion-option value="mac8">Mac OS 8</ion-option>\n        <ion-option value="win3.1">Windows 3.1</ion-option>\n        <ion-option value="win95">Windows 95</ion-option>\n        <ion-option value="win98">Windows 98</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Music</ion-label>\n      <ion-select [(ngModel)]="music" [selectOptions]="musicAlertOpts">\n        <ion-option>Alice in Chains</ion-option>\n        <ion-option>Green Day</ion-option>\n        <ion-option>Nirvana</ion-option>\n        <ion-option>Pearl Jam</ion-option>\n        <ion-option>Smashing Pumpkins</ion-option>\n        <ion-option>Soundgarden</ion-option>\n        <ion-option (select)="stpSelect()">Stone Temple Pilots</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-select [(ngModel)]="month">\n        <ion-option value="01">January</ion-option>\n        <ion-option value="02">February</ion-option>\n        <ion-option value="03">March</ion-option>\n        <ion-option value="04">April</ion-option>\n        <ion-option value="05">May</ion-option>\n        <ion-option value="06">June</ion-option>\n        <ion-option value="07">July</ion-option>\n        <ion-option value="08">August</ion-option>\n        <ion-option value="09">September</ion-option>\n        <ion-option value="10">October</ion-option>\n        <ion-option value="11">November</ion-option>\n        <ion-option value="12" checked="true">December</ion-option>\n      </ion-select>\n      <ion-select [(ngModel)]="year">\n        <ion-option>1989</ion-option>\n        <ion-option>1990</ion-option>\n        <ion-option>1991</ion-option>\n        <ion-option>1992</ion-option>\n        <ion-option>1993</ion-option>\n        <ion-option checked="true">1994</ion-option>\n        <ion-option>1995</ion-option>\n        <ion-option>1996</ion-option>\n        <ion-option>1997</ion-option>\n        <ion-option>1998</ion-option>\n        <ion-option>1999</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/filterpopoverforblogs/filterpopoverforblogs.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], FilterpopoverforblogsPage);
-    return FilterpopoverforblogsPage;
-}());
-
-//# sourceMappingURL=filterpopoverforblogs.js.map
-
-/***/ }),
-
-/***/ 150:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditblogPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blog_repository_blog_repository__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblogcomponent_editblogcomponent__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblogcomponent_editblogcomponent__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_blogcomponent_repository_blogcomponent_repository__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -448,7 +401,7 @@ var EditblogPage = /** @class */ (function () {
     };
     EditblogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editblog',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblog/editblog.html"*/'<!--\n  Generated template for the EditblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    <img src="{{blog.previewImage}}"/>\n\n    <ion-fab right top>\n      <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n        <ion-icon name="camera"></ion-icon>\n      </button>\n    </ion-fab>\n  </div>\n\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Titel</ion-label>\n      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Kurzbeschreibung</ion-label>\n      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label>Datum</ion-label>\n      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">\n          <img *ngIf="blogComponent.image!=\'\'" [src]="blogComponent.image"/>\n          <ion-card-content>\n            <p>\n              {{blogComponent.text}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <ion-fab center top *ngIf="mode==\'edit\'">\n          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblog/editblog.html"*/,
+            selector: 'page-editblog',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\editblog\editblog.html"*/'<!--\n\n  Generated template for the EditblogPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{modeText}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div>\n\n    <img src="{{blog.previewImage}}"/>\n\n\n\n    <ion-fab right top>\n\n      <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n\n        <ion-icon name="camera"></ion-icon>\n\n      </button>\n\n    </ion-fab>\n\n  </div>\n\n\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Titel</ion-label>\n\n      <ion-input name="blog-title" placeholder="" [(ngModel)]="blog.title"></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Kurzbeschreibung</ion-label>\n\n      <ion-textarea placeholder="" max="300" [(ngModel)]="blog.abstract"></ion-textarea>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Datum</ion-label>\n\n      <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="blog.date"></ion-datetime>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n\n        <ion-card class="smallTravelBlogs" (click)="editBlogComponent($event, blogComponent)">\n\n          <img *ngIf="blogComponent.image!=\'\'" [src]="blogComponent.image"/>\n\n          <ion-card-content>\n\n            <p>\n\n              {{blogComponent.text}}\n\n            </p>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <ion-fab center top *ngIf="mode==\'edit\'">\n\n          <button color="primary" round ion-fab class="fab-map" (click)="createNewBlogComponent($event, blog)">\n\n            <ion-icon name="add"></ion-icon>\n\n          </button>\n\n        </ion-fab>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n\n\n</ion-content>\n\n\n\n<ion-footer no-border>\n\n\n\n  <ion-toolbar>\n\n    <ion-buttons *ngIf="mode==\'edit\'">\n\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n\n      <button (click)="save()" end ion-button>Speichern</button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\editblog\editblog.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
@@ -466,7 +419,7 @@ var EditblogPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 151:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -666,7 +619,7 @@ var EditblogcomponentPage = /** @class */ (function () {
     };
     EditblogcomponentPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editblogcomponent',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblogcomponent/editblogcomponent.html"*/'<!--\n  Generated template for the EditblogcomponentPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{modeText}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img *ngIf="blogComponent.image!=\'\'" src="{{blogComponent.image}}"/>\n  <img *ngIf="blogComponent.image==\'\'" src="{{placeholderimage}}"/>\n\n  <ion-fab right top>\n    <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n      <ion-icon name="camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Blogtext</ion-label>\n      <ion-textarea placeholder="" max="3000" [(ngModel)]="blogComponent.text"></ion-textarea>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer no-border>\n\n  <ion-toolbar>\n    <ion-buttons *ngIf="mode==\'edit\'">\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n    </ion-buttons>\n    <ion-buttons end>\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n      <button (click)="save()" end ion-button>Speichern</button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-footer>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/editblogcomponent/editblogcomponent.html"*/,
+            selector: 'page-editblogcomponent',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\editblogcomponent\editblogcomponent.html"*/'<!--\n\n  Generated template for the EditblogcomponentPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{modeText}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <img *ngIf="blogComponent.image!=\'\'" src="{{blogComponent.image}}"/>\n\n  <img *ngIf="blogComponent.image==\'\'" src="{{placeholderimage}}"/>\n\n\n\n  <ion-fab right top>\n\n    <button color="light" round ion-fab class="fab-map" (click)="chosoePictureLocation()">\n\n      <ion-icon name="camera"></ion-icon>\n\n    </button>\n\n  </ion-fab>\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Blogtext</ion-label>\n\n      <ion-textarea placeholder="" max="3000" [(ngModel)]="blogComponent.text"></ion-textarea>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n<ion-footer no-border>\n\n\n\n  <ion-toolbar>\n\n    <ion-buttons *ngIf="mode==\'edit\'">\n\n      <button (click)="delete()" color="danger" ion-button>Löschen</button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button (click)="cancel()" color="danger" ion-button>Abbrechen</button>\n\n      <button (click)="save()" end ion-button>Speichern</button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\editblogcomponent\editblogcomponent.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_blog_repository_blog_repository__["a" /* BlogRepositoryProvider */],
@@ -681,7 +634,96 @@ var EditblogcomponentPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 151:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpopoverforblogsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the FilterpopoverforblogsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FilterpopoverforblogsPage = /** @class */ (function () {
+    function FilterpopoverforblogsPage(navParams) {
+        this.navParams = navParams;
+    }
+    FilterpopoverforblogsPage.prototype.ngOnInit = function () {
+        if (this.navParams.data) {
+            this.contentEle = this.navParams.data.contentEle;
+            this.textEle = this.navParams.data.textEle;
+        }
+    };
+    FilterpopoverforblogsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-filterpopoverforblogs',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/'<!--\n  Generated template for the FilterpopoverforblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="f">Female</ion-option>\n        <ion-option value="m">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Gaming</ion-label>\n      <ion-select [(ngModel)]="gaming" interface="popover">\n        <ion-option value="nes">NES</ion-option>\n        <ion-option value="n64">Nintendo64</ion-option>\n        <ion-option value="ps">PlayStation</ion-option>\n        <ion-option value="genesis">Sega Genesis</ion-option>\n        <ion-option value="saturn">Sega Saturn</ion-option>\n        <ion-option value="snes">SNES</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Notifications</ion-label>\n      <ion-select [(ngModel)]="notifications" interface="action-sheet">\n        <ion-option value="enable">Enable</ion-option>\n        <ion-option value="mute">Mute</ion-option>\n        <ion-option value="mute_week">Mute for a week</ion-option>\n        <ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Operating System</ion-label>\n      <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">\n        <ion-option value="dos">DOS</ion-option>\n        <ion-option value="lunix">Linux</ion-option>\n        <ion-option value="mac7">Mac OS 7</ion-option>\n        <ion-option value="mac8">Mac OS 8</ion-option>\n        <ion-option value="win3.1">Windows 3.1</ion-option>\n        <ion-option value="win95">Windows 95</ion-option>\n        <ion-option value="win98">Windows 98</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Music</ion-label>\n      <ion-select [(ngModel)]="music" [selectOptions]="musicAlertOpts">\n        <ion-option>Alice in Chains</ion-option>\n        <ion-option>Green Day</ion-option>\n        <ion-option>Nirvana</ion-option>\n        <ion-option>Pearl Jam</ion-option>\n        <ion-option>Smashing Pumpkins</ion-option>\n        <ion-option>Soundgarden</ion-option>\n        <ion-option (select)="stpSelect()">Stone Temple Pilots</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-select [(ngModel)]="month">\n        <ion-option value="01">January</ion-option>\n        <ion-option value="02">February</ion-option>\n        <ion-option value="03">March</ion-option>\n        <ion-option value="04">April</ion-option>\n        <ion-option value="05">May</ion-option>\n        <ion-option value="06">June</ion-option>\n        <ion-option value="07">July</ion-option>\n        <ion-option value="08">August</ion-option>\n        <ion-option value="09">September</ion-option>\n        <ion-option value="10">October</ion-option>\n        <ion-option value="11">November</ion-option>\n        <ion-option value="12" checked="true">December</ion-option>\n      </ion-select>\n      <ion-select [(ngModel)]="year">\n        <ion-option>1989</ion-option>\n        <ion-option>1990</ion-option>\n        <ion-option>1991</ion-option>\n        <ion-option>1992</ion-option>\n        <ion-option>1993</ion-option>\n        <ion-option checked="true">1994</ion-option>\n        <ion-option>1995</ion-option>\n        <ion-option>1996</ion-option>\n        <ion-option>1997</ion-option>\n        <ion-option>1998</ion-option>\n        <ion-option>1999</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\filterpopoverforblogs\filterpopoverforblogs.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], FilterpopoverforblogsPage);
+    return FilterpopoverforblogsPage;
+}());
+
+//# sourceMappingURL=filterpopoverforblogs.js.map
+
+/***/ }),
+
 /***/ 152:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__ = __webpack_require__(123);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the LogPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LogPage = /** @class */ (function () {
+    function LogPage(loggerRepository) {
+        this.loggerRepository = loggerRepository;
+        this.logs = this.loggerRepository.getAllLogs();
+    }
+    LogPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-log',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\log\log.html"*/'<!--\n  Generated template for the LogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Log</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list *ngIf="logs;else no_logs">\n    <ion-list-header>\n      Travel-Blog logs\n    </ion-list-header>\n    <ion-item *ngFor="let log of logs | async">\n      <ion-icon name="book" item-start></ion-icon>\n      <ion-row><ion-col></ion-col><ion-col></ion-col></ion-row>\n      <h2>{{log.dateTime}}</h2>\n      <h3>{{log.userId}}</h3>\n      <p>{{log.message}}</p>\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_logs>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">There are 0 logs</h1>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\log\log.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__["a" /* LoggerRepositoryProvider */]])
+    ], LogPage);
+    return LogPage;
+}());
+
+//# sourceMappingURL=log.js.map
+
+/***/ }),
+
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -691,10 +733,10 @@ var EditblogcomponentPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__ = __webpack_require__(455);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__friend_detail_friend_detail__ = __webpack_require__(262);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__myProfile_my_profile__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -754,24 +796,40 @@ var FriendListPage = /** @class */ (function () {
     };
     FriendListPage.prototype.presentFriendPrompt = function (possibleFriend) {
         var _this = this;
-        __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__["a" /* FriendListPrompt */].presentFriendId(this.promptControl, possibleFriend).then(function (fullName) {
-            _this.userRepository.getPersonById(possibleFriend.id)
-                .then(function (friend) {
-                console.log("fullname: " + friend.firstName + " " + friend.lastName);
-                console.log("fullname: " + _this.currentUser.firstName + " " + _this.currentUser.lastName);
-                _this.userRepository.addNewFriend(_this.currentUser, friend).then(function () {
-                    _this.updateFriendList();
+        //if possibleFriend is already a friend of the current user
+        if (this.currentUser.friends.some(function (x) { return x === possibleFriend.key; })) {
+            this.goToDetails(possibleFriend);
+        }
+        else {
+            __WEBPACK_IMPORTED_MODULE_4__friend_list_promt__["a" /* FriendListPrompt */].presentFriendId(this.promptControl, possibleFriend).then(function (fullName) {
+                _this.userRepository.getPersonById(possibleFriend.id)
+                    .then(function (friend) {
+                    console.log("fullname: " + friend.firstName + " " + friend.lastName);
+                    console.log("fullname: " + _this.currentUser.firstName + " " + _this.currentUser.lastName);
+                    _this.userRepository.addNewFriend(_this.currentUser, friend)
+                        .then(function () {
+                        _this.updateFriendList();
+                    })
+                        .catch(function () {
+                        var alert = _this.promptControl.create({
+                            title: "Der Freund konnte nicht hizugefügt werden",
+                            message: "" + Error.toString(),
+                            buttons: ['OK']
+                        });
+                        alert.present();
+                    });
+                })
+                    .catch(function () {
+                    var alert = _this.promptControl.create({
+                        title: "Da scheint ein Fehler aufgetreten zu sein",
+                        message: "" + Error.toString(),
+                        buttons: ['OK']
+                    });
+                    alert.present();
                 });
-            })
-                .catch(function () {
-                var alert = _this.promptControl.create({
-                    title: "Da scheint ein Fehler aufgetreten zu sein",
-                    message: "" + Error.toString(),
-                    buttons: ['OK']
-                });
-                alert.present();
             });
-        });
+            this.initializeFriends();
+        }
     };
     FriendListPage.prototype.goToMyProfile = function () {
         var myself = this.currentUser;
@@ -801,58 +859,15 @@ var FriendListPage = /** @class */ (function () {
     };
     FriendListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-friend-list',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-list/friend-list.html"*/'<!--\n  Generated template for the FriendListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Freunde</ion-title>\n\n    <button class="profile" ion-fab mini (click)="goToMyProfile()">\n      <ion-icon name="person"></ion-icon>\n    </button>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-searchbar\n    [(ngModel)]="searchString"\n    (ionInput)="getFriends($event)">\n    [showCancelButton]="shouldShowCancel"\n  </ion-searchbar>\n\n  <ion-list *ngIf="searchString.length > 0">\n    <ion-item *ngFor="let friend of peopleList" (click)="presentFriendPrompt(friend )">\n      <ion-icon name="person" item-start=""></ion-icon>\n      {{friend.firstName}} {{friend.lastName}}\n    </ion-item>\n  </ion-list>\n\n  <ion-list inset *ngIf="friends;else no_friends">\n    <ion-list-header>\n      Meine Freunde\n    </ion-list-header>\n    <ion-item class="friend" *ngFor="let friend of friends | async" (click)="goToDetails(friend)">\n      <ion-icon name="contact" item-start></ion-icon>\n      {{friend.firstName}} {{friend.lastName}}\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_friends>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.\n      Falls du welche hinzufügen willst, suche nach Ihnen mit der Suchleistes</h1>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-list/friend-list.html"*/,
+            selector: 'page-friend-list',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\friend-list\friend-list.html"*/'<!--\n\n  Generated template for the FriendListPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Meine Freunde</ion-title>\n\n\n\n    <button class="profile" ion-fab mini (click)="goToMyProfile()">\n\n      <ion-icon name="person"></ion-icon>\n\n    </button>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-searchbar\n\n    [(ngModel)]="searchString"\n\n    (ionInput)="getFriends($event)">\n\n    [showCancelButton]="shouldShowCancel"\n\n  </ion-searchbar>\n\n\n\n  <ion-list *ngIf="searchString.length > 0">\n\n    <ion-item *ngFor="let friend of peopleList" (click)="presentFriendPrompt(friend )">\n\n      <ion-icon name="person" item-start=""></ion-icon>\n\n      {{friend.firstName}} {{friend.lastName}}\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ion-list inset *ngIf="friends;else no_friends">\n\n    <ion-list-header>\n\n      Meine Freunde\n\n    </ion-list-header>\n\n    <ion-item class="friend" *ngFor="let friend of friends | async" (click)="goToDetails(friend)">\n\n      <ion-icon name="contact" item-start></ion-icon>\n\n      {{friend.firstName}} {{friend.lastName}}\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ng-template #no_friends>\n\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">Du hast (noch) keine Freunde.\n\n      Falls du welche hinzufügen willst, suche nach Ihnen mit der Suchleistes</h1>\n\n  </ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\friend-list\friend-list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _c || Object])
     ], FriendListPage);
     return FriendListPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=friend-list.js.map
-
-/***/ }),
-
-/***/ 153:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__ = __webpack_require__(123);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the LogPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LogPage = /** @class */ (function () {
-    function LogPage(loggerRepository) {
-        this.loggerRepository = loggerRepository;
-        this.logs = this.loggerRepository.getAllLogs();
-    }
-    LogPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-log',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/log/log.html"*/'<!--\n  Generated template for the LogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Log</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list *ngIf="logs;else no_logs">\n    <ion-list-header>\n      Travel-Blog logs\n    </ion-list-header>\n    <ion-item *ngFor="let log of logs | async">\n      <ion-icon name="book" item-start></ion-icon>\n      <ion-row><ion-col></ion-col><ion-col></ion-col></ion-row>\n      <h2>{{log.dateTime}}</h2>\n      <h3>{{log.userId}}</h3>\n      <p>{{log.message}}</p>\n    </ion-item>\n  </ion-list>\n\n  <ng-template #no_logs>\n    <h1 text-center text-uppercase no-padding style="margin-top: 50px">There are 0 logs</h1>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/log/log.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_logger_repository_logger_repository__["a" /* LoggerRepositoryProvider */]])
-    ], LogPage);
-    return LogPage;
-}());
-
-//# sourceMappingURL=log.js.map
 
 /***/ }),
 
@@ -865,8 +880,8 @@ var LogPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewblog_viewblog__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblog_editblog__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__editblog_editblog__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_repository_blog_repository__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -954,7 +969,7 @@ var MytravelblogsPage = /** @class */ (function () {
     };
     MytravelblogsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-mytravelblogs',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/mytravelblogs/mytravelblogs.html"*/'<!--\n  Generated template for the MytravelblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Travel Blogs</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="more()">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-toolbar>\n    <ion-searchbar\n      [(ngModel)]="myInput"\n      showCancelButton=true\n      (ionInput)="onInput($event)"\n      (ionCancel)="onCancel($event)">\n    </ion-searchbar>\n    <ion-buttons end>\n      <button round="true" ion-button icon-only (click)=\'presentFilterPopover()\'>\n        <ion-icon name="funnel"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor=\'let blog of blogs\'>\n        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">\n          <ion-fab right top>\n            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">\n              <ion-icon name="settings"></ion-icon>\n            </button>\n          </ion-fab>\n          <img [src]="blog.previewImage"/>\n          <ion-card-content>\n            <ion-card-title>\n              {{blog.title}}\n              <p>{{blog.date}}</p>\n              <ion-item-divider></ion-item-divider>\n            </ion-card-title>\n            <p>\n              {{blog.abstract}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col  col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>\n        <ion-fab center top>\n          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <!--<div showWhen="android">\n    I am visible on Android!\n  </div>\n  <container-element [ngSwitch]="switch_expression">\n    <some-element *ngSwitchCase="match_expression_1">...</some-element>\n    <some-element *ngSwitchCase="match_expression_2">...</some-element>\n    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>\n    <ng-container *ngSwitchCase="match_expression_3">\n      <!-- use a ng-container to group multiple root nodes -->\n  <!--<inner-element></inner-element>\n  <inner-other-element></inner-other-element>\n</ng-container>\n<some-element *ngSwitchDefault>...</some-element>\n</container-element>-->\n\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/mytravelblogs/mytravelblogs.html"*/,
+            selector: 'page-mytravelblogs',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/'<!--\n  Generated template for the MytravelblogsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Meine Travel Blogs</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="more()">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-toolbar>\n    <ion-searchbar\n      [(ngModel)]="myInput"\n      showCancelButton=true\n      (ionInput)="onInput($event)"\n      (ionCancel)="onCancel($event)">\n    </ion-searchbar>\n    <ion-buttons end>\n      <button round="true" ion-button icon-only (click)=\'presentFilterPopover()\'>\n        <ion-icon name="funnel"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 *ngFor=\'let blog of blogs\'>\n        <ion-card class="smallTravelBlogs" (click)="navToViewBlog($event, blog)">\n          <ion-fab right top>\n            <button color="light" round ion-fab mini class="fab-map" (click)="navToEditBlog($event, blog)">\n              <ion-icon name="settings"></ion-icon>\n            </button>\n          </ion-fab>\n          <img [src]="blog.previewImage"/>\n          <ion-card-content>\n            <ion-card-title>\n              {{blog.title}}\n              <p>{{blog.date}}</p>\n              <ion-item-divider></ion-item-divider>\n            </ion-card-title>\n            <p>\n              {{blog.abstract}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col  col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3>\n        <ion-fab center top>\n          <button color="primary" round ion-fab class="fab-map" (click)="navToNewBlog($event, blog)">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-fab>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <!--<div showWhen="android">\n    I am visible on Android!\n  </div>\n  <container-element [ngSwitch]="switch_expression">\n    <some-element *ngSwitchCase="match_expression_1">...</some-element>\n    <some-element *ngSwitchCase="match_expression_2">...</some-element>\n    <some-other-element *ngSwitchCase="match_expression_3">...</some-other-element>\n    <ng-container *ngSwitchCase="match_expression_3">\n      <!-- use a ng-container to group multiple root nodes -->\n  <!--<inner-element></inner-element>\n  <inner-other-element></inner-other-element>\n</ng-container>\n<some-element *ngSwitchDefault>...</some-element>\n</container-element>-->\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\mytravelblogs\mytravelblogs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* PopoverController */],
             __WEBPACK_IMPORTED_MODULE_6__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
@@ -989,39 +1004,39 @@ webpackEmptyAsyncContext.id = 167;
 
 var map = {
 	"../pages/editblog/editblog.module": [
-		489,
+		488,
 		8
 	],
 	"../pages/editblogcomponent/editblogcomponent.module": [
-		490,
+		489,
 		7
 	],
 	"../pages/filterpopoverforblogs/filterpopoverforblogs.module": [
-		488,
+		490,
 		6
 	],
 	"../pages/friend-list/friend-list.module": [
-		492,
+		493,
 		5
 	],
 	"../pages/full-blog/full-blog.module": [
-		491,
+		496,
 		4
 	],
 	"../pages/log/log.module": [
-		493,
+		491,
 		3
 	],
 	"../pages/login/login.module": [
-		494,
+		492,
 		2
 	],
 	"../pages/mytravelblogs/mytravelblogs.module": [
-		495,
+		494,
 		1
 	],
 	"../pages/viewblog/viewblog.module": [
-		496,
+		495,
 		0
 	]
 };
@@ -1100,7 +1115,7 @@ var FriendDetailPage = /** @class */ (function () {
     };
     FriendDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'friend-detail',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-detail/friend-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{selectedPerson.firstName}} {{selectedPerson.lastName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="photo">\n    <img src={{selectedPerson.image}}>\n  </div>\n  <div class="details">\n    Vorname: <b>{{selectedPerson.firstName}}</b>\n    <hr>\n    Nachname: <b>{{selectedPerson.lastName}}</b>\n    <hr>\n  </div>\n  <div class="details">\n    Freunde:\n    <div *ngIf="friends.length > 0; else no_friends">\n      <ion-item *ngFor="let friend of friends">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{friend.firstName}} {{friend.lastName}}\n      </ion-item>\n    </div>\n  </div>\n  <div class="details">\n    Blogs:\n    <div *ngIf="blogs.length > 0; else no_blogs">\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n        <ion-icon name="contact" item-start ></ion-icon>\n        {{blog.title}} am {{blog.date}}\n      </ion-item>\n    </div>\n  </div>\n\n  <ng-template #no_friends>\n    <div class="nothing">\n      {{selectedPerson.firstName}} hat (noch) keine Freunde.\n    </div>\n  </ng-template>\n\n  <ng-template #no_blogs>\n    <div class="nothing">\n      {{selectedPerson.firstName}} hat (noch) keine Blogs.\n    </div>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/friend-detail/friend-detail.html"*/
+            selector: 'friend-detail',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\friend-detail\friend-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{selectedPerson.firstName}} {{selectedPerson.lastName}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="photo">\n\n    <img src={{selectedPerson.image}}>\n\n  </div>\n\n  <div class="details">\n\n    Vorname: <b>{{selectedPerson.firstName}}</b>\n\n    <hr>\n\n    Nachname: <b>{{selectedPerson.lastName}}</b>\n\n    <hr>\n\n  </div>\n\n  <div class="details">\n\n    Freunde:\n\n    <div *ngIf="friends.length > 0; else no_friends">\n\n      <ion-item *ngFor="let friend of friends">\n\n        <ion-icon name="contact" item-start></ion-icon>\n\n        {{friend.firstName}} {{friend.lastName}}\n\n      </ion-item>\n\n    </div>\n\n  </div>\n\n  <div class="details">\n\n    Blogs:\n\n    <div *ngIf="blogs.length > 0; else no_blogs">\n\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n\n        <ion-icon name="contact" item-start ></ion-icon>\n\n        {{blog.title}} am {{blog.date}}\n\n      </ion-item>\n\n    </div>\n\n  </div>\n\n\n\n  <ng-template #no_friends>\n\n    <div class="nothing">\n\n      {{selectedPerson.firstName}} hat (noch) keine Freunde.\n\n    </div>\n\n  </ng-template>\n\n\n\n  <ng-template #no_blogs>\n\n    <div class="nothing">\n\n      {{selectedPerson.firstName}} hat (noch) keine Blogs.\n\n    </div>\n\n  </ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\friend-detail\friend-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -1261,7 +1276,7 @@ var MyProfilePage = /** @class */ (function () {
     };
     MyProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'myProfile',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/myProfile/my-profile.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{me.firstName}} {{me.lastName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="photo">\n    <img src={{me.image}} (click)="choosePictureLocation()">\n  </div>\n  <div class="details">\n    Vorname: <b>{{me.firstName}}</b>\n    <hr>\n    Nachname: <b>{{me.lastName}}</b>\n    <hr>\n  </div>\n  <div class="details">\n    Freunde:\n    <div *ngIf="friends.length > 0; else no_friends">\n      <ion-item *ngFor="let friend of friends">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{friend.firstName}} {{friend.lastName}}\n      </ion-item>\n    </div>\n  </div>\n  <div class="details">\n    Blogs:\n    <div *ngIf="blogs.length > 0; else no_blogs">\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n        <ion-icon name="contact" item-start></ion-icon>\n        {{blog.title}} am {{blog.date}}\n      </ion-item>\n    </div>\n  </div>\n\n  <ng-template #no_friends>\n    <div class="nothing">\n      {{me.firstName}} hat (noch) keine Freunde.\n    </div>\n  </ng-template>\n\n  <ng-template #no_blogs>\n    <div class="nothing">\n      {{me.firstName}} hat (noch) keine Blogs.\n    </div>\n  </ng-template>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/myProfile/my-profile.html"*/
+            selector: 'myProfile',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\myProfile\my-profile.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{me.firstName}} {{me.lastName}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="photo">\n\n    <img src={{me.image}} (click)="choosePictureLocation()">\n\n  </div>\n\n  <div class="details">\n\n    Vorname: <b>{{me.firstName}}</b>\n\n    <hr>\n\n    Nachname: <b>{{me.lastName}}</b>\n\n    <hr>\n\n  </div>\n\n  <div class="details">\n\n    Freunde:\n\n    <div *ngIf="friends.length > 0; else no_friends">\n\n      <ion-item *ngFor="let friend of friends">\n\n        <ion-icon name="contact" item-start></ion-icon>\n\n        {{friend.firstName}} {{friend.lastName}}\n\n      </ion-item>\n\n    </div>\n\n  </div>\n\n  <div class="details">\n\n    Blogs:\n\n    <div *ngIf="blogs.length > 0; else no_blogs">\n\n      <ion-item class="blogs" *ngFor="let blog of blogs" (click)="showBlogs(blog)">\n\n        <ion-icon name="contact" item-start></ion-icon>\n\n        {{blog.title}} am {{blog.date}}\n\n      </ion-item>\n\n    </div>\n\n  </div>\n\n\n\n  <ng-template #no_friends>\n\n    <div class="nothing">\n\n      {{me.firstName}} hat (noch) keine Freunde.\n\n    </div>\n\n  </ng-template>\n\n\n\n  <ng-template #no_blogs>\n\n    <div class="nothing">\n\n      {{me.firstName}} hat (noch) keine Blogs.\n\n    </div>\n\n  </ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\myProfile\my-profile.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -1477,7 +1492,7 @@ var LogoutPage = /** @class */ (function () {
     };
     LogoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/home/logout.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Logout</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/home/logout.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\home\logout.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Logout</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\home\logout.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */],
@@ -1524,7 +1539,7 @@ var FullBlogPage = /** @class */ (function () {
     }
     FullBlogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-full-blog',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/full-blog/full-blog.html"*/'<!--\n  Generated template for the FullBlogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Full Blog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card *ngIf="blog">\n    <img src="{{blog.bannerBase64}}"/>\n    <ion-card-content>\n      <ion-card-title>\n        {{blog.title}}\n      </ion-card-title>\n      <p>\n        {{blog.story}}\n      </p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/full-blog/full-blog.html"*/,
+            selector: 'page-full-blog',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\full-blog\full-blog.html"*/'<!--\n  Generated template for the FullBlogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Full Blog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card *ngIf="blog">\n    <img src="{{blog.bannerBase64}}"/>\n    <ion-card-content>\n      <ion-card-title>\n        {{blog.title}}\n      </ion-card-title>\n      <p>\n        {{blog.story}}\n      </p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\full-blog\full-blog.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], FullBlogPage);
@@ -1567,7 +1582,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_database__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_friend_list_friend_list__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_friend_list_friend_list__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_friend_detail_friend_detail__ = __webpack_require__(262);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_user_repository_user_repository__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__(486);
@@ -1580,15 +1595,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_logger_repository_logger_repository__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_logger_logger__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_log_log__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_log_log__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_myProfile_my_profile__ = __webpack_require__(263);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_camera__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_common_http__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_editblog_editblog__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_editblog_editblog__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_filterpopoverforblogs_filterpopoverforblogs__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_viewblog_viewblog__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_editblogcomponent_editblogcomponent__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_editblogcomponent_editblogcomponent__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1663,15 +1678,15 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/filterpopoverforblogs/filterpopoverforblogs.module#FilterpopoverforblogsPageModule', name: 'FilterpopoverforblogsPage', segment: 'filterpopoverforblogs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editblog/editblog.module#EditblogPageModule', name: 'EditblogPage', segment: 'editblog', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editblogcomponent/editblogcomponent.module#EditblogcomponentPageModule', name: 'EditblogcomponentPage', segment: 'editblogcomponent', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/full-blog/full-blog.module#FullBlogPageModule', name: 'FullBlogPage', segment: 'full-blog', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/friend-list/friend-list.module#FriendListPageModule', name: 'FriendListPage', segment: 'friend-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/filterpopoverforblogs/filterpopoverforblogs.module#FilterpopoverforblogsPageModule', name: 'FilterpopoverforblogsPage', segment: 'filterpopoverforblogs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/friend-list/friend-list.module#FriendListPageModule', name: 'FriendListPage', segment: 'friend-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mytravelblogs/mytravelblogs.module#MytravelblogsPageModule', name: 'MytravelblogsPage', segment: 'mytravelblogs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/viewblog/viewblog.module#ViewblogPageModule', name: 'ViewblogPage', segment: 'viewblog', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/viewblog/viewblog.module#ViewblogPageModule', name: 'ViewblogPage', segment: 'viewblog', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/full-blog/full-blog.module#FullBlogPageModule', name: 'FullBlogPage', segment: 'full-blog', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_6_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
@@ -1719,46 +1734,6 @@ var AppModule = /** @class */ (function () {
 /***/ }),
 
 /***/ 454:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPrompt; });
-var FriendListPrompt = /** @class */ (function () {
-    function FriendListPrompt() {
-    }
-    FriendListPrompt.presentFriendId = function (promptControl, possibleFriend) {
-        return new Promise(function (resolve) {
-            var alert = promptControl.create({
-                title: 'Freund hinzufügen',
-                message: "Bist du sicher, dass du " + possibleFriend.firstName + " " + possibleFriend.lastName + " als Freund hinzuf\u00FCgen willst?",
-                buttons: [
-                    {
-                        text: 'Cancel',
-                        role: 'cancel',
-                        handler: function () {
-                            resolve('');
-                        }
-                    },
-                    {
-                        text: 'Hinzufügen',
-                        handler: function (data) {
-                            resolve(possibleFriend.id);
-                        }
-                    }
-                ]
-            });
-            alert.present();
-        });
-    };
-    ;
-    return FriendListPrompt;
-}());
-
-//# sourceMappingURL=friend-list-promt.js.map
-
-/***/ }),
-
-/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1813,6 +1788,46 @@ var LoginRegisterPrompt = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=login-register-prompt.js.map
+
+/***/ }),
+
+/***/ 455:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendListPrompt; });
+var FriendListPrompt = /** @class */ (function () {
+    function FriendListPrompt() {
+    }
+    FriendListPrompt.presentFriendId = function (promptControl, possibleFriend) {
+        return new Promise(function (resolve) {
+            var alert = promptControl.create({
+                title: 'Freund hinzufügen',
+                message: "Bist du sicher, dass du " + possibleFriend.firstName + " " + possibleFriend.lastName + " als Freund hinzuf\u00FCgen willst?",
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        handler: function () {
+                            resolve('');
+                        }
+                    },
+                    {
+                        text: 'Hinzufügen',
+                        handler: function (data) {
+                            resolve(possibleFriend.id);
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        });
+    };
+    ;
+    return FriendListPrompt;
+}());
+
+//# sourceMappingURL=friend-list-promt.js.map
 
 /***/ }),
 
@@ -1957,7 +1972,7 @@ var BlogRepositoryProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_friend_list_friend_list__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_mytravelblogs_mytravelblogs__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_logout__ = __webpack_require__(310);
@@ -2014,7 +2029,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -2056,7 +2071,7 @@ var BlogDetailComponent = /** @class */ (function () {
     ], BlogDetailComponent.prototype, "blog", void 0);
     BlogDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'blog-detail',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/components/blog-detail/blog-detail.html"*/'<!-- Generated template for the BlogDetailComponent component -->\n<ion-card *ngIf="blog" class="card-background-page">\n  <img src="{{blog.bannerBase64}}"/>\n  <div class="card-title">{{blog.title}}</div>\n  <div class="card-subtitle">{{blog.date}}</div>\n</ion-card>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/components/blog-detail/blog-detail.html"*/
+            selector: 'blog-detail',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\components\blog-detail\blog-detail.html"*/'<!-- Generated template for the BlogDetailComponent component -->\n<ion-card *ngIf="blog" class="card-background-page">\n  <img src="{{blog.bannerBase64}}"/>\n  <div class="card-title">{{blog.title}}</div>\n  <div class="card-subtitle">{{blog.date}}</div>\n</ion-card>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\components\blog-detail\blog-detail.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], BlogDetailComponent);
@@ -2161,7 +2176,7 @@ var ViewblogPage = /** @class */ (function () {
     };
     ViewblogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-viewblog',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/viewblog/viewblog.html"*/'<!--\n  Generated template for the ViewblogPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{blog.title}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <img [src]="blog.previewImage"/>\n\n  <h1>{{blog.title}}</h1>\n\n  <h3>{{blog.date}}</h3>\n\n  <p>\n    {{blog.abstract}}\n  </p>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n        <img [src]="blogComponent.image"/>\n        <ion-card-content>\n          <p>\n            {{blogComponent.text}}\n          </p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/viewblog/viewblog.html"*/,
+            selector: 'page-viewblog',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\viewblog\viewblog.html"*/'<!--\n\n  Generated template for the ViewblogPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{blog.title}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <img [src]="blog.previewImage"/>\n\n\n\n  <h1>{{blog.title}}</h1>\n\n\n\n  <h3>{{blog.date}}</h3>\n\n\n\n  <p>\n\n    {{blog.abstract}}\n\n  </p>\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12 *ngFor=\'let blogComponent of blogComponents\'>\n\n        <img [src]="blogComponent.image"/>\n\n        <ion-card-content>\n\n          <p>\n\n            {{blogComponent.text}}\n\n          </p>\n\n        </ion-card-content>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\viewblog\viewblog.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_blogcomponent_repository_blogcomponent_repository__["a" /* BlogComponentRepositoryProvider */]])
     ], ViewblogPage);
@@ -2289,7 +2304,7 @@ var BlogComponentRepositoryProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_register_prompt__ = __webpack_require__(454);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2370,7 +2385,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list padding-right>\n\n    <ion-item>\n      <ion-label stacked>E-Mail</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n\n    <ion-item style="display: none"></ion-item>\n\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="signIn()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Sign In\n    </button>\n    <button ion-button color="dark" block (click)="presentRegister()">\n      <ion-icon name="person-add" class="icon-left"></ion-icon>\n      Register\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/mnt/DATA/Dokumente/WEBLAB/ionic-travel-blog/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list padding-right>\n\n    <ion-item>\n      <ion-label stacked>E-Mail</ion-label>\n      <ion-input type="text" [(ngModel)]="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n\n    <ion-item style="display: none"></ion-item>\n\n  </ion-list>\n\n  <div padding>\n    <button ion-button color="primary" block (click)="signIn()">\n      <ion-icon name="lock" class="icon-left"></ion-icon>\n      Sign In\n    </button>\n    <button ion-button color="dark" block (click)="presentRegister()">\n      <ion-icon name="person-add" class="icon-left"></ion-icon>\n      Register\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Alex\Documents\WEBLAB\ionic-travel-blog\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_4__providers_user_repository_user_repository__["a" /* UserRepositoryProvider */],
