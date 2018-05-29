@@ -20,6 +20,7 @@ export class FriendDetailPage {
   blogs: iBlog[];
   friends: Person[];
   selectedPerson: Person;
+  placeholder:string = './assets/imgs/team-placeholder.jpg';
 
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
