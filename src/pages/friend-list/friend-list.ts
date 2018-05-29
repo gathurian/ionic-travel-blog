@@ -75,6 +75,9 @@ export class FriendListPage {
   }
 
   presentFriendPrompt(possibleFriend: Person) {
+    if (this.currentUser.friends == undefined) {
+      this.currentUser.friends = [];
+    }
     //if possibleFriend is already a friend of the current user
     if (this.currentUser.friends.some(x => x === possibleFriend.key)) {
       this.goToDetails(possibleFriend);
